@@ -1,0 +1,216 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>m.client.ide.morpheus.Morpheus</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Morpheus</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="lab@uracle.co.kr" url="https://developer.uracle.co.kr">Uracle</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+      Morpheus Integrated Development Environment (IDE) Product
+
+      Version: 3.1.10
+
+      Release date: 2024.02.16
+
+      (c) Copyright 2019 by Uracle Corporation, All Rights Reserved.
+]]></description>
+
+    <!-- Android Studio 7.1+ -->
+    <!-- see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html -->
+    <idea-version since-build="221.6008.13"/>
+
+    <!-- Product and plugin compatibility requirements.
+          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.plugins.terminal</depends>
+
+    <resource-bundle>messages.MorpheusBundle</resource-bundle>
+    <actions>
+        <!-- new menu -->
+        <action id="NewEmptyProject" class="m.client.ide.morpheus.ui.action.MorpheusNewProjectAction">
+            <add-to-group group-id="JavaNewProjectOrModuleGroup" anchor="after" relative-to-action="NewProject"/>
+        </action>
+        <action id="OpenAndConvertProject" class="m.client.ide.morpheus.ui.action.MorpheusOpenProjectAction">
+            <add-to-group group-id="JavaNewProjectOrModuleGroup" anchor="after" relative-to-action="NewEmptyProject"/>
+        </action>
+        <!--action id="ImportMorpheusProject" class="m.client.ide.morpheus.ui.action.ImportEclipseMorpheusAction"
+                text="Import Old Morpheus Project"
+                description="Import Eclipse Morpheus Project to Intellij Morpheus project">
+            <add-to-group group-id="JavaNewProjectOrModuleGroup" anchor="after" relative-to-action="NewEmptyProject"/>
+        </action-->
+        <!-- welcome screen quick start -->
+        <action id="morpheus.new.project.welcome" class="m.client.ide.morpheus.ui.action.MorpheusNewProjectAction"
+                text="New Morpheus Project"
+                icon="CoreIcons.icon16"
+                description="Create a new Morpheus project">
+            <add-to-group group-id="WelcomeScreen.QuickStart" anchor="first"/>
+        </action>
+
+        <!-- refactoring menu -->
+        <!--        <action class="io.flutter.actions.ExtractWidgetAction" id="Flutter.ExtractWidget" text="Extract Flutter Widget...">-->
+        <!--            <add-to-group group-id="IntroduceActionsGroup" anchor="after" relative-to-action="ExtractMethod"/>-->
+        <!--            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt W"/>-->
+        <!--        </action>-->
+
+        <!-- tools menu -->
+        <group id="morpheus.tools.ActionGroup" class="m.client.ide.morpheus.ui.action.MorpheusToolsActionGroup"
+               popup="true"
+               text="Morpheus" description="Morpheus Tools">
+            <action id="tools.ConvertProject"
+                    class="m.client.ide.morpheus.ui.action.ConvertEclipseMorpheusAction">
+            </action>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+
+        <!-- help menu -->
+        <!--        <action class="io.flutter.actions.FlutterGettingStartedAction" id="Flutter.FlutterHelp" text="Flutter Plugin Help">-->
+        <!--            <add-to-group group-id="HelpMenu" anchor="after" relative-to-action="HelpTopics"/>-->
+        <!--        </action>-->
+
+        <group id="m.client.ide.morpheus.core.component.checktreetable.ActionGroup"
+               text="Check Treetable"
+               popup="true">
+
+            <action id="m.client.ide.morpheus.core.component.action.CheckAction"
+                    class="m.client.ide.morpheus.core.component.action.CheckAction" text="Check Selected Row"
+                    description="Check Selected Row"/>
+
+            <action id="m.client.ide.morpheus.core.component.action.UnCheckAction"
+                    class="m.client.ide.morpheus.core.component.action.UncheckAction" text="Uncheck Selected Row"
+                    description="Uncheck Selected Row"/>
+        </group>
+
+        <!-- Project view popupmenu -->
+        <group id="ui.action.open.Group">
+            <!--            <separator key="separator.UI.Open.Manager.text"/>-->
+            <separator/>
+            <add-to-group group-id="ProjectViewPopupMenuSettingsGroup" anchor="last"/>
+            <action id="ui.OpenLibraryManagerDialogAction"
+                    class="m.client.ide.morpheus.ui.action.OpenLibraryManagerDialogAction" keymap="$default"
+                    icon="CoreIcons.icon16">
+            </action>
+            <action id="ui.OpenLicenseManagerDialogAction"
+                    class="m.client.ide.morpheus.ui.action.OpenLicenseManagerDialogAction"
+                    icon="CoreIcons.icon16">
+            </action>
+            <action id="ui.OpenXCodeAction"
+                    class="m.client.ide.morpheus.ui.action.OpenXCodeAction">
+            </action>
+        </group>
+        <group id="ui.action.npm.Group">
+            <!--            <separator key="separator.UI.Npm.text"/>-->
+            <separator/>
+            <add-to-group group-id="ProjectViewPopupMenuSettingsGroup" anchor="after"
+                          relative-to-action="ui.OpenXCodeAction"/>
+            <action id="ui.NpmInstallAction"
+                    class="m.client.ide.morpheus.core.npm.action.NpmInstallAction">
+            </action>
+            <action id="ui.NpmBuildAction"
+                    class="m.client.ide.morpheus.core.npm.action.NpmBuildAction">
+            </action>
+            <action id="launch.PodInstallAction"
+                    class="m.client.ide.morpheus.launch.action.PodInstallAction">
+            </action>
+        </group>
+        <group id="ui.action.tools.group">
+            <separator/>
+            <reference ref="tools.ConvertProject"/>
+            <separator/>
+            <add-to-group group-id="ProjectViewPopupMenu" relative-to-action="AddToFavorites" anchor="before"/>
+        </group>
+
+        <!-- tool bar -->
+        <group id="Morpheus.MainToolbarActions">
+            <!--            <action id="ui.open.ios" class="m.client.ide.morpheus.ui.action.OpenSelectorAction"-->
+            <!--                    description="Open iOS"-->
+            <!--                    icon="UIIcons.XCode16Icon"/>-->
+            <action id="IOS.DeviceSelector" class="m.client.ide.morpheus.launch.action.DeviceSelectorAction"
+                    description="IOS Device Selection"
+                    icon="UIIcons.PhoneIcon"/>
+            <action id="IOS.DeviceSelectorRefresher"
+                    class="m.client.ide.morpheus.launch.action.DeviceSelectorRefresherAction"
+                    text="Refresh Device List"
+                    description="Refresh device list"/>
+            <add-to-group anchor="before" group-id="ToolbarRunGroup" relative-to-action="RunConfiguration"/>
+        </group>
+
+        <group id="Morpheus.ExportToolbarActions">
+            <separator/>
+            <action id="Export.iOS" class="m.client.ide.morpheus.ui.action.ExportAppleAction"
+                    icon="UIIcons.ExportAppleIcon"/>
+            <action id="Export.Resource" class="m.client.ide.morpheus.ui.action.ExportResourceAction"
+                    icon="UIIcons.ExportResourceIcon"/>
+            <add-to-group anchor="before" group-id="ToolbarRunGroup"
+                          relative-to-action="Morpheus.ManagerToolbarActions"/>
+        </group>
+
+        <group id="Morpheus.ManagerToolbarActions">
+            <separator/>
+            <action class="m.client.ide.morpheus.ui.action.OpenLibraryManagerDialogAction"
+                    icon="CoreIcons.icon16"/>
+            <action class="m.client.ide.morpheus.ui.action.OpenLicenseManagerDialogAction"
+                    icon="UIIcons.keychain"/>
+            <add-to-group anchor="before" group-id="ToolbarRunGroup" relative-to-action="Export.Resource"/>
+        </group>
+    </actions>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="m.client.ide.morpheus.core.ProjectOpenActivity"/>
+        <postStartupActivity implementation="m.client.ide.morpheus.core.MorpheusInitializer"/>
+        <!-- toolWindow factoryClass="m.client.ide.morpheus.ui.LibraryManagerViewFactory" id="LibraryManager" anchor="right"
+                    canCloseContents="false" icon="UIIcons.LibraryManagerIcon" conditionClass="m.client.ide.morpheus.ui.LibraryManagerConditionClass"/ -->
+
+        <applicationConfigurable
+                parentId="tools"
+                instance="m.client.ide.morpheus.core.config.CoreConfigurable"
+                id="m.client.ide.morpheus.core.config.CoreConfigurable"
+                displayName="Morpheus Settings"/>
+
+        <applicationService
+                serviceImplementation="m.client.ide.morpheus.core.config.CoreSettingsState"/>
+
+        <notificationGroup id="m.client.ide.morpheus.core.messages.MorpheusNotifier"
+                           displayType="BALLOON"
+                           key="notification.group.morpheus"/>
+
+        <moduleType
+                id="m.client.ide.morpheus.framework.module.MorpheusModuleType"
+                implementationClass="m.client.ide.morpheus.framework.module.MorpheusModuleType"/>
+
+        <moduleBuilder
+                builderClass="m.client.ide.morpheus.framework.module.MorpheusModuleBuilder"
+                id="m.client.ide.morpheus.framework.module.MorpheusModuleBuilder"
+                order="first"/>
+
+        <projectService serviceImplementation="m.client.ide.morpheus.core.android.AndroidEmulatorManager"/>
+        <projectService serviceInterface="m.client.ide.morpheus.launch.common.DeviceService"
+                        serviceImplementation="m.client.ide.morpheus.launch.common.DeviceService"/>
+
+        <configurationType implementation="m.client.ide.morpheus.launch.IOSRunConfigurationType"/>
+        <runConfigurationProducer implementation="m.client.ide.morpheus.launch.IOSRunConfigurationProducer"/>
+        <programRunner implementation="m.client.ide.morpheus.launch.IOSRunner"/>
+    </extensions>
+
+    <!-- WizardTemplateProviderImpl 클래스에서 실행될 template 을 정의 -->
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <!--        <wizardTemplateProvider-->
+        <!--                implementation="m.client.ide.morpheus.framework.template.MorpheusAppProjectTemplatesProvider"/>-->
+    </extensions>
+    <applicationListeners>
+        <!--        <listener class="m.client.ide.morpheus.framework.template.MorpheusAppProjectListener"-->
+        <!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
+    </applicationListeners>
+
+</idea-plugin>

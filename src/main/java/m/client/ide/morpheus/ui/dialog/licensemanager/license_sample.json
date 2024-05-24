@@ -1,0 +1,170 @@
+[
+  {
+    "can": {
+      "apply": true,
+      "remove": true
+    },
+    "name": "core",
+    "fullname": "@morpheus\/core",
+    "version": {
+      "current": "0.0.1",
+      "latest": "2.18.29"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "plugin-drawing",
+    "fullname": "@morpheus\/plugin-drawing",
+    "version": {
+      "current": null,
+      "latest": "2.11.8"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "plugin-location",
+    "fullname": "@morpheus\/plugin-location",
+    "version": {
+      "current": null,
+      "latest": "2.10.2"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "plugin-push.r4",
+    "fullname": "@morpheus\/plugin-push.r4",
+    "version": {
+      "current": null,
+      "latest": "2.15.10"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "plugin-push.r5",
+    "fullname": "@morpheus\/plugin-push.r5",
+    "version": {
+      "current": null,
+      "latest": "2.15.10"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "plugin-viewer",
+    "fullname": "@morpheus\/plugin-viewer",
+    "version": {
+      "current": null,
+      "latest": "2.11.3"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "plugin-qr",
+    "fullname": "@morpheus\/plugin-qr",
+    "version": {
+      "current": null,
+      "latest": "2.15.15"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "addon-net",
+    "fullname": "@morpheus\/addon-net",
+    "version": {
+      "current": null,
+      "latest": "2.14.14"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "addon-popup",
+    "fullname": "@morpheus\/addon-popup",
+    "version": {
+      "current": null,
+      "latest": "2.14.30"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "addon-zip",
+    "fullname": "@morpheus\/addon-zip",
+    "version": {
+      "current": null,
+      "latest": "2.14.2"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "addon-netext",
+    "fullname": "@morpheus\/addon-netext",
+    "version": {
+      "current": null,
+      "latest": "2.14.21"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": false
+    },
+    "name": "addon-media",
+    "fullname": "@morpheus\/addon-media",
+    "version": {
+      "current": null,
+      "latest": "2.15.35"
+    }
+  },
+  {
+    "can": {
+      "apply": false,
+      "remove": true
+    },
+    "name": "addon-file",
+    "fullname": "@morpheus\/addon-file",
+    "version": {
+      "current": "2.14.10",
+      "latest": "2.14.10"
+    }
+  },
+  {
+    "can": {
+      "apply": true,
+      "remove": true
+    },
+    "name": "addon-db",
+    "fullname": "@morpheus\/addon-db",
+    "version": {
+      "current": "0.0.1",
+      "latest": "2.14.6"
+    }
+  }
+]

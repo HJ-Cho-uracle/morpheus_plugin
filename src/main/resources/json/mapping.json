@@ -1,0 +1,7 @@
+{ "mappings" : [
+   {"pattern":"\\S+\\.json","singleton":true,"name":"EmulatorJsonAction","className":"m.client.ide.webserver.actions.EmulatorJsonAction"},
+   {"pattern":"\\\/admin\\\/\\S+","singleton":true,"name":"AdminAction","className":"m.client.ide.webserver.actions.AdminAction"},
+   {"pattern":"\\\/app\\\/\\S+","singleton":true,"name":"ApplicationAction","className":"m.client.ide.webserver.actions.ApplicationAction"},
+   {"pattern":"\\\/proxy\\\/\\S+","singleton":true,"name":"ProxyAction","className":"m.client.ide.webserver.actions.ProxyAction"},
+   {"pattern":"\\S+","singleton":true,"name":"DefaultAction","className":"m.client.ide.webserver.actions.DefaultHttpAction"}
+] }

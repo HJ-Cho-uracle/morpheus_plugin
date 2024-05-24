@@ -1,0 +1,185 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Morpheus:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Morpheus_jar</output-path>
+    <root id="archive" name="Morpheus.jar">
+      <element id="module-output" name="Morpheus.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android-kotlin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android-profilers.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/pixelprobe.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/3rd-party-rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/annotations-java5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/ant/lib/ant.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/app.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/byte-buddy-agent.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/error-prone-annotations.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/external-system-rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/externalProcess-rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/forms_rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/groovy.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/grpc-netty-shaded.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/idea_rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/intellij-coverage-agent-1.0.656.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/intellij-test-discovery.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/jna.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/jps-model.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/junit4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/lz4-java.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/platform-objectSerializer-annotations.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/platform-statistics-devkit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/protobuf.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/pty4j.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/rd-core.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/rd-framework.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/rd-swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/rd-text.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/resources.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/stats.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/testFramework.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/util.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/util_rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/winp.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/jarutils.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/moshi-1.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/generator.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jooq/joor-java-8/0.9.14/c70edb9f53a31548fbb8721ea2b357e67fab72a1/joor-java-8-0.9.14.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.datalbry.jetbrains/jetbrains-client-api/0.0.4/8c1027adf3831fc65b018661da30de5bcd8ac1aa/jetbrains-client-api-0.0.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/game-tools-protos.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-compat-qual/2.5.5/435dc33e3019c9f019e15f01aa111de9d6b2b79c/checker-compat-qual-2.5.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/util-2.5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/build-common.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libjava_version.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/dexlib2-2.5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/network_inspector_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/org.eclipse.emf.ecore-2.12.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/layoutlib-api.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.usocket-jna/0.0.7/98cf51ca8d7882c203729ffa48e9b7be4c50b835/jsch.agentproxy.usocket-jna-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/sdk-common.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/lint-ide.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/flatbuffers-java-1.12.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/pepk.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.7.10/1ef73fee66f45d52c67e2aca12fd945dbe0659bf/kotlin-stdlib-jdk7-1.7.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.7.1/458d9042f7aa6fa9a634df902b37f544e15aacac/error_prone_annotations-2.7.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/perfetto-protos.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.core/0.0.7/9bcf818dc9e5247b01b1b18671a12caac293ae40/jsch.agentproxy.core-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/1.3/ba035118bc8bac37d7eff77700720999acd9986d/j2objc-annotations-1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/kotlinx-coroutines-guava-1.5.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.value/auto-value-annotations/1.8.1/174878f9cc9cbacb8b464d774afb2ccf938f257b/auto-value-annotations-1.8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/adt-ui.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/org.eclipse.elk.graph-0.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/layout_inspector_view_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/javacpp-1.5.7-macosx-x86_64.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/sqlite-jdbc-3.34.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/deploy_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/auto-common-0.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.sshagent/0.0.7/5c09a3d2a0562de53cf616794f43f51a3c0a496c/jsch.agentproxy.sshagent-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/tracing-perfetto-common-1.0.0-alpha01.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/core-3.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/traceprocessor_protos.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.14.1/ecfcdb4726ccb4f51cbfd1ac2eb4118099529370/byte-buddy-1.14.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libjava_sites.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.svnkit-trilead-ssh2/0.0.7/95015f649026507428aa2f37baba69ba8a86dc67/jsch.agentproxy.svnkit-trilead-ssh2-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.usocket-nc/0.0.7/aff6f0f3a68f9731580d7c48075fdf177532dfe6/jsch.agentproxy.usocket-nc-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libstudio.proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/compilerCommon.antlr.shaded_jar.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/utp-core-proto-jarjar.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.pageant/0.0.7/b40c0d9b10d79a0683ca93e3f70360b3d8045b62/jsch.agentproxy.pageant-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch.agentproxy.connector-factory/0.0.7/780e0312287dd4e4f3601d401a073a081e403f2d/jsch.agentproxy.connector-factory-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/manifest-merger.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/compilerCommon.antlr_runtime.shaded_jar.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libam-instrumentation-data-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/asm-9.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/inspectors-common.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/explainer.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/asm-tree-9.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/game-tools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/emulator_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/org.eclipse.emf.common-2.12.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/data-binding.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android-extensions-ide.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/23.0.0/8cc20c07506ec18e0834947b84a864bfc094484e/annotations-23.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/5.2.0/bc22d2ee9596a5fd2d9f9f7c49599f71aac5a88a/mockito-core-5.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.trilead/trilead-ssh2/1.0.0-build221/c14d6fbab5e4ac1eb355f92e91b4c2c28a17e9b9/trilead-ssh2-1.0.0-build221.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libstudio.android-test-plugin-result-listener-gradle-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android-base-common.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.13.0/e29afc6adb63a39286d38dc0e00d164117c02f0d/checker-qual-3.13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android-rt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/instantapps-api-1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/studio-grpc.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.clojure/clojure/1.9.0/9ee19f88152373323b8af7be35de5aa6c0c4b2b/clojure-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/javacpp-1.5.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libstudio.android-test-plugin-host-retention-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/okio-1.14.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/baksmali-2.5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/r8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.5.30/6773e974437dd6432aa646cc2f8ab71de42b5773/kotlin-reflect-1.5.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/jetifier-core-1.0.0-beta10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/org.eclipse.elk.alg.layered-0.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.1/198d511e34875f37b027ba4758229a67a8a2e5af/byte-buddy-agent-1.14.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/org.eclipse.elk.core-0.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/HdrHistogram-2.1.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/utp.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.10/d70d7d2c56371f7aa18f32e984e3e2e998fe9081/kotlin-stdlib-jdk8-1.7.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/wizard-template.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/aapt2-proto-0.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/firebase_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/3.3/1049c09f1de4331e8193e579448d0916d75b7631/objenesis-3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/asm-analysis-9.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/tensorflow-lite-metadata-0.1.0-rc2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/layout_inspector_snapshot_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.truth/truth/1.1.3/5e2491cc44dce7380165963a24e91a0af4556a17/truth-1.1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/juniversalchardet-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/annotations.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/studio-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/artwork.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/spantable.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/sdklib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.clojure/core.specs.alpha/0.1.24/2637e33f693f51267f04e63f2acfb5d182e7bf56/core.specs.alpha-0.1.24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/repository.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/de.regnis.q.sequence/sequence-library/1.0.3/3bcf12fa805a735bb26369cd66c5933767c026de/sequence-library-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/liblint-checks-proto.lib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.10/bac80c520d0a9e3f3673bc2658c6ed02ef45a76a/kotlin-stdlib-common-1.7.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/kxml2-2.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libstudio.android-test-plugin-host-device-info-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/ffmpeg-5.0-1.5.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/sqlite_inspector_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/google-analytics-library.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/aerial.fs/aerial.fs/1.1.6/6abdf1b71dfb57ecfdb525029ff0d21f8c1042da/aerial.fs-1.1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/workmanager_inspector_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/commons-lang-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/lib/junit.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libandroid-core-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/libapp-processes-proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/ffmpeg-platform-5.0-1.5.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/layout_inspector_skia_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/sdk-tools.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.4/8f011408269a8e42b8548687e137d8eeb56df4b4/antlr-runtime-3.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.clojure/spec.alpha/0.1.143/54057fc4330a7b439127effafa92d1bfeefc23f5/spec.alpha-0.1.143.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/30.1.1-android/5963ed171d561cca6f14659f3439b46a1633ab13/guava-30.1.1-android.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/4.1.0/1c12d070e602efd8021891cdd7fd18bc129372d4/jna-4.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/javacpp-platform-1.5.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/javapoet-1.10.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/platform/3.4.0/e3f70017be8100d3d6923f50b3d2ee17714e9c13/platform-3.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/layoutlib-loader.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.10/d2abf9e77736acc4450dc4a3f707fa2c10f5099d/kotlin-stdlib-1.7.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/4.1.0/23457ad1cf75c2c16763330de5565a0e67b4bc0a/jna-platform-4.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/shared.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/javax.inject-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/ui-animation-tooling-internal.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/android-common.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/transport_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/backgroundtask_inspector_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/layout_inspector_compose_java_proto.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Applications/Android Studio.app/Contents/plugins/android/lib/ffmpeg-5.0-1.5.7-macosx-x86_64.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Gradle: org.tmatesoft.sqljet:sqljet:1.1.8" />
+      <element id="library" level="project" name="Gradle: org.tmatesoft.svnkit:svnkit:1.7.11" />
+    </root>
+  </artifact>
+</component>

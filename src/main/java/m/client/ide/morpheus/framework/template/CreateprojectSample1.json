@@ -1,0 +1,41 @@
+{
+  "license": "mcore.edu.test.project1",
+  "appName": "TestProject1",
+  "cpus": [
+    "arm64-v8a",
+    "armeabi-v7a"
+  ],
+  "startpage": "",
+  "libraries": [
+    {
+      "name": "@morpheus/core",
+      "version": "0.0.1"
+    },
+    {
+      "name": "@morpheus/addon-db",
+      "version": "0.0.1"
+    }
+  ],
+  "template": "java-objc-empty",
+  "icons": {
+    "android": [
+      {
+        "density": "hdpi",
+        "imgPath": "/temp/icons/mipmap-hdpi/ic_launcher.png"
+      },
+      {
+        "densit": "mdpi",
+        "imgPath": "/temp/icons/android/mipmap-mdpi/ic_launcher.png"
+      },
+      {
+        "density": "xhdpi",
+        "imgPath": "/temp/icons/android/mipmap-xhdpi/ic_launcher.png"
+      },
+      {
+        "density": "xxhdpi",
+        "imgPath": "/temp/icons/android/mipmap-xxhdpi/ic_launcher.png"
+      }
+    ],
+    "ios": "/temp/icons/ios/1024.png"
+  }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<application>
+	<projectName></projectName>
+	<applicationName></applicationName>
+	<android>
+		<projectName></projectName>
+		<applicationName></applicationName>
+		<packageName></packageName>
+		<compileSdk></compileSdk>
+	</android>
+	<ios>
+		<projectName></projectName>
+		<applicationName></applicationName>
+		<bundleIdentifier></bundleIdentifier>
+		<deploymentTarget></deploymentTarget>
+	</ios>
+	<components>
+	</components>
+	<libraries>
+	</libraries>
+</application>

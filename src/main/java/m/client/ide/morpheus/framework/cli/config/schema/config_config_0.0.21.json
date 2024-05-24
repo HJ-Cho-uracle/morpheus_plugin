@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "projectName": {
+      "description": "프로젝트 이름",
+      "type": "string"
+    },
+    "applicationId": {
+      "description": "라이선스 앱 아이디",
+      "type": "string"
+    },
+    "androidAppName": {
+      "description": "Android 앱 이름",
+      "type": "string"
+    },
+    "androidPackageName": {
+      "description": "Android 패키지 이름",
+      "type": "string"
+    },
+    "iosAppName": {
+      "description": "iOS 앱 이름",
+      "type": "string"
+    },
+    "iosBundleId": {
+      "description": "iOS 번들 아이디",
+      "type": "string"
+    },
+    "webRootDir": {
+      "description": "웹 리소스 루트 폴더 경로",
+      "type": "string",
+      "default": "assets"
+    },
+    "androidRootDir": {
+      "description": "안드로이드 프로젝트 루트 폴더 경로",
+      "type": "string",
+      "default": "android/app"
+    },
+    "iosRootDir": {
+      "description": "Xcode 프로젝트 루트 폴더 경로",
+      "type": "string",
+      "default": "ios/project"
+    },
+    "legacyJsOutPut": {
+      "description": "mcore.min.js output 폴더 위치",
+      "type": "string",
+      "default": "assets/res/www/js"
+    }
+  },
+  "id": "https://developer.uracle.co.kr/",
+  "type": "object",
+  "title": "JSON schema for the Morpheus configuration file",
+  "required": [
+    "projectName",
+    "applicationId",
+    "androidAppName",
+    "androidPackageName",
+    "iosAppName",
+    "iosBundleId"
+  ]
+}

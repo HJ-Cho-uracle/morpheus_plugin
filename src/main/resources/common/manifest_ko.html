@@ -1,0 +1,2921 @@
+<div class="page">
+	<!-- wikipage start -->
+	<!-- TOC START -->
+	<div class="toc">
+		<div class="tocheader toctoggle" id="toc__header">목차</div>
+		<div id="toc__inside">
+			<ul class="toc">
+				<li class="clear">
+					<ul class="toc">
+						<li class="level2">
+							<div class="li">
+								<span class="li">
+									<a href="#app_환경설정_manifestxml" class="toc">App 환경설정(Manifest.xml)</a>
+								</span>
+							</div>
+							<ul class="toc">
+								<li class="level3">
+									<div class="li">
+										<span class="li">											
+											<a href="#목차" class="toc">목차</a>
+										</span>
+									</div>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#개요" class="toc">개요</a>
+										</span>
+									</div>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#앱_및_리소스_배포시_주의_사항" class="toc">앱 및 리소스 배포시 주의 사항</a>
+										</span>
+									</div>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#로깅_log" class="toc">로깅 &lt;log&gt;</a>
+										</span>
+									</div>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#다국어_설정_lang" class="toc">다국어 설정 &lt;lang&gt;</a>
+										</span>
+									</div>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#리소스_resource" class="toc">리소스 &lt;resource&gt;</a>
+										</span>
+									</div>
+									
+									<ul class="toc">
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#리소스_기본_버전_base_version" class="toc">리소스 기본 버전 &lt;base_version&gt;</a>
+												</span>
+											</div>
+										</li>
+										
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#사용_리소스_타겟_target" class="toc">사용 리소스 타겟 &lt;target&gt;</a>
+												</span>
+											</div>
+										</li>
+										
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#리소스_업데이트_update" class="toc">리소스 업데이트 &lt;update&gt;</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#최초_실행_페이지_startpage" class="toc">최초 실행 페이지 &lt;startpage&gt;</a>
+										</span>
+									</div>
+									
+									<ul class="toc">
+										
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#시작_페이지명_name" class="toc">시작 페이지명 &lt;name&gt;</a>
+												</span>
+											</div>
+										</li>
+										
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#시작_페이지_방향_orient" class="toc">시작 페이지 방향 &lt;orient&gt;</a>
+												</span>
+											</div>
+										</li>
+										
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#시작_페이지_방향_orient_tablet" class="toc">시작 페이지 방향 Tablet &lt;orient&gt;</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#전화면_default_설정_default_action" class="toc">전화면 default 설정 &lt;default_action&gt;</a>
+										</span>
+									</div>
+									
+									<ul class="toc">
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#전화면_default_방향_설정_orient" class="toc">전화면 default 방향 설정 &lt;orient&gt;</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#전화면_default_애니메이션_설정_animate" class="toc">전화면 default 애니메이션 설정 &lt;animate&gt;</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#전화면_이동시_indicator_viewing_여부_설정_indicator" class="toc">전화면 이동시 indicator viewing 여부 설정 &lt;indicator&gt;</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#라이브러리_설정_library" class="toc">라이브러리 설정 : &lt;library&gt;</a>
+										</span>
+									</div>
+									<ul class="toc">
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#확장_인터페이스_ext" class="toc">확장 인터페이스 &lt;ext&gt;</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#에드온_addons" class="toc">에드온 &lt;addons&gt;</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#플러그인_plugins" class="toc">플러그인 &lt;plugins&gt;</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#네트워크_설정_network" class="toc">네트워크 설정 : &lt;network&gt;</a>
+										</span>
+									</div>
+									<ul class="toc">
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#http_설정_http" class="toc">http 설정 &lt;http&gt;</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#socket_설정_socket" class="toc">socket 설정 &lt;socket&gt;</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#appmanifest_구성_예제" class="toc">AppManifest 구성 예제</a>
+										</span>
+									</div>
+								</li>
+								<li class="level3">
+									<div class="li">
+										<span class="li">
+											<a href="#애플리케이션_설정_android" class="toc">애플리케이션 설정 : &lt;Android&gt;</a>
+										</span>
+									</div>
+									<ul class="toc">
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#애플리케이션_안드로이드_HWAcceleration" class="toc">Hardware Acceleration 설정</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#애플리케이션_안드로이드_theme" class="toc">Android Theme 설정	</a>
+												</span>
+											</div>
+										</li>
+										<li class="level4">
+											<div class="li">
+												<span class="li">
+													<a href="#애플리케이션_안드로이드_youtube" class="toc">Android Youtube 설정	</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- TOC END -->
+
+	<h2 class="sectionedit1">
+		<a name="app_환경설정_manifestxml" id="app_환경설정_manifestxml">App 환경설정(Manifest.xml)</a>
+	</h2>
+
+	<div class="level2"></div>
+
+	<div class="secedit editbutton_section editbutton_1">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[App 환경설정(Manifest.xml)] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="1-44">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="App 환경설정(Manifest.xml)">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit2">
+		<a name="목차" id="목차">목차</a>
+	</h3>
+
+	<div class="level3">
+		<ol>
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#개요" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">개요</a>
+					</span>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#앱_및_리소스_배포시_주의_사항" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">앱 및 리소스 배포시 주의 사항</a>
+					</span>
+				</div>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#로깅_log" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;log&gt;</a>
+					</span>
+				</div>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#다국어_설정_lang" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;lang&gt;</a>
+					</span>
+				</div>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#리소스_resource" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;resource&gt;</a>
+					</span>
+				</div>
+
+				<ol>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#리소스_기본_버전_base_version" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;base_version&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#사용_리소스_타겟_target" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;target&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#리소스_업데이트_update" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;update&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+				</ol>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#최초_실행_페이지_startpage" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;startpage&gt;</a>
+					</span>
+				</div>
+
+				<ol>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#시작_페이지명_name" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;name&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#시작_페이지_방향_orient" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;orient&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+				</ol>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#전화면_default_설정_default_action" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;default_action&gt;</a>
+					</span>
+				</div>
+
+				<ol>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#전화면_default_방향_설정_orient" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;orient&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#전화면_default_애니메이션_설정_animate" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;animate&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#전화면_이동시_indicator_viewing_여부_설정_indicator" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;indicator&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+				</ol>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#라이브러리_설정_library" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;library&gt;</a>
+					</span>
+				</div>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#네트워크_설정_network" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;network&gt;</a>
+					</span>
+				</div>
+
+				<ol>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#http_설정_http" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;http&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+					<li class="level2">
+						<div class="li"> 
+							<span class="curid">
+								<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#socket_설정_socket" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">&lt;socket&gt;</a>
+							</span>
+						</div>
+
+					</li>
+
+				</ol>
+
+			</li>
+
+			<li class="level1">
+				<div class="li"> 
+					<span class="curid">
+						<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_app_manifest#appmanifest_구성_예제" class="wikilink1" title="main:hybrid_guide:hybrid_app_manifest">AppManifest 구성 예제</a>
+					</span>
+				</div>
+			</li>
+		</ol>
+		<p>
+			<br>
+		</p>
+		<hr>
+		<p>
+			<br>
+		</p>
+	</div>
+	<div class="secedit editbutton_section editbutton_2">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[목차] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="45-1899">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="목차">
+			</div>
+		</form>
+	</div>
+	<h3 class="sectionedit3">
+		<a name="개요" id="개요">개요</a>
+	</h3>
+
+	<div class="level3">
+		<ol>
+			<li class="level1">
+				<div class="li"> 어플리케이션 기본 환경 설정을 하기 위한 Manifest.xml을 제공한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 플랫폼에서는 어플리케이션 실행시 자동적으로 Manifest.xml의 정보를 읽어 사용하게 된다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> Manifest.xml의 위치 : 
+					<a href="/mcore/doku.php?id=main:hybrid_guide:hybrid_resource_struct" class="wikilink1" title="main:hybrid_guide:hybrid_resource_struct">리소스(res) 폴더 구조</a> 참조
+				</div>
+			</li>
+		</ol>
+		<p>
+			<br>
+		</p>
+		<hr>
+		<p>
+			<br>
+		</p>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_3">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[개요] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="1900-2258">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="개요">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit4">
+		<a name="앱_및_리소스_배포시_주의_사항" id="앱_및_리소스_배포시_주의_사항">앱 및 리소스 배포시 주의 사항</a>
+	</h3>
+
+	<div class="level3">
+		<ol>
+			<li class="level1">
+				<div class="li"> Manifest.xml은 앱내부(asset(Android) 이나 bundle(iOS))의 파일이 사용되므로, 
+					<br>
+					리소스 배포 파일에 포함되지 않도록 주의 한다\n
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li"> &lt;resource&gt;&lt;target&gt; 을 'doc'로 설정한다.</div>
+			</li>
+
+			<li class="level1">
+				<div class="li"> &lt;resource&gt;&lt;update&gt;&lt;mode&gt; 를 'real'로 설정한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> &lt;log&gt; 를 'n'으로 설정한다.</div>
+			</li>
+		</ol>
+		<p>
+			<br>
+		</p>
+		<hr>
+		<p>
+			<br>
+		</p>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_4">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[앱 및 리소스 배포시 주의 사항] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="2259-2630">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="앱 및 리소스 배포시 주의 사항">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit5">
+		<a name="로깅_log" id="로깅_log">&lt;log&gt;\n</a>
+	</h3>
+
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> logging 여부를 설정\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> enable : 'y' / disable : 'n'</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_5">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[로깅 <log>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="2631-2723">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="로깅 <log>">
+			</div>
+		</form>
+	</div>
+			
+	<h3 class="sectionedit6">
+		<a name="다국어_설정_lang" id="다국어_설정_lang">&lt;lang&gt;</a>
+	</h3>
+			
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> App의 언어를 설정\n
+				'system'으로 설정된 경우 디바이스에 설정된 언어를 사용\n
+				언어-국가별 폴더 이름 정의\n
+				언어는 ISO 639, BCP 47 을 준수\n
+				국가는 ISO 3166에 정의</div>
+			</li>
+			<!-- <li class="level1">
+				<div class="li"> 언어-국가별 폴더 이름 정의</div>
+				<ul>
+					<li class="level2">
+						<div class="li"> 언어는 
+							<acronym title="International Organization for Standardization">ISO</acronym> 639, BCP 47 을 준수(
+							<a href="/mcore/lib/exe/fetch.php?hash=7bb811&amp;media=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FISO_639" class="media mediafile mf_org_wiki_iso_639" title="http://en.wikipedia.org/wiki/ISO_639">참조
+							</a>)
+						</div>
+					</li>
+					
+					<li class="level2">
+						<div class="li"> 국가는 
+							<acronym title="International Organization for Standardization">ISO</acronym> 3166에 정의 되어 있다 (
+							<a href="/mcore/lib/exe/fetch.php?hash=9f4a77&amp;media=http%3A%2F%2Fko.wikipedia.org%2Fwiki%2FISO_3166" class="media mediafile mf_org_wiki_iso_3166" title="http://ko.wikipedia.org/wiki/ISO_3166">참조
+							</a>)
+						</div>
+					</li>
+				</ul>
+			</li> -->
+		</ul>
+	</div>
+			
+	<div class="secedit editbutton_section editbutton_6">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[다국어 설정<lang>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="2724-3128">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="다국어 설정 <lang>">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit7">
+		<a name="리소스_resource" id="리소스_resource">리소스 &lt;resource&gt;</a>
+	</h3>
+
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> 웹 리소스 관련된 설정을 할 수 있다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드
+					<pre class="code xml">    
+						<span class="sc-1">&lt;!-- resource setting --&gt;</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;resource
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;base_version
+								<span class="re2">&gt;</span>
+							</span>
+						</span>100001
+						<span class="sc3">
+							<span class="re1">&lt;/base_version
+								<span class="re2">&gt;</span>
+							</span>
+						</span> 
+						<span class="sc-1">&lt;!-- base resource version --&gt;</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;target
+								<span class="re2">&gt;</span>
+							</span>
+						</span>app
+						<span class="sc3">
+							<span class="re1">&lt;/target
+								<span class="re2">&gt;</span>
+							</span>
+						</span>  
+						<span class="sc-1">&lt;!-- use resource target / app, doc, sdcard --&gt;</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;update
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc-1">&lt;!-- resource update check transaction info --&gt;</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;server
+								<span class="re2">&gt;</span>
+							</span>
+						</span>HTTP_REST
+						<span class="sc3">
+							<span class="re1">&lt;/server
+								<span class="re2">&gt;</span>
+							</span>
+						</span> 
+						<span class="sc-1">&lt;!-- resource update target server  --&gt;</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;trcode
+								<span class="re2">&gt;</span>
+							</span>
+						</span>/api/res/auto-update
+						<span class="sc3">
+							<span class="re1">&lt;/trcode
+								<span class="re2">&gt;</span>
+							</span>
+						</span> 
+						<span class="sc-1">&lt;!-- /rest/api/res/auto-update(rest) , rsc.auto_update(normal) --&gt;</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;mode
+								<span class="re2">&gt;</span>
+							</span>
+						</span>real
+						<span class="sc3">
+							<span class="re1">&lt;/mode
+								<span class="re2">&gt;</span>
+							</span>
+						</span> 
+						<span class="sc-1">&lt;!-- resource update mode / dev, real --&gt;</span>
+						<span class="sc3">
+							<span class="re1">&lt;/update
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;/resource
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+					</pre>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_7">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[리소스<resource>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="3129-3826">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="리소스<resource>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit8">
+		<a name="리소스_기본_버전_base_version" id="리소스_기본_버전_base_version">&lt;base_version&gt;\n</a>
+	</h4>
+	<div class="level4">
+		<ul>
+			<!-- <li class="level1">
+				<div class="li"> 마켓에 올라가는 리소스의 버전이며 사용자가 마켓에서 앱을 다운로드 후 실행하면 기본 버전 이후에서 최신 버전까지 새롭게 업데이트를 받을 수 있다.</div>
+			</li> -->
+			<li class="level1">
+				<div class="li"> 마켓에 올라가는 리소스의 버전\n
+					사용자가 마켓에서 앱을 다운로드 후 실행\n
+					기본 버전 ~ 최신 버전까지 업데이트 가능\n
+					예제 코드\n
+					&lt;!-- 리소스 기본 버전 --&gt;\n
+					&lt;base_version&gt;\n
+					100001\n
+					&lt;/base_version&gt;\n
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_8">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[리소스 기본 버전<base_version>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="3827-4196">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="리소스 기본 버전<base_version>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit9">
+		<a name="사용_리소스_타겟_target" id="사용_리소스_타겟_target">&lt;target&gt;\n</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 웹 리소스 사용 폴더를 설정\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 타입\n
+							app : 앱 안에 포함된 리소스를 사용\n
+							(개발 및 리소스 업데이트를 사용하지 않는 경우)\n
+							doc : 앱에 할당된 공간에 있는 리소스를 사용\n
+							(리소스 업데이트와 리소스 복사 기능을 이용하여 배포하는 경우)\n
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드\n
+					&lt;!-- 리소스 타겟 --&gt;\n
+					&lt;target&gt;\n
+					app\n
+					&lt;/target&gt;
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_9">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[사용 리소스 타겟 <target>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="4197-4977">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="사용 리소스 타겟 <target>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit10">
+		<a name="리소스_업데이트_update" id="리소스_업데이트_update">리소스 업데이트 &lt;update&gt;</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 리소스 업데이트관련 설정을 한다.</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="리소스_업데이트_서버_타겟_server" id="리소스_업데이트_서버_타겟_server">&lt;server&gt;\n</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> &lt;network&gt; &gt; &lt;http&gt;안에 설정된 서버 타겟으로 \n
+						리소스 업데이트 기능이 있는 게이트웨이 서버이름을 설정\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드\n
+					&lt;!-- 게이트웨이 서버 타겟 이름 --&gt;\n
+					&lt;server&gt;\n
+					HTTP_REST\n
+					&lt;/server&gt;\n
+				</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="리소스_업데이트_서비스_코드_trcode" id="리소스_업데이트_서비스_코드_trcode">&lt;trcode&gt;\n</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 리소스 업데이트 서비스 코드를 설정\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 업데이트 서버가 서비스를 지원하는 형태(rest or interface.do)에 따라 구분\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> rest 방식\n
+							 '/api/res/auto-update'\n
+							 interface.do 방식\n
+							 'rsc.auto_update'\n
+				</div>
+				
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드\n
+					&lt;!-- 리소스 업데이트 서비스 코드 --&gt;\n
+					&lt;trcode&gt;\n
+					/api/res/auto-update\n
+					&lt;/trcode&gt;\n
+				</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="리소스_업데이트_서비스_모드_mode" id="리소스_업데이트_서비스_모드_mode">&lt;mode&gt;\n</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 리소스 업데이트 서비스 모드\n</div>
+			</li>
+
+			<li class="level1">
+				<div class="li"> 업데이트 서버의 '개발배포(dev)', '운영배포(real)' 중 요청할 것을 선택\n</div>
+			</li>
+
+			<li class="level1">
+				<div class="li"> 개발배포 : dev / 운영배포 : real\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드\n
+					&lt;!-- 리소스 업데이트 서비스 코드 --&gt;\n
+					&lt;mode&gt;\n
+					real\n
+					&lt;/mode&gt;\n
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="secedit editbutton_section editbutton_10">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[리소스 업데이트 <update>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="4978-6382">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="리소스 업데이트 <update>">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit11">
+		<a name="최초_실행_페이지_startpage" id="최초_실행_페이지_startpage">최초 실행 페이지 &lt;startpage&gt;</a>
+	</h3>
+
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> 최초 실행 페이지를 설정한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드
+					<pre class="code xml">    
+						<span class="sc-1">&lt;!-- 최초 초기화 페이지 --&gt;</span>
+						<span class="sc3">
+							<span class="re1">&lt;startpage
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;name
+								<span class="re2">&gt;</span>
+							</span>
+						</span>index.html
+						<span class="sc3">
+							<span class="re1">&lt;/name
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;orient
+								<span class="re2">&gt;</span>
+							</span>
+						</span>port
+						<span class="sc3">
+							<span class="re1">&lt;/orient
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;/startpage
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+					</pre>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_11">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[최초 실행 페이지 <startpage>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="6383-6648">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="최초 실행 페이지 <startpage>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit12">
+		<a name="시작_페이지명_name" id="시작_페이지명_name">&lt;name&gt;\n</a>
+	</h4>
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 시작 페이지를 설정\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 최초 실행 페이지에서 반드시 리소스 업데이트를 수행\n</div>
+			</li>
+		</ul>
+	</div>
+	<div class="secedit editbutton_section editbutton_12">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[시작 페이지명 <name>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="6649-6836">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="시작 페이지명 <name>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit13">
+		<a name="시작_페이지_방향_orient" id="시작_페이지_방향_orient">&lt;orient&gt;\n</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 시작 화면의 orient를 설정\n</div>
+			</li>
+			<!-- <li class="level1">
+				<div class="li"> orient mode의 종류.</div>
+				<ol>
+					<li class="level2">
+						<div class="li"> land : 가로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> port : 세로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> all : 가로,세로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> default : 시스템에서 설정한 모드를 적용</div>
+					</li>
+				</ol>
+			</li> -->
+			<li class="level1">
+				<div class="li"> orient mode의 종류\n
+							land : 가로 모드\n
+							port : 세로 모드\n
+							all : 가로,세로 모드\n
+							default : 시스템에서 설정한 모드를 적용\n
+				</div>
+			</li>
+		</ul>
+	</div>
+	<h4 class="sectionedit13">
+		<a name="시작_페이지_방향_orient_tablet" id="시작_페이지_방향_orient_tablet">&lt;orient&gt;\n</a>
+	</h4>
+	<div class="level4">
+		<ul>
+			<!-- <li class="level1">
+				<div class="li"> 시작 화면의 orient를 설정한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> orient mode의 종류.</div>
+				<ol>
+					<li class="level2">
+						<div class="li"> land : 가로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> port : 세로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> all : 가로,세로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> default : 시스템에서 설정한 모드를 적용</div>
+					</li>
+				</ol>
+			</li> -->
+			<div class="li"> orient mode의 종류\n
+						land : 가로 모드\n
+						port : 세로 모드\n
+						all : 가로,세로 모드\n
+						default : 시스템에서 설정한 모드를 적용\n
+			</div>
+		</ul>
+	</div>
+	<div class="secedit editbutton_section editbutton_13">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[시작 페이지 방향 <orient>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="6837-7100">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="시작 페이지 방향 <orient>">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit14">
+		<a name="전화면_default_설정_default_action" id="전화면_default_설정_default_action">&lt;default_action&gt;</a>
+	</h3>
+
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> 전화면에 적용되는 orient, animation, indicator의 default 모드를 설정한다.</div>
+			</li>
+
+			<li class="level1">
+				<div class="li"> 예제 코드
+					<pre class="code javascript">    
+						<span class="sy0">&lt;</span>default_action
+						<span class="sy0">&gt;</span>
+
+						<span class="sy0">&lt;</span>orient
+						<span class="sy0">&gt;</span>default
+
+						<span class="sy0">&lt;/</span>orient
+						<span class="sy0">&gt;</span> 
+
+						<span class="sy0">&lt;!--</span> 
+						<span class="kw2">default</span> orientation 
+						<span class="sy0">--&gt;</span>
+
+						<span class="sy0">&lt;</span>animate
+						<span class="sy0">&gt;</span>default
+
+						<span class="sy0">&lt;/</span>animate
+						<span class="sy0">&gt;</span> 
+
+						<span class="sy0">&lt;!--</span> 
+						<span class="kw2">default</span> animation 
+						<span class="sy0">--&gt;</span>
+
+						<span class="sy0">&lt;</span>indicator
+						<span class="sy0">&gt;</span>y
+
+						<span class="sy0">&lt;/</span>indicator
+						<span class="sy0">&gt;</span> 
+
+						<span class="sy0">&lt;!--</span> show page switching indicator 
+						<span class="sy0">--&gt;</span>
+
+						<span class="sy0">&lt;/</span>default_action
+						<span class="sy0">&gt;</span>
+					</pre>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="secedit editbutton_section editbutton_14">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[전화면 default 설정 <default_action>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="7101-7529">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="전화면 default 설정 <default_action>">
+			</div>
+		</form>
+	</div>
+	<h4 class="sectionedit15">
+		<a name="전화면_default_방향_설정_orient" id="전화면_default_방향_설정_orient">&lt;orient&gt;\n</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 전화면에 적용되는 default orient를 설정\n</div>
+			</li>
+			<!-- <li class="level1">
+				<div class="li"> default orient mode의 종류.</div>
+				<ol>
+					<li class="level2">
+						<div class="li"> land : 가로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> port : 세로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> all : 가로,세로 모드</div>
+					</li>
+					<li class="level2">
+						<div class="li"> default : 시스템 혹은 앱에서 설정된 모드.</div>
+					</li>
+				</ol>
+			</li> -->
+			<div class="li"> orient mode의 종류\n
+						land : 가로 모드\n
+						port : 세로 모드\n
+						all : 가로,세로 모드\n
+						default : 시스템에서 설정한 모드를 적용\n
+			</div>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_15">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[전화면 default 방향 설정 <orient>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="7530-7828">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="전화면 default 방향 설정 <orient>">
+			</div>
+		</form>
+	</div>
+	<h4 class="sectionedit16">
+		<a name="전화면_default_애니메이션_설정_animate" id="전화면_default_애니메이션_설정_animate">&lt;animate&gt;\n</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li">전 화면에 적용되는 default 화면간 이동 animate를 설정\n</div>
+			</li>
+			<li class="level1">
+				<div class="li"> animate mode의 종류\n
+							default : 시스템 기본 애니메이션\n
+							none : 애니메이션 없음\n
+							slide_left : 왼쪽으로 PUSH\n
+							slide_right : 오늘쪽으로 PUSH\n
+							slide_top : 위쪽으로 PUSH\n
+							slide_bottom : 아래쪽으로 PUSH\n
+							zoom_in : 줌인\n
+							zoom_out : 줌아웃\n
+							fade : 페이드\n
+							modal_left : 왼쪽으로 오버랩\n
+							modal_right : 오른쪽으로 오버랩\n
+							modal_up : 위쪽으로 오버랩\n
+							modal_down : 아래쪽으로 오버랩\n
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_16">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[전화면 default 애니메이션 설정<animate>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="7829-8631">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="전화면 default 애니메이션 설정 <animate>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit17">
+		<a name="전화면_이동시_indicator_viewing_여부_설정_indicator" id="전화면_이동시_indicator_viewing_여부_설정_indicator">전화면 이동시 indicator viewing 여부 설정 &lt;indicator&gt;</a>
+	</h4>
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 전화면 이동시 indicator 출력 여부를 설정한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> enable : 'y' / disable : 'n'</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_17">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[전화면 이동시 indicator viewing 여부 설정 <indicator>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="8632-8802">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="전화면 이동시 indicator viewing 여부 설정 <indicator>">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit18">
+		<a name="라이브러리_설정_library" id="라이브러리_설정_library">라이브러리 설정 : &lt;library&gt;</a>
+	</h3>
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> 플랫폼에서 제공 하는 라이브러리(addon, plugin) 및 확장 인터페이스를 설정한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 
+					<span style="color:red">iOS에서는 마지막 클래스명만 사용한다.</span>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드
+					<pre class="code xml">    
+						<span class="sc3">
+							<span class="re1">&lt;library
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;ext
+								<span class="re2">&gt;</span>
+							</span>
+						</span> m.client.app.implementation.ExtendWNInterface 
+						<span class="sc3">
+							<span class="re1">&lt;/ext
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;addons
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.db.WNInterfaceDB
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.file.WNInterfaceFile
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.media.WNInterfaceMedia
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.net.WNInterfaceNet
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.netext.WNInterfaceNetExt
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.popup.WNInterfacePopup
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.library.addon.zip.WNInterfaceZip
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;/addons
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;plugins
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>com.google.zxing.client.android.WNInterfaceQR
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;/plugins
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;/library
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						&nbsp;
+					</pre>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_18">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[라이브러리 설정 :<library>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="8803-9818">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="라이브러리 설정 : <library>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit19">
+		<a name="확장_인터페이스_ext" id="확장_인터페이스_ext">확장 인터페이스 &lt;ext&gt;</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네이티브 확장 인터페이스 클래스의 풀 패키지명을 입력한다.</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_19">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[확장 인터페이스 <ext>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="9819-9943">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="확장 인터페이스 <ext>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit20">
+		<a name="에드온_addons" id="에드온_addons">에드온 &lt;addons&gt;</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 자주 사용되는 함수들을 기본으로 제공하는 Addon들 이다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 특별한 상황이 아니면 수정하지 않는것을 권장함\n</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_20">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[에드온 <addons>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="9944-10123">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="에드온<addons>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit21">
+		<a name="플러그인_plugins" id="플러그인_plugins">플러그인 &lt;plugins&gt;</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 플러그인으로 제공하는 플러그인 라이브러리들의 확장 인터페이스 클래스 풀 패키지명을 입력한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 풀 패키지명은 플러그인의 설명 파일에 기제 되어있음</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_21">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[플러그인 <plugins>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="10124-10369">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="플러그인 <plugins>">
+			</div>
+		</form>
+	</div>
+	<h3 class="sectionedit22">
+		<a name="네트워크_설정_network" id="네트워크_설정_network">네트워크 설정 : &lt;network&gt;</a>
+	</h3>
+
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> http 및 socket 네트워크를 설정한다.</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_22">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[네트워크 설정 : <network>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="10370-10462">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="네트워크 설정 : <network>">
+			</div>
+		</form>
+	</div>
+	<h4 class="sectionedit23">
+		<a name="http_설정_http" id="http_설정_http">http 설정 &lt;http&gt;</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네트워크 별명으로 http 서버이름을 부여하여 만든다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드
+					<pre class="code xml">
+						<span class="sc3">
+							<span class="re1">&lt;HTTP_REST
+								<span class="re2">&gt;</span>
+							</span>
+						</span> 
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.app.samples.network.HttpDataNetworkManager
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;address
+								<span class="re2">&gt;</span>
+							</span>
+						</span>http://61.74.156.194:83/rest/
+						<span class="sc3">
+							<span class="re1">&lt;/address
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;timeout
+								<span class="re2">&gt;</span>
+							</span>
+						</span>10000
+						<span class="sc3">
+							<span class="re1">&lt;/timeout
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;encoding
+								<span class="re2">&gt;</span>
+							</span>
+						</span>utf-8
+						<span class="sc3">
+							<span class="re1">&lt;/encoding
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+						<span class="sc3">
+							<span class="re1">&lt;type
+								<span class="re2">&gt;</span>
+							</span>
+						</span>rest
+						<span class="sc3">
+							<span class="re1">&lt;/type
+								<span class="re2">&gt;</span>
+							</span>
+						</span> 
+						<span class="sc-1">&lt;!-- rest, normal(default)--&gt;</span>
+						<span class="sc3">
+							<span class="re1">&lt;/HTTP_REST
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+					</pre>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<h5>
+		<a name="네트워크_메니저_설정_path" id="네트워크_메니저_설정_path">네트워크 메니저 설정 &lt;path&gt;</a>
+	</h5>
+
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네이티브 통신 제어를 위한 HttpNetworkManager 클래스의 풀 패키지 명을 입력한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> HttpNetworkManager에는 데이터 통신을 위한 네이티브 통신 확장 개발을 기술 한다.</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="접속_주소_address" id="접속_주소_address">접속 주소 &lt;address&gt;</a>
+	</h5>
+
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 기본 접속 주소를 설정한다.</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="타임아웃_timeout" id="타임아웃_timeout">타임아웃 &lt;timeout&gt;</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네트워크 연결 시도 최대 타임아웃 시간을 설정한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 각 전문마다 설정은 함수 호출시 option 값으로 따로 설정이 가능하다.</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="인코딩_encoding" id="인코딩_encoding">인코딩 &lt;encoding&gt;</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 통신 데이터 인코딩 방식을 설정한다\n(Default : UTF-8)</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="통신_방식_타입_type" id="통신_방식_타입_type">통신 방식 타입 &lt;type&gt;</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 통신 방식 타입</div>
+				<ol>
+					<li class="level2">
+						<div class="li"> rest : rest 규칙 데이터 통신</div>
+					</li>
+					<li class="level2">
+						<div class="li"> normal : 일반 servlet(interface.do) 규칙 데이터 통신 </div>
+					</li>
+				</ol>
+			</li>
+		</ul>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_23">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[http 설정 <http>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="10463-11673">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="http 설정 <http>">
+			</div>
+		</form>
+	</div>
+
+	<h4 class="sectionedit24">
+		<a name="socket_설정_socket" id="socket_설정_socket">socket 설정 &lt;socket&gt;</a>
+	</h4>
+
+	<div class="level4">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네트워크 별명으로 socket 서버이름을 부여하여 만든다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> 예제 코드
+					<pre class="code xml">
+						<span class="sc3">
+							<span class="re1">&lt;AUTH
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>m.client.app.samples.network.HttpDataNetworkManager
+						<span class="sc3">
+							<span class="re1">&lt;/path
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;address
+								<span class="re2">&gt;</span>
+							</span>
+						</span>http://218.232.105.175:8080/api/interface
+						<span class="sc3">
+							<span class="re1">&lt;/address
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;port
+								<span class="re2">&gt;</span>
+							</span>
+						</span>8080
+						<span class="sc3">
+							<span class="re1">&lt;/port
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;timeout
+								<span class="re2">&gt;</span>
+							</span>
+						</span>10000
+						<span class="sc3">
+							<span class="re1">&lt;/timeout
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;encoding
+								<span class="re2">&gt;</span>
+							</span>
+						</span>utf-8
+						<span class="sc3">
+							<span class="re1">&lt;/encoding
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+
+						<span class="sc3">
+							<span class="re1">&lt;/AUTH
+								<span class="re2">&gt;</span>
+							</span>
+						</span>
+					</pre>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<h5>
+		<a name="네트워크_메니저_설정_path1" id="네트워크_메니저_설정_path1">네트워크 메니저 설정 &lt;path&gt;</a>
+	</h5>
+
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네이티브 통신 제어를 위한 SocketNetworkManager 클래스의 풀 패키지 명을 입력한다.</div>
+			</li>
+			<li class="level1">
+				<div class="li"> SocketNetworkManager에는 데이터 통신을 위한 네이티브 통신 확장 개발을 기술 한다.</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="접속_주소_address1" id="접속_주소_address1">접속 주소 &lt;address&gt;</a>
+	</h5>
+
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 기본 접속 주소를 설정한다.</div>
+			</li>
+		</ul>
+	</div>
+	<h5>
+		<a name="접속_포트_port" id="접속_포트_port">접속 포트 &lt;port&gt;</a>
+	</h5>
+
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 접속 포트를 설정한다.</div>
+			</li>
+		</ul>
+	</div>
+
+	<h5>
+		<a name="타임아웃_timeout1" id="타임아웃_timeout1">타임아웃 &lt;timeout&gt;</a>
+	</h5>
+
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 네트워크 연결 시도 최대 타임아웃 시간을 설정한다.</div>
+
+			</li>
+			<li class="level1">
+				<div class="li"> 각 전문마다 설정은 함수 호출시 option 값으로 따로 설정이 가능하다.</div>
+			</li>
+		</ul>
+	</div>
+
+	<h5>
+		<a name="인코딩_encoding1" id="인코딩_encoding1">인코딩 &lt;encoding&gt;</a>
+	</h5>
+	<div class="level5">
+		<ul>
+			<li class="level1">
+				<div class="li"> 통신 데이터 인코딩 방식을 설정한다\n(Default : UTF-8)</div>
+			</li>
+		</ul>
+	</div>
+	<div class="secedit editbutton_section editbutton_24">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[socket 설정 <socket>] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="11674-12764">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="socket 설정 <socket>">
+			</div>
+		</form>
+	</div>
+
+	<h3 class="sectionedit25">
+		<a name="appmanifest_구성_예제" id="appmanifest_구성_예제">AppManifest 구성 예제</a>
+	</h3>
+	<div class="level3">
+		<ul>
+			<li class="level1">
+				<div class="li"> 아래는 AppManifest.xml 문서의 전체 구성이다.</div>
+			</li>
+		</ul>
+		<pre class="code xml">
+			<span class="sc3">
+				<span class="re1">&lt;?xml</span> 
+				&nbsp;
+				<span class="re0">version</span>=
+				<span class="st0">"1.0"</span> 
+				
+				<span class="re0">encoding</span>=
+				<span class="st0">"utf-8"</span>
+				
+				<span class="re2">?&gt;</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;manifest
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc-1">&lt;!-- log setting --&gt;</span>
+			<span class="sc3">
+				<span class="re1">&lt;log
+					<span class="re2">&gt;</span>
+				</span>
+			</span>y
+			<span class="sc3">
+				<span class="re1">&lt;/log
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			&nbsp;
+			<span class="sc-1">&lt;!-- language setting --&gt;</span>
+			<span class="sc3">
+				<span class="re1">&lt;lang
+					<span class="re2">&gt;
+					</span>
+				</span>
+			</span>ko
+			<span class="sc3">
+				<span class="re1">&lt;/lang
+					<span class="re2">&gt;
+					</span>
+				</span>
+			</span>
+			&nbsp;
+			<span class="sc-1">&lt;!-- resource setting --&gt;</span>
+			<span class="sc3">
+				<span class="re1">&lt;resource
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;base_version
+					<span class="re2">&gt;</span>
+				</span>
+			</span>100001
+			<span class="sc3">
+				<span class="re1">&lt;/base_version
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- base resource version --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;target
+					<span class="re2">&gt;</span>
+				</span>
+			</span>app
+			<span class="sc3">
+				<span class="re1">&lt;/target
+					<span class="re2">&gt;</span>
+				</span>
+			</span>  
+			<span class="sc-1">&lt;!-- use resource target / app, doc, sdcard --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;update
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc-1">&lt;!-- resource update check transaction info --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;server
+					<span class="re2">&gt;</span>
+				</span>
+			</span>HTTP_REST
+			<span class="sc3">
+				<span class="re1">&lt;/server
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- resource update target server  --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;trcode
+					<span class="re2">&gt;</span>
+				</span>
+			</span>/api/res/auto-update
+			<span class="sc3">
+				<span class="re1">&lt;/trcode
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- /rest/api/res/auto-update(rest) , rsc.auto_update(normal) --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;mode
+					<span class="re2">&gt;</span>
+				</span>
+			</span>real
+			<span class="sc3">
+				<span class="re1">&lt;/mode
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- resource update mode / dev, real --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/update
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/resource
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			&nbsp;
+
+			<span class="sc-1">&lt;!-- start page setting --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;startpage
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;name
+					<span class="re2">&gt;</span>
+				</span>
+			</span>index.html
+			<span class="sc3">
+				<span class="re1">&lt;/name
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;orient
+					<span class="re2">&gt;</span>
+				</span>
+			</span>port
+			<span class="sc3">
+				<span class="re1">&lt;/orient
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/startpage
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			&nbsp;
+			<span class="sc-1">&lt;!-- navigation setting --&gt;</span>
+			<span class="sc3">
+				<span class="re1">&lt;default_action
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;orient
+					<span class="re2">&gt;</span>
+				</span>
+			</span>default
+			<span class="sc3">
+				<span class="re1">&lt;/orient
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- default orientation --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;animate
+					<span class="re2">&gt;</span>
+				</span>
+			</span>default
+			<span class="sc3">
+				<span class="re1">&lt;/animate
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- default animation --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;indicator
+					<span class="re2">&gt;</span>
+				</span>
+			</span>y
+			<span class="sc3">
+				<span class="re1">&lt;/indicator
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- show page switching indicator --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/default_action
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			&nbsp;
+			<span class="sc-1">&lt;!-- library setting --&gt;</span>
+			<span class="sc3">
+				<span class="re1">&lt;library
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;ext
+					<span class="re2">&gt;</span>
+				</span>
+			</span> m.client.app.implementation.ExtendWNInterface 
+			<span class="sc3">
+				<span class="re1">&lt;/ext
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;addons
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.db.WNInterfaceDB
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.file.WNInterfaceFile
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.media.WNInterfaceMedia
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.net.WNInterfaceNet
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.netext.WNInterfaceNetExt
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.popup.WNInterfacePopup
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.library.addon.zip.WNInterfaceZip
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/addons
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;plugins
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>com.google.zxing.client.android.WNInterfaceQR
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/plugins
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/library
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+			&nbsp;
+
+			<span class="sc-1">&lt;!-- network setting --&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;network
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;http
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;HTTP_REST
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.app.samples.network.HttpDataNetworkManager
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>http://61.74.156.194:83/rest/
+			<span class="sc3">
+				<span class="re1">&lt;/address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>10000
+			<span class="sc3">
+				<span class="re1">&lt;/timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>utf-8
+			<span class="sc3">
+				<span class="re1">&lt;/encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;type
+					<span class="re2">&gt;</span>
+				</span>
+			</span>rest
+			<span class="sc3">
+				<span class="re1">&lt;/type
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- rest, normal(default)--&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/HTTP_REST
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;HTTP_NORMAL
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.app.samples.network.HttpDataNetworkManager
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>http://61.74.156.194:83/interface.do
+			<span class="sc3">
+				<span class="re1">&lt;/address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>10000
+			<span class="sc3">
+				<span class="re1">&lt;/timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>utf-8
+			<span class="sc3">
+				<span class="re1">&lt;/encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;type
+					<span class="re2">&gt;</span>
+				</span>
+			</span>normal
+			<span class="sc3">
+				<span class="re1">&lt;/type
+					<span class="re2">&gt;</span>
+				</span>
+			</span> 
+			<span class="sc-1">&lt;!-- rest, normal(default)--&gt;</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/HTTP_NORMAL
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;PUSH
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.app.samples.network.HttpDataNetworkManager
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>http://61.74.156.194:83/api/interface.do
+			<span class="sc3">
+				<span class="re1">&lt;/address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>10000
+			<span class="sc3">
+				<span class="re1">&lt;/timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>utf-8
+			<span class="sc3">
+				<span class="re1">&lt;/encoding
+					<span class="re2">&gt;
+					</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/PUSH
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/http
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;socket
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;AUTH
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>m.client.app.samples.network.HttpDataNetworkManager
+			<span class="sc3">
+				<span class="re1">&lt;/path
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>http://218.232.105.175:8080/api/interface
+			<span class="sc3">
+				<span class="re1">&lt;/address
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;port
+					<span class="re2">&gt;</span>
+				</span>
+			</span>8080
+			<span class="sc3">
+				<span class="re1">&lt;/port
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>10000
+			<span class="sc3">
+				<span class="re1">&lt;/timeout
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>utf-8
+			<span class="sc3">
+				<span class="re1">&lt;/encoding
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/AUTH
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/socket
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/network
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+
+			<span class="sc3">
+				<span class="re1">&lt;/manifest
+					<span class="re2">&gt;</span>
+				</span>
+			</span>
+		</pre>
+	</div>
+
+	<div class="secedit editbutton_section editbutton_25">
+		<form class="button btn_secedit" method="post" action="/mcore/doku.php">
+			<div class="no">
+				<input type="hidden" name="do" value="edit">
+				<input type="hidden" name="rev" value="1397547783">
+				<input type="hidden" name="summary" value="[AppManifest 구성 예제] ">
+				<input type="hidden" name="target" value="section">
+				<input type="hidden" name="range" value="12765-">
+				<input type="hidden" name="id" value="main:hybrid_guide:hybrid_app_manifest">
+				<input type="submit" value="편집" class="button" title="AppManifest 구성 예제">
+			</div>
+		</form>
+	</div>
+
+	<!-- wikipage stop -->
+
+</div>
+
+
+<h4 class="sectionedit12">
+	<a name="애플리케이션_안드로이드_HWAcceleration" id="애플리케이션_안드로이드_HWAcceleration">&lt;Hardware Acceleration&gt;\n</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 안드로이드 하드웨어 가속기능을 사용\n</div>
+		</li>
+		<li class="level1">
+			<div class="li"> default : software\n
+				(hardware : core lib, app : AndroidManifest.xml )\n</div>
+		</li>
+		<li class="level1">
+			<div class="li">  하드웨어 가속을 위해서는 AndroidManifest.xml에 정보 적용\n
+					&lt;application android:hardwareAcclerated=”software”&gt;\n
+					&lt;activity android:hardwareAcclerated=”app”/&gt;\n
+					&lt;/application&gt;\n
+			</div>
+		</li>
+	</ul>
+</div>
+<h4 class="sectionedit12">
+	<a name="애플리케이션_안드로이드_theme" id="애플리케이션_안드로이드_theme">&lt;Theme&gt;\n</a>
+</h4>
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 안드로이드 Theme 사용을 설정\n</div>
+		</li>
+		<li class="level1">
+			<div class="li"> default : n</div>
+		</li>
+		<li class="level1">
+			<div class="li">(n: MCore 설정을 따름, y : AndroidManifest의 설정을 따름)\n</div>
+		</li>
+		<li class="level1">
+			<div class="li"> 안드로이드 Theme 사용을 위해서는 AndoridManifest에 정보 적용\n
+					&lt;application android:theme=”@style/AppTheme” &gt;\n
+					&lt;activity …./&gt;\n
+					&lt;activity android:theme=”@android:style/Theme.Dialog” /&gt;\n
+					&lt;/application&gt;\n
+			</div>
+		</li>
+	</ul>
+</div>
+<h4 class="sectionedit12">
+	<a name="애플리케이션_안드로이드_youtube" id="애플리케이션_안드로이드_youtube">&lt;Youtube&gt;\n</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> App 내에서 youtube 호출 여부를 설정\n</div>
+		</li>
+	</ul>
+</div>
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_version" id="MANIFEST_PUSH_version">Receiver Server Version</a>
+</h4>
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 푸시 리시버 서버의 버전 설정 
+				<br/>
+				<pre>
+					3.7
+				</pre>
+			</div>	
+		</li>
+	</ul>
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_server" id="MANIFEST_PUSH_server">Receiver Server URL</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 푸시 솔루션을 이용하기 위한 필수 설정</div>
+		</li>
+		<li class="level1">
+			<div class="li"> 푸시 등록, 메세지 확인 등의 기능을 수행하기 위한 클라이언트 서버간 통신을 위해 설정</div>
+		</li>
+	</ul>
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_gmcSenderId" id="MANIFEST_PUSH_gmcSenderId">FCM Sender ID</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 푸시 타입이 FCM일 경우, 서비스를 이용하기 위한 필수 설정</div>
+		</li>
+		<li class="level1">
+			<div class="li"> FCM 서비스에 프로젝트 등록 후 취득 정보</div>
+		</li>
+	</ul>
+</div>
+
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_androidPushType" id="MANIFEST_PUSH_androidPushType">Android Push Type</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 푸시 솔루션 메시징 서비스 타입을 설정</div>
+		</li>
+	</ul>
+	<ol>
+		<li class="level1">
+			<div class="li"> FCM: Firebase 클라우드 메시징 서비스(Public Push)</div>
+		</li>
+		<li class="level1">
+			<div class="li"> UPNS:유라클 메시징 서비스(Private Push)로 구분</div>
+		</li>
+		<li class="level1">
+			<div class="li"> UPMC 서버 5.1 이상에서는 “ALL“ 이  “MULTI”로 대체 됨.</div>
+		</li>
+	</ol>
+</div>
+
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_securityIndexes" id="MANIFEST_PUSH_securityIndexes">Security Indexes</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> key 교환 방식 암호화 : 라이선스 발급시 요청 (hexa코드 16자리) 서버 3.8.1 이상</div>
+		</li>
+	</ul>
+</div>
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_usePhoneNumber" id="MANIFEST_PUSH_usePhoneNumber">Use Phone Number</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> upmc 연동시 휴대폰 번호 사용 여부 (Y/N)</div>
+		</li>
+	</ul>
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_usePermission" id="MANIFEST_PUSH_usePermission">Use Permission</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 브로드캐스트 리시버에서 퍼미션 사용 여부를 설정 (Y/N)</div>
+		</li>
+	</ul>
+</div>
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_agentServiceType" id="MANIFEST_PUSH_agentServiceType">Service Type</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 푸시 솔루션 사용 형태 설정</div>
+		</li>
+	</ul>
+	<ol>
+		<li class="level1">
+			<div class="li"> inapp:UPNS Push Library 형태로 이용</div>
+		</li>
+		<li class="level1">
+			<div class="li"> agent:UPNS Push agent 를 설치하는 형태로 이용</div>
+		</li>
+	</ol>
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_agentClassPath" id="MANIFEST_PUSH_agentClassPath">Class Path</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> agent 형 PushService 클래스 경로</div>
+		</li>
+		<li class="level1">
+			<div class="li"> assets 폴더에 구현된 push_agent.xxx.apk 가 포함되어 있어야 함</div>
+		</li>
+	</ul> 
+</div>
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_agentServerUrl" id="MANIFEST_PUSH_agentServerUrl">UPNS Server URL</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 푸시 타입이 UPNS일 경우, UPNS 서버를 이용하기 위한 필수 설정</div>
+		</li>
+
+		<li class="level1">
+			<div class="li"> 푸시 메시지 송수신 등과 관련된 기능을 수행하기 위한 클라이언트 서버간 통신을 위한 설정</div>
+		</li>
+	</ul> 
+</div>
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_agentRestartInterval" id="MANIFEST_PUSH_agentRestartInterval">Restart Interval</a>
+</h4>
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> UPNS 재시작을 위한 알람 간격</div>
+		</li>
+
+		<li class="level1">
+			<div class="li"> 초딘위로 설정하며 60초를 권장</div>
+		</li>
+	</ul> 
+</div>
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_reconnectInterval" id="MANIFEST_PUSH_reconnectInterval"></a>
+</h4>
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> reconnect interval (초단위)</div>
+		</li>
+		<li class="level1">
+			<div class="li"> 최소 10초 이상 (재접속 카운트에 따라 설정, 3회 이후 다시 최초 설정 간격으로 반복)</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_reallocateInterval" id="MANIFEST_PUSH_reallocateInterval"></a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> reallocate interval (v4.1 이상 - 다른 버전 무시) - 최소 10 이상</div>
+		</li>
+		<li class="level1">
+			<div class="li"> 단위: , 1~reallocate-interval 사이의 랜덤한 시간간격으로 호출 요청</div>
+		</li>
+		<li class="level1">
+			<div class="li">  (60 이상 권장, 재할당 카운트에 따라 설정, 3회 이후 다시 최초 설정 간격으로 반복)</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_retryRegistCount" id="MANIFEST_PUSH_retryRegistCount"></a>
+</h4>
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 사용자 등록 시 재시도 여부 auto / 횟수 (integer)</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_customerCode" id="MANIFEST_PUSH_customerCode">Customer Code</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> Push ASP 3.0 을 위한 Customer Code 값</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PUSH_policy" id="MANIFEST_PUSH_policy">Policy</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> Push 정책에 따른 설정값</div>
+		</li>
+		<li class="level1">
+			<div class="li"> 이 설정은 MPush 2.1.0.7 이상에서 동작합니다.</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PREVENTION_server" id="MANIFEST_PREVENTION_server">Server</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 앱 위변조 체크 서버 Address</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PREVENTION_rooting" id="MANIFEST_PREVENTION_rooting">Rooting</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 디버깅시 루팅 상태로 체크됨</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PREVENTION_hash" id="MANIFEST_PREVENTION_hash">Server</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 디버깅시 해당 hash 값으로 API 통신</div>
+		</li>
+	</ul> 
+</div>
+
+<h4 class="sectionedit12">
+	<a name="MANIFEST_PREVENTION_version" id="MANIFEST_PREVENTION_version">Version</a>
+</h4>
+
+<div class="level4">
+	<ul>
+		<li class="level1">
+			<div class="li"> 버전 값</div>
+		</li>
+	</ul> 
+</div>

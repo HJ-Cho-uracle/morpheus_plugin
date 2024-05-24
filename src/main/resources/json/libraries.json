@@ -1,0 +1,65 @@
+[
+  {
+    "downloadUrl": "https://nexus.dev.morpheus.kr/repository/npm/@morpheus/core/-/core-.18.29.tgz",
+    "path": "@morpheus/core/-/core-2.18.29.tgz",
+    "id": "bnBtOmE0OTc5Y2NmNzJkYzcxMjg0YWU5NjBkM2U2YTBhMWJj",
+    "repository": "npm",
+    "format": "npm",
+    "checksum": {
+      "sha1": "d1f561606efdee267b6c037574f89bdfee20adbc"
+    },
+    "contentType": "application/octet-stream",
+    "lastModified": "2023-11-09T00:34:29.504+00:00",
+    "lastDownloaded": "2023-11-29T23:54:45.325+00:00",
+    "uploader": "client",
+    "uploaderIp": "10.10.10.102",
+    "fileSize": 3524064,
+    "blobCreated": null,
+    "npm": {
+      "name": "@morpheus/core",
+      "version": "2.18.29"
+    }
+  },
+  {
+    "downloadUrl": "https://nexus.dev.morpheus.kr/repository/npm/@morpheus/addon-db/-/addon-db-2.14.6.tgz",
+    "path": "@morpheus/addon-db/-/addon-db-2.14.6.tgz",
+    "id": "bnBtOmE0OTc5Y2NmNzJkYzcxMjg0OTgxNGE1M2FiNWI2ZDg4",
+    "repository": "npm",
+    "format": "npm",
+    "checksum": {
+      "sha1": "67917f380f5b931d38b3b8edaa3d398fd6628dc9"
+    },
+    "contentType": "application/octet-stream",
+    "lastModified": "2023-11-09T00:34:27.794+00:00",
+    "lastDownloaded": "2023-11-29T23:54:45.066+00:00",
+    "uploader": "client",
+    "uploaderIp": "172.16.225.128",
+    "fileSize": 211686,
+    "blobCreated": null,
+    "npm": {
+      "name": "@morpheus/addon-db",
+      "version": "2.14.6"
+    }
+  },
+  {
+    "downloadUrl": "https://nexus.dev.morpheus.kr/repository/npm/@morpheus/addon-file/-/addonfile-2.14.10.tgz",
+    "path": "@morpheus/addon-file/-/addon-file-2.14.10.tgz",
+    "id": "bnBtOmE0OTc5Y2NmNzJkYzcxMjgwYTg3ZGU0MzBiNWM1NWQ3",
+    "repository": "npm",
+    "format": "npm",
+    "checksum": {
+      "sha1": "e8739928f2587cb9b4b9a3084cc75eec675efb0c"
+    },
+    "contentType": "application/octet-stream",
+    "lastModified": "2023-11-09T00:34:27.794+00:00",
+    "lastDownloaded": "2023-11-29T23:54:45.439+00:00",
+    "uploader": "client",
+    "uploaderIp": "10.10.10.102",
+    "fileSize": 227345,
+    "blobCreated": null,
+    "npm": {
+      "name": "@morpheus/addon-file",
+      "version": "2.14.10"
+    }
+  }
+]

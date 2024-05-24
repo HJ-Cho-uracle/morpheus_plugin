@@ -1,0 +1,121 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+
+import java.text.SimpleDateFormat
+
+plugins {
+    id('java')
+    id 'org.jetbrains.kotlin.jvm' version '1.9.0'
+    id 'org.jetbrains.intellij' version '1.9.0'
+    id 'org.ajoberstar.reckon' version '0.13.0'
+}
+
+group = "m.client.ide.morpheus"
+version = "0.8.0-" + new SimpleDateFormat("YYYY.MM.DD.HHmm").format(System.currentTimeMillis())
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url 'https://repo.clojars.org'
+        name 'Clojars'
+    }
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+tasks.named('compileKotlin', KotlinCompilationTask) {
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+if (!hasProperty('StudioCompilePath')) {
+    throw new GradleException("No StudioCompilePath value was set, please create gradle.properties file")
+}
+
+// Configure Gradle IntelliJ Plugin
+// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
+intellij {
+    pluginName = 'Morpheus'
+    updateSinceUntilBuild = false
+
+    localPath = project.hasProperty("StudioRunPath") ? StudioRunPath : StudioCompilePath
+    instrumentCode {
+        compilerVersion = '221.*'
+    }
+    instrumentTestCode {
+        compilerVersion = '221.*'
+    }
+
+    // Use IntelliJ IDEA CE because it's the basis of the IntelliJ Platform:
+    type = 'AI'
+
+    // Require the Android plugin (Gradle will choose the correct version):
+    plugins = ['org.jetbrains.android', 'org.jetbrains.plugins.terminal']
+}
+
+ dependencies {
+    implementation 'org.jooq:joor-java-8:0.9.14'
+// https://mvnrepository.com/artifact/org.ow2.asm/asm
+    implementation group: 'org.ow2.asm', name: 'asm', version: '9.1'
+    implementation 'aerial.fs:aerial.fs:1.1.6'
+    implementation 'io.datalbry.jetbrains:jetbrains-client-api:0.0.4'
+
+// https://mvnrepository.com/artifact/org.jdom/jdom2
+    implementation group: 'org.jdom', name: 'jdom2', version: '2.0.5'
+
+    compileOnly fileTree(dir: "$StudioCompilePath/plugins/android/lib", include: ['*.jar'])
+    compileOnly fileTree(dir: "$StudioCompilePath/lib", include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation fileTree(dir: "$StudioCompilePath/plugins/android/li'" +
+            "'" +
+            "b", include: ['*.jar'])
+    testImplementation fileTree(dir: "$StudioCompilePath/lib", include: ['*.jar'])
+    testImplementation 'org.mockito:mockito-core:5.2.0'
+    testImplementation 'com.google.truth:truth:1.1.3'
+}
+
+reckon {
+    scopeFromProp()
+    snapshotFromProp()
+}
+
+tasks {
+    patchPluginXml {
+        sinceBuild.set("212")
+        untilBuild.set("231.*")
+    }
+
+    signPlugin {
+        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
+        privateKey.set(System.getenv("PRIVATE_KEY"))
+        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+    }
+
+    publishPlugin {
+        token.set(System.getenv("PUBLISH_TOKEN"))
+    }
+
+// the tool will run a set of checks against the specified list and output potential issues to look into.
+// It’s also possible to specify the version of plugin verifier to use.
+//    runPluginVerifier {
+//        verifierVersion.set("1.256")
+//        ideVersions.set(listOf("IU-201.8743.12"))
+//    }
+
+//    runIde {
+//        // Absolute path to installed target 3.5 Android Studio to use as
+//        // IDE Development Instance (the "Contents" directory is macOS specific):
+//        ideDir.set(file("/Applications/Android Studio.app/Contents"))
+//    }
+    runIde {
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            ideDir.set(file("C:\\Program Files\\Android\\Android Studio"))
+        } else {
+            ideDir.set(file("/Applications/Android Studio.app/Contents"))
+        }
+    }
+}

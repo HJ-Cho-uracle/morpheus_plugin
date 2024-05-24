@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Morpheus" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Morpheus">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/var/www/html/ide/client/intellij/morpheus/0.8" local="$PROJECT_DIR$" web="/" />
+            <mapping local="" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
