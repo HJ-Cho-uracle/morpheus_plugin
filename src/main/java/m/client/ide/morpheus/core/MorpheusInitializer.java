@@ -10,11 +10,7 @@ import com.intellij.execution.RunManager;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.progress.ProgressIndicator;
-import com.intellij.openapi.progress.ProgressManager;
-import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.startup.StartupActivity;
 import m.client.ide.morpheus.core.android.IntelliJAndroidSdk;
@@ -66,45 +62,45 @@ public class MorpheusInitializer implements StartupActivity {
 
         ensureAndroidSdk(project);
 
-        if (MorpheusConfigManager.isMorpheusProject(project)) {
-            if (OSUtil.isMac()) {
-                autoCreateRunConfig(project);
-                ensureRunConfigSelected(project);
-            }
+        if (MorpheusConfigManager.isMorpheusProject(project) && OSUtil.isMac()) {
+            autoCreateRunConfig(project);
+            ensureRunConfigSelected(project);
         }
     }
 
-    public static boolean checkToolsData(Project project) {
+    public static boolean checkToolsData() {
         String dataPath = CommonUtil.getAppDataLocation();
         File toolsFolder = new File(dataPath, TOOLS_FOLDER_NAME);
         if (!toolsFolder.exists()) {
             int ret = CommonUtil.openQuestion(CoreMessages.get(CoreMessages.InitToolsData),
                     CoreMessages.get(CoreMessages.ToolsNotExist) + CoreMessages.get(CoreMessages.ToolsInitQuestion));
             if (ret == JOptionPane.YES_OPTION) {
-                initialToolsData(project);
+                initialToolsData();
+            } else {
+                return false;
             }
-            return false;
         }
         String serverRevision = IOSSimUtil.getToolsRevision();
         if (!IOSSimUtil.isLatest(toolsFolder, serverRevision) || CoreSettingsState.getInstance().isToolUpdateForce()) {
             int ret = CommonUtil.openQuestion(CoreMessages.get(CoreMessages.InitToolsData), CoreMessages.get(CoreMessages.ToolsInitQuestion));
             if (ret == JOptionPane.YES_OPTION) {
-                initialToolsData(project);
+                initialToolsData();
+            } else {
+                return false;
             }
-            return false;
         }
 
         return true;
     }
 
-    private static void initialToolsData(@NotNull Project project) {
-        @NotNull String npm = NpmUtils.getNpmPathWithCheck(project);
+    private static void initialToolsData() {
+        @NotNull String npm = NpmUtils.getNpmPathWithCheck();
         if (npm.isEmpty()) {
             return;
         }
 
         try {
-            IOSSimUtil.initialToolsData(project);
+            IOSSimUtil.initialToolsData();
         } catch (IOException e) {
             CommonUtil.log(Log.LEVEL_ERROR, e.getMessage(), e);
         }
@@ -173,7 +169,7 @@ public class MorpheusInitializer implements StartupActivity {
         // Set fields.
         final IOSRunConfigField fields = new IOSRunConfigField(project);
         fields.setIosLaunchType(IOSLaunchTargetType.SIMULATOR);
-        @NotNull ArrayList<LaunchUtil.SimulatorInfo> simInfos = LaunchUtil.getIOSSimulators();
+        @NotNull ArrayList<LaunchUtil.SimulatorInfo> simInfos = LaunchUtil.getIOSSimulators(false);
         if (simInfos.size() > 0) {
             fields.setIosTargetSdkVersion(simInfos.get(0).getOs());
         }

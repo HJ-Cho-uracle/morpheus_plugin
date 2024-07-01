@@ -3,7 +3,7 @@ package m.client.ide.morpheus.framework.template;
 import com.intellij.ui.table.JBTable;
 import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.ui.dialog.licensemanager.LicenseTableModel;
-import org.gradle.internal.impldep.com.esotericsoftware.minlog.Log;
+import com.esotericsoftware.minlog.Log;
 
 public class LicenseTable extends JBTable {
     public LicenseTable(LicenseTableModel licenseTableModel) {

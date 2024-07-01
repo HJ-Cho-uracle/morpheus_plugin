@@ -6,7 +6,6 @@ import com.android.utils.GrabProcessOutput.IProcessOutput;
 import com.android.utils.GrabProcessOutput.Wait;
 import com.esotericsoftware.minlog.Log;
 import com.intellij.openapi.progress.ProgressIndicator;
-import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
@@ -56,7 +55,7 @@ public class IOSSimUtil {
     public static final long ONE_MB = ONE_KB * ONE_KB;
     private static final long FILE_COPY_BUFFER_SIZE = ONE_MB * 30;
 
-    public static void initialToolsData(@NotNull Project project) throws IOException {
+    public static void initialToolsData() throws IOException {
         String dataPath = CommonUtil.getAppDataLocation();
         File toolsFolder = new File(dataPath, TOOLS_FOLDER_NAME);
         String serverRevision = getToolsRevision(new URL(DOWNLOADPAGE_URL + REVISION_FILE_NAME));
@@ -114,8 +113,7 @@ public class IOSSimUtil {
                 }
             }
         };
-
-        ProgressManager.getInstance().run(modalTask);
+        ExecCommandUtil.runProcessWithProgressSynchronously(modalTask, modalTask.getTitle(), false, null);
 
         iosSimNpmInstall(toolsFolder, serverRevision);
     }
@@ -148,7 +146,7 @@ public class IOSSimUtil {
                 }
             }
         };
-        ProgressManager.getInstance().run(modalTask);
+        ExecCommandUtil.runProcessWithProgressSynchronously(modalTask, modalTask.getTitle(), false, null);
     }
 
     private static boolean npmInstallWithCommand(String basePath) {

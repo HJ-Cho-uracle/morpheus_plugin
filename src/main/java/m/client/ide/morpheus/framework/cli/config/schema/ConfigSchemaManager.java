@@ -8,8 +8,8 @@ import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.core.utils.FileUtil;
 import m.client.ide.morpheus.framework.cli.jsonParam.AbstractJsonElement;
 import net.minidev.json.parser.JSONParser;
-import org.jetbrains.annotations.Nullable;
 import net.minidev.json.parser.ParseException;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 
@@ -31,7 +31,7 @@ public class ConfigSchemaManager extends AbstractJasonFileManager {
     }
 
     @Override
-    public String getJSONString() {
+    protected String makeJsonString() {
         return null;
     }
 

@@ -60,7 +60,7 @@ public class MorpheusProjectInfo {
         legacyJsOutPut = "";
     }
 
-    public void update(MorpheusProjectInfo info) {
+    public void update(@NotNull MorpheusProjectInfo info) {
         projectName = info.projectName;
         applicationId = info.applicationId;
         androidAppName = info.androidAppName;

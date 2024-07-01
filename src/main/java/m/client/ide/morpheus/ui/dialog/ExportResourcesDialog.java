@@ -8,6 +8,7 @@ import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import m.client.ide.morpheus.core.utils.CommonUtil;
+import m.client.ide.morpheus.core.utils.ExecCommandUtil;
 import m.client.ide.morpheus.core.utils.FileUtil;
 import m.client.ide.morpheus.core.utils.PreferenceUtil;
 import m.client.ide.morpheus.launch.common.LaunchUtil;
@@ -116,8 +117,7 @@ public class ExportResourcesDialog extends DialogWrapper {
                 }
             }
         };
-//        modalTask.queue();
-        ProgressManager.getInstance().run(modalTask);
+        ExecCommandUtil.runProcessWithProgressSynchronously(modalTask, modalTask.getTitle(), false, project);
 
         return output.toString();
     }

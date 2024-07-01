@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraries>
+	<library id="m.client.library.addon.media" type="addon">
+		<api>2.1</api>
+		<name>애드온 Media 라이브러리</name>
+		<description><![CDATA[Media와 관련한 기능을 제공합니다.
+  A. 미디어 정보(Info), 카메라, 갤러리 호출, 녹취, 미디어 삭제 기능 등을 제공합니다.]]></description>
+		<revision>5.40</revision>
+		<history><![CDATA[# 2.1.5.40 ( 2023.08.11 )
+  - [Android 2.1.5.27] 갤러리 앱 연동추가(M.media.picker mode:multi, media:all) [최신 core 라이브러리 적용 필요]]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.media.WNInterfaceMedia</interface>
+		</interfaces>
+	</library>
+</libraries>

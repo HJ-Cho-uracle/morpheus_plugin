@@ -51,10 +51,10 @@ public class ExportResourcesView {
                     }
                 };
 
-                @NotNull File desrination = new File(textFieldDestPath.getText());
+                @NotNull File destination = new File(textFieldDestPath.getText());
 
-                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByIoFile(desrination.isFile() ? desrination.getParentFile() : desrination);
-                String fileName = desrination.isFile() ? desrination.getName() : RESOURCE + ZipUtils.extension;
+                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByIoFile(destination.isFile() ? destination.getParentFile() : destination);
+                String fileName = destination.isFile() ? destination.getName() : RESOURCE + ZipUtils.extension;
                 @Nullable VirtualFileWrapper selectedFile = new MacFileSaverDialog(directoryDescriptor, project).save(file, fileName);
                 if (selectedFile != null) {
                     String path = selectedFile.getFile().getPath();

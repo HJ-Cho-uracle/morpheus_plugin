@@ -1,8 +1,5 @@
 package m.client.ide.morpheus.core.component.checktreetable;
 
-import m.client.ide.morpheus.core.utils.CommonUtil;
-import org.gradle.internal.impldep.com.esotericsoftware.minlog.Log;
-
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.tree.TreeModel;

@@ -1,5 +1,6 @@
 package m.client.ide.morpheus.ui.action;
 
+import com.esotericsoftware.minlog.Log;
 import com.intellij.ide.impl.NewProjectUtil;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.ide.projectView.ProjectView;
@@ -20,12 +21,10 @@ import com.intellij.ui.OffsetIcon;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManagerEvent;
 import com.intellij.ui.content.ContentManagerListener;
-import com.intellij.util.ui.UIUtil;
 import icons.CoreIcons;
 import m.client.ide.morpheus.MessageBundle;
 import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.framework.cli.MorpheusCLIUtil;
-import org.gradle.internal.impldep.com.esotericsoftware.minlog.Log;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -55,9 +54,8 @@ public class MorpheusNewProjectAction extends AnAction implements DumbAware {
         NewProjectWizard wizard = new NewProjectWizard(null, ModulesProvider.EMPTY_MODULES_PROVIDER, null);
         NewProjectUtil.createNewProject(wizard);
 
-        @Nullable Project project = ProjectUtil.findProject(Path.of(wizard.getNewProjectFilePath()));
+        @Nullable Project project = ProjectUtil.findAndFocusExistingProjectForPath(Path.of(wizard.getNewProjectFilePath()));
         if (project != null) {
-//          showProjectInProjectWindow(project);
             addViewContentManagerListener(project);
         }
     }
@@ -93,7 +91,7 @@ public class MorpheusNewProjectAction extends AnAction implements DumbAware {
         }
     }
 
-    private void showProjectInProjectWindow(@NotNull Project project) {
+    public void showProjectInProjectWindow(@NotNull Project project) {
         ApplicationManager.getApplication().invokeLater(() -> {
             DumbService.getInstance(project).runWhenSmart(() -> {
                 ApplicationManager.getApplication().invokeLater(() -> {

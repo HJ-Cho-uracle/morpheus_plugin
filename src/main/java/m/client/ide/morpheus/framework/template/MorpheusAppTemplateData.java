@@ -12,21 +12,21 @@ public class MorpheusAppTemplateData {
     private String androidPackage;
     private String iOSAppName;
     private String iOSBundleId;
-    private @NotNull String license;
+    private @NotNull String applicationId; // 라이센스 app id
     private @NotNull List<Boolean> cpus;
 
     private List<LibraryParam> libraries;
 
     private MorpheusTemplateHelper.TemplateType type;
 
-    public MorpheusAppTemplateData(@NotNull String license,
+    public MorpheusAppTemplateData(@NotNull String applicationId,
                                    @NotNull String androidAppName, @NotNull String androidPackageName,
                                    @NotNull String iOSAppName, @NotNull String iOSBundleId,
                                    @NotNull List<Boolean> cpus, @Nullable List<LibraryParam> libraries, MorpheusTemplateHelper.TemplateType type) {
         Intrinsics.checkNotNullParameter(androidAppName, "myApp");
-        Intrinsics.checkNotNullParameter(license, "license");
+        Intrinsics.checkNotNullParameter(applicationId, "license");
         Intrinsics.checkNotNullParameter(cpus, "cpus");
-        this.license = license;
+        this.applicationId = applicationId;
         this.androidAppName = androidAppName;
         this.androidPackage = androidPackageName;
         this.iOSAppName = iOSAppName;
@@ -50,13 +50,13 @@ public class MorpheusAppTemplateData {
 
     @NotNull
     public String toString() {
-        return "MorpheusAppTemplateData(License=" + this.license +
+        return "MorpheusAppTemplateData(License=" + this.applicationId +
                 ", AppName:" + androidAppName + ", Package:" + androidPackage +
                 ", templateType=" + this.type  + ")";
     }
 
     public int hashCode() {
-        int result = this.license.hashCode();
+        int result = this.applicationId.hashCode();
         result = result * 31 + this.androidAppName.hashCode();
         result = result * 31 + this.cpus.hashCode();
         result = result * 31 + this.libraries.hashCode();
@@ -71,7 +71,7 @@ public class MorpheusAppTemplateData {
             return false;
         } else {
             MorpheusAppTemplateData var2 = (MorpheusAppTemplateData)other;
-            if (!Intrinsics.areEqual(this.license, var2.license)) {
+            if (!Intrinsics.areEqual(this.applicationId, var2.applicationId)) {
                 return false;
             } else if (!Intrinsics.areEqual(this.androidAppName, var2.androidAppName)) {
                 return false;
@@ -95,8 +95,8 @@ public class MorpheusAppTemplateData {
         return androidAppName;
     }
 
-    public @NotNull String getLicense() {
-        return license;
+    public @NotNull String getApplicationId() {
+        return applicationId;
     }
 
     public List<Boolean> getCpus() {
@@ -139,8 +139,8 @@ public class MorpheusAppTemplateData {
         this.iOSBundleId = iOSBundleId;
     }
 
-    public void setLicense(String license) {
-        this.license = license;
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
     }
 
     public void setCpus(List<Boolean> cpus) {

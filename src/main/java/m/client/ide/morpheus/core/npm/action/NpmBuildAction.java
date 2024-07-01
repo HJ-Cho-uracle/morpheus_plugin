@@ -11,10 +11,7 @@ import m.client.ide.morpheus.core.constants.Const;
 import m.client.ide.morpheus.core.messages.NLS;
 import m.client.ide.morpheus.core.npm.NpmConstants;
 import m.client.ide.morpheus.core.npm.NpmUtils;
-import m.client.ide.morpheus.core.utils.CommonUtil;
-import m.client.ide.morpheus.core.utils.FileUtil;
-import m.client.ide.morpheus.core.utils.OSUtil;
-import m.client.ide.morpheus.core.utils.StringUtil;
+import m.client.ide.morpheus.core.utils.*;
 import m.client.ide.morpheus.framework.cli.config.MorpheusConfigManager;
 import m.client.ide.morpheus.framework.cli.jsonParam.AbstractJsonElement;
 import m.client.ide.morpheus.ui.message.UIMessages;
@@ -23,7 +20,7 @@ import net.minidev.json.parser.JSONParser;
 import net.minidev.json.parser.ParseException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.plugins.terminal.TerminalView;
+import org.jetbrains.plugins.terminal.ShellTerminalWidget;
 
 import java.awt.*;
 import java.io.File;
@@ -146,11 +143,11 @@ public class NpmBuildAction extends AnAction {
             CommonUtil.openErrorDialog("알림", NLS.bind("''{0}'' 실행 전 ''설치(install)'' 실행이 선행되어야 합니다.", nodeCommand.getValue()));
             return;
         }
-        TerminalView terminalView = TerminalView.getInstance(project);
         String commandLine = StringUtil.wrapDoubleQuatation(npm) + Const.SPACE_STRING +
                 NpmConstants.RUN_COMMAND + Const.SPACE_STRING + nodeCommand.getKey() + ENTER_STRING;
         try {
-            terminalView.createLocalShellWidget(project.getBasePath(), "Name").executeCommand(commandLine);
+            @NotNull ShellTerminalWidget shellWidget = ExecCommandUtil.getShellWidget(project, project.getName() + "(Npm)", project.getBasePath());
+            shellWidget.executeCommand(commandLine);
         } catch (IOException err) {
             err.printStackTrace();
         }

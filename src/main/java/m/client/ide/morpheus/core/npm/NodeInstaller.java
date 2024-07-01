@@ -4,24 +4,19 @@ import com.android.annotations.Nullable;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
-import com.intellij.terminal.JBTerminalWidget;
 import m.client.ide.morpheus.core.config.CoreConfigurable;
-import m.client.ide.morpheus.core.constants.Const;
 import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.core.utils.ExecCommandUtil;
 import m.client.ide.morpheus.core.utils.PreferenceUtil;
 import m.client.ide.morpheus.framework.messages.FrameworkMessages;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.terminal.ShellTerminalWidget;
-import org.jetbrains.plugins.terminal.TerminalView;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 public class NodeInstaller {
 
@@ -116,7 +111,7 @@ public class NodeInstaller {
 
     private @NotNull void installNodeJSForMac(@NotNull Project project) {
         // installs NVM (Node Version Manager)
-        ShellTerminalWidget terminal = getTerminalWidget(project, project.getBasePath());
+        ShellTerminalWidget terminal = ExecCommandUtil.getShellWidget(project, "Install NodeJS", project.getBasePath());
         String installNvm = "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash";
         try {
             terminal.executeCommand(installNvm);
@@ -221,38 +216,4 @@ public class NodeInstaller {
 
         return generalCommandLine;
     }
-
-    public static @Nullable ShellTerminalWidget getTerminalWidget(Project project, String basePath) {
-        if (project == null) {
-            project = ProjectManager.getInstance().getDefaultProject();
-        }
-        if (project == null) {
-            return null;
-        }
-        TerminalView terminalView = project.getService(TerminalView.class);
-        if (terminalView == null) {
-            return null;
-        }
-
-        if (basePath == null || basePath.isEmpty()) {
-            basePath = project.getBasePath();
-        }
-
-        Set<JBTerminalWidget> widgets = terminalView.getWidgets();
-        for (JBTerminalWidget widget : widgets) {
-            if (widget.getProject().equals(project)) {
-                ShellTerminalWidget shellWidget = (ShellTerminalWidget) Objects.requireNonNull(widget);
-                String commandLine = "cd" + Const.SPACE_STRING + basePath + Const.EMPTY_STRING;
-                try {
-                    shellWidget.executeCommand(commandLine);
-                } catch (IOException err) {
-                    err.printStackTrace();
-                }
-                return shellWidget;
-            }
-        }
-
-        return terminalView.createLocalShellWidget(basePath, project.getName());
-    }
-
 }

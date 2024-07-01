@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -62,7 +63,21 @@ public class XMLUtil {
 
 		return doc;
 	}
-	
+
+	@Nullable public static Document getDocument(@NotNull InputStream inputStream) {
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db;
+		Document doc = null;
+		try {
+			db = dbf.newDocumentBuilder();
+			doc = db.parse(inputStream);
+		} catch (Exception e) {
+//			LOG.error(e);
+		}
+
+		return doc;
+	}
+
 	@Nullable public static Document getDocument(@NotNull VirtualFile documentFile) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db;
@@ -105,6 +120,32 @@ public class XMLUtil {
 		StreamResult sr = new StreamResult(sw);
 		transformer.transform(domSource, sr);
 		return sw.toString();
+	}
+
+	public static void addXMLNamespace(Element manifestRoot, Element configManifestElement) {
+		if(manifestRoot == null || configManifestElement == null) { return; }
+
+		NamedNodeMap configManifestAttributes = configManifestElement.getAttributes();
+		if(configManifestAttributes == null) { return; }
+
+		String EMPTYSTRING = "";
+		String ENTITY_COLON = ":";
+		String XMLNS_PREFIX = "xmlns";
+		for(int i=0; i<configManifestAttributes.getLength(); i++) {
+			Node attribute = configManifestAttributes.item(i);
+
+			String name = attribute.getNodeName();
+			String value = attribute.getNodeValue();
+			int col = name.lastIndexOf(ENTITY_COLON);
+			final String prefix = (col > 0) ? name.substring(0, col) : EMPTYSTRING;
+
+			if (!EMPTYSTRING.equals(prefix))
+			{
+				if (prefix.equals(XMLNS_PREFIX)) {
+					manifestRoot.setAttributeNS(XMLConstants.XMLNS_ATTRIBUTE_NS_URI, name, value);
+				}
+			}
+		}
 	}
 
 	private static byte @NotNull [] writerBOSFlush(Document newDoc, ByteArrayOutputStream bos, @NotNull PrintWriter writer) throws TransformerException {
@@ -406,5 +447,9 @@ public class XMLUtil {
 		}
 
 		return null;
+	}
+
+	public static Element getElementByName(Element element, String child) {
+		return getFirstChildElementByName(element, child);
 	}
 }

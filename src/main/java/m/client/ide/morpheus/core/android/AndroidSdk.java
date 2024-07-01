@@ -18,7 +18,7 @@ import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import m.client.ide.morpheus.core.utils.CommonUtil;
-import org.gradle.internal.impldep.com.esotericsoftware.minlog.Log;
+import com.esotericsoftware.minlog.Log;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

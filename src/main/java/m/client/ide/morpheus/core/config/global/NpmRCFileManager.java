@@ -2,6 +2,7 @@ package m.client.ide.morpheus.core.config.global;
 
 import com.esotericsoftware.minlog.Log;
 import m.client.ide.morpheus.core.constants.Const;
+import m.client.ide.morpheus.core.npm.NpmConstants;
 import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.core.utils.FileUtil;
 import m.client.ide.morpheus.core.utils.OSUtil;
@@ -13,12 +14,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class NpmRCFileManager {
-    private static final String file_name = OSUtil.isMac() ? Const.USER_HOME + File.separator + ".npmrc" : "";
+    private static final String file_name = OSUtil.isMac() ? Const.USER_HOME + File.separator + NpmConstants.NPMRC_FILE : "";
 
     public static final String KEY_REGISTRY = "@morpheus:registry";
     private static final String URL_NEXUS_BASE = "https://nexus.dev.morpheus.kr";
 
-    private static final String URL_REPOSITORY_NPM = "/repository/npm/";
+    private static final String URL_REPOSITORY_NPM = "/repository/npm";
 
 
     public String getNexusUrl() {
@@ -40,11 +41,20 @@ public class NpmRCFileManager {
     }
 
     public void createNpmRCFile() {
-        createNpmRCFile(this.nexusUrl);
+        createNpmRCFile(file_name, this.nexusUrl);
     }
 
-    public static void createNpmRCFile(String nexusUrl) {
-        File rcFile = new File(file_name);
+    public static void createNpmRCFile(String rcFilePath) {
+        createNpmRCFile(rcFilePath, URL_NEXUS_BASE);
+    }
+
+    public static void createNpmRCFile(String rcFilePath, String nexusUrl) {
+        if(rcFilePath == null || rcFilePath.isEmpty()) {
+            CommonUtil.log(Log.LEVEL_DEBUG, "Invalid file path for '.npmrc' : " + rcFilePath); // $NON-NLS-1#
+            return;
+        }
+
+        File rcFile = new File(rcFilePath);
         if (rcFile.exists()) {
             rcFile.delete();
         }

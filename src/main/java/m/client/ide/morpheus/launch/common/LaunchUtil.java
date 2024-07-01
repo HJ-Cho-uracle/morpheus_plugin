@@ -11,12 +11,14 @@ import m.client.ide.morpheus.core.utils.OSUtil;
 import m.client.ide.morpheus.framework.FrameworkConstants;
 import m.client.ide.morpheus.launch.IOSDeviceType;
 import m.client.ide.morpheus.ui.message.UIMessages;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
@@ -165,7 +167,8 @@ public class LaunchUtil {
             this.infos = infos;
         }
 
-        private String getInfo(DeployInfo info) {
+        @Contract(pure = true)
+        private String getInfo(@NotNull DeployInfo info) {
             return infos.length >= info.value ? infos[info.value] : "";
         }
 

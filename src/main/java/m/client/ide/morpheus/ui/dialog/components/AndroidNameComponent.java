@@ -139,7 +139,7 @@ public class AndroidNameComponent extends AppNameComponent {
                 androidId = androidId.replace("*", "");
                 this.prefix_androidId = androidId;
                 textFieldAndroidPackage.setEnabled(true);
-            } else if(androidId.startsWith(LicenseManagerView.LICENSE_EDUCATION)) {
+            } else if(androidId.startsWith(LicenseManagerView.EDUCATION_PREFIX)) {
                 textFieldAndroidPackage.setEnabled(true);
             } else {
                 this.prefix_androidId = null;

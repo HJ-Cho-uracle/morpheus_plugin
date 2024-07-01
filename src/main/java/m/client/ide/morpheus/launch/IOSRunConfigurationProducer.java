@@ -75,7 +75,11 @@ public class IOSRunConfigurationProducer extends RunConfigurationProducer<IOSRun
      */
     @Override
     public @Nullable ConfigurationFromContext createConfigurationFromContext(@NotNull ConfigurationContext context) {
-        return super.createConfigurationFromContext(context);
+        Project project = context.getProject();
+        if(OSUtil.isMac() && MorpheusConfigManager.isMorpheusProject(project))
+            return super.createConfigurationFromContext(context);
+
+        return null;
     }
 
     /**

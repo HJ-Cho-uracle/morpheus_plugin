@@ -1,12 +1,6 @@
 package m.client.ide.morpheus.framework.messages;
 
 import com.intellij.DynamicBundle
-import com.intellij.notification.Notification
-import com.intellij.notification.NotificationListener
-import com.intellij.notification.NotificationType
-import com.intellij.notification.Notifications
-import com.intellij.openapi.project.Project
-import icons.FlutterIcons
 import org.jetbrains.annotations.PropertyKey
 
 private const val BUNDLE = "FrameworkResourceBundle"
@@ -52,6 +46,15 @@ object FrameworkMessages : DynamicBundle(BUNDLE) {
     const val installNpmTerminal            = "installNpmTerminal"
     const val setNpmPath                    = "setNpmPath"
     const val installNodeAndSet             = "installNodeAndSet"
+
+    const val convertProject                = "convertProject"
+    const val UnApplyLibraries              = "UnApplyLibraries"
+    const val tempDownload                  = "tempDownload"
+
+    const val applyDependencies             = "applyDependencies"
+    const val loadUnapplyInfo               = "loadUnapplyInfo"
+    const val loadUnapplyLibrary            = "loadUnapplyLibrary"
+    const val terminalNotFound              = "terminalNotFound"
 
 
     @JvmStatic

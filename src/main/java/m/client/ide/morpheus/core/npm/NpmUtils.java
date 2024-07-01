@@ -1,17 +1,21 @@
 package m.client.ide.morpheus.core.npm;
 
+import com.esotericsoftware.minlog.Log;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import m.client.ide.morpheus.core.config.CoreConfigurable;
 import m.client.ide.morpheus.core.config.CoreSettingsState;
 import m.client.ide.morpheus.core.constants.Const;
+import m.client.ide.morpheus.core.resource.LibraryType;
 import m.client.ide.morpheus.core.utils.*;
+import m.client.ide.morpheus.framework.eclipse.library.Library;
 import m.client.ide.morpheus.framework.messages.FrameworkMessages;
 import m.client.ide.morpheus.ui.message.UIMessages;
 import org.codehaus.plexus.util.FileUtils;
 import org.jetbrains.annotations.*;
-import org.jetbrains.plugins.terminal.TerminalView;
+import org.jetbrains.plugins.terminal.ShellTerminalWidget;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,10 +50,66 @@ public class NpmUtils {
         }
 
         if (NpmUtils.hasNpmFile()) {
-            TerminalView terminalView = TerminalView.getInstance(project);
             String commandLine = StringUtil.wrapDoubleQuatation(NpmUtils.getNpmFileName()) + Const.SPACE_STRING + NpmConstants.INSTALL_COMMAND + ENTER_STRING;
             try {
-                terminalView.createLocalShellWidget(basePath, "Name").executeCommand(commandLine);
+                @NotNull ShellTerminalWidget shellWidget = ExecCommandUtil.getShellWidget(project, project.getName(), basePath);
+                shellWidget.executeCommand(commandLine);
+            } catch (IOException err) {
+                err.printStackTrace();
+                return false;
+            }
+        } else {
+            PreferenceUtil.openPreference(project, CoreConfigurable.class);
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean applyDependencies(Project project, List<Library> libraryList) {
+        String npm = NpmUtils.findNpm();
+        if (npm.isEmpty()) {
+            String log = "[installMorpheusCLI error : Node is not exist or too row version.";
+            CommonUtil.log(Log.LEVEL_ERROR, log);
+            return false;
+        }
+
+        String[] commands = new String[libraryList.size() + 3];
+        commands[0] = npm;
+        commands[1] = "i";
+        commands[2] = "@morpheus/cli";
+        StringBuilder libraries = new StringBuilder();
+        for (int i = 0; i < libraryList.size(); i++) {
+            Library library = libraryList.get(i);
+            String cliId = library.getCliId();
+            if (library.getLibraryType().equals(LibraryType.ADDON) && cliId.indexOf("locale") >= 0) {
+                continue;
+            }
+            commands[i + 3] = cliId;
+        }
+
+        ExecCommandUtil.execProcessHandler(FrameworkMessages.get(FrameworkMessages.applyDependencies), project, new File(project.getBasePath()), commands, null);
+
+        return true;
+    }
+
+    public static boolean applyDependenciesWithTerminal(Project project, ArrayList<Library> libraryList) {
+        if (project == null) {
+            project = ProjectManager.getInstance().getDefaultProject();
+        }
+
+        if (NpmUtils.hasNpmFile()) {
+            StringBuilder commandLine = new StringBuilder(StringUtil.wrapDoubleQuatation(NpmUtils.getNpmFileName()));
+            commandLine.append(Const.SPACE_STRING).append("i");
+            commandLine.append(Const.SPACE_STRING).append("@morpheus/cli");
+
+            for (Library library : libraryList) {
+                commandLine.append(Const.SPACE_STRING).append(library.getCliId());
+            }
+
+            try {
+                @NotNull ShellTerminalWidget shellWidget = ExecCommandUtil.getShellWidget(project, project.getName(), project.getBasePath());
+                shellWidget.executeCommand(commandLine.toString());
             } catch (IOException err) {
                 err.printStackTrace();
                 return false;
@@ -126,6 +186,10 @@ public class NpmUtils {
         return false;
     }
 
+    public static @NotNull String getNpmPathWithCheck() {
+        return getNpmPathWithCheck(ProjectManager.getInstance().getDefaultProject());
+    }
+
     public static @NotNull String getNpmPathWithCheck(Project project) {
         String npm = findNpm();
         if (npm.isEmpty()) {
@@ -158,7 +222,9 @@ public class NpmUtils {
         if (!npmPath.isEmpty()) {
             File npmFile = new File(npmPath);
             if (npmFile.exists()) {
-                return npmFile.getAbsolutePath();
+                npmPath = npmFile.getAbsolutePath();
+                CoreSettingsState.getInstance().setNpmPath(npmPath);
+                return npmPath;
             }
         }
 
@@ -180,7 +246,9 @@ public class NpmUtils {
             File npmFile = new File(directory, npmFileName);
 
             if (npmFile.exists()) {
-                return npmFile.getAbsolutePath();
+                npmPath = npmFile.getAbsolutePath();
+                CoreSettingsState.getInstance().setNpmPath(npmPath);
+                return npmPath;
             }
         }
         return "";

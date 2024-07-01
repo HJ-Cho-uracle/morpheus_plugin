@@ -11,7 +11,8 @@ plugins {
 }
 
 group = "m.client.ide.morpheus"
-version = "0.8.0-" + new SimpleDateFormat("YYYY.MM.DD.HHmm").format(System.currentTimeMillis())
+//version = "0.8.0-" + new SimpleDateFormat("YYYY.MM.DD.HHmm").format(System.currentTimeMillis())
+version = ideaVersion + "_0.8.0-" + new SimpleDateFormat("YYYY.MM.DD").format(System.currentTimeMillis())
 
 repositories {
     mavenCentral()
@@ -56,7 +57,7 @@ intellij {
     plugins = ['org.jetbrains.android', 'org.jetbrains.plugins.terminal']
 }
 
- dependencies {
+dependencies {
     implementation 'org.jooq:joor-java-8:0.9.14'
 // https://mvnrepository.com/artifact/org.ow2.asm/asm
     implementation group: 'org.ow2.asm', name: 'asm', version: '9.1'
@@ -65,6 +66,16 @@ intellij {
 
 // https://mvnrepository.com/artifact/org.jdom/jdom2
     implementation group: 'org.jdom', name: 'jdom2', version: '2.0.5'
+
+// AndroidStudio 에서 class not found exception 발생    ///////////////////////////////
+// https://mvnrepository.com/artifact/org.tmatesoft.svnkit/svnkit
+    implementation group: 'org.tmatesoft.svnkit', name: 'svnkit', version: '1.9.0'
+// https://mvnrepository.com/artifact/org.tmatesoft.svnkit/svnkit-cli
+    implementation group: 'org.tmatesoft.svnkit', name: 'svnkit-cli', version: '1.9.0'
+/////////////////////////////////////////////////////////////////////////////////////
+
+// https://mvnrepository.com/artifact/com.github.adedayo.intellij.sdk/svn4idea
+    implementation group: 'com.github.adedayo.intellij.sdk', name: 'svn4idea', version: '142.1'
 
     compileOnly fileTree(dir: "$StudioCompilePath/plugins/android/lib", include: ['*.jar'])
     compileOnly fileTree(dir: "$StudioCompilePath/lib", include: ['*.jar'])
@@ -86,7 +97,7 @@ reckon {
 tasks {
     patchPluginXml {
         sinceBuild.set("212")
-        untilBuild.set("231.*")
+        untilBuild.set("221.*")
     }
 
     signPlugin {

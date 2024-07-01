@@ -2,6 +2,7 @@ package m.client.ide.morpheus.framework.cli.jsonParam;
 
 import com.esotericsoftware.minlog.Log;
 import com.intellij.openapi.application.ApplicationManager;
+import m.client.ide.morpheus.core.resource.LibraryType;
 import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.ui.dialog.librarymanager.libtree.Status;
 import net.minidev.json.JSONArray;
@@ -356,4 +357,16 @@ public class LibraryParam extends AbstractJsonElement {
     public LibraryManagedParam getLibraryManageParam() {
         return libraryManageParam;
     }
+
+    public String getCliId() {
+        StringBuilder cliId = new StringBuilder("@morpheus/");
+        if (category == LibraryType.CORE.toString()) {
+            cliId.append(category);
+        } else {
+            cliId.append(category).append('-').append(id.substring(id.lastIndexOf('.') + 1).toLowerCase());
+        }
+
+        return cliId.toString();
+    }
+
 }

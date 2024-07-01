@@ -17,6 +17,7 @@ import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.util.PlatformUtils;
+import m.client.ide.morpheus.MessageBundle;
 import m.client.ide.morpheus.core.constants.CoreConstants;
 import m.client.ide.morpheus.core.messages.CoreMessages;
 import nonapi.io.github.classgraph.utils.JarUtils;
@@ -35,6 +36,8 @@ import java.util.List;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static m.client.ide.morpheus.launch.common.IOSSimUtil.TOOLS_FOLDER_NAME;
+
 @SuppressWarnings("restriction")
 public class CommonUtil {
     private static final Logger LOG = Logger.getInstance(CommonUtil.class);
@@ -43,7 +46,9 @@ public class CommonUtil {
     public static final String ExportAndroidWizard_ID = "m.client.ide.ui.ExportAndroidWizard";
     public static final String ExportiOSWizard_ID = "m.client.ide.ui.ExportiOSWizard";
     public static final String ExportProjectWizard_ID = "m.client.ide.framework.project.ExportProjectWizard";
-    public static final String SYSTEM_USR_BIN = "/usr/bin";
+//    public static final String SYSTEM_USR_BIN = "/usr/bin";
+    public static final String SYSTEM_USR_LOCAL_BIN = "/usr/local/bin";
+    public static final String SYSTEM_USR_BIN = SYSTEM_USR_LOCAL_BIN;
     public static final String COMMOND_PYTHON = "python";
     public static final String MODPBXPROJ = "mod-pbxproj";
     public static final String MODPBXPROJ3 = "mod-pbxproj3";
@@ -244,8 +249,7 @@ public class CommonUtil {
     }
 
     public static ResourceBundle getApplicationBundle() {
-        ResourceBundle applicationFile = ResourceBundle.getBundle("application");
-        return applicationFile;
+        return MessageBundle.INSTANCE.getResourceBundle();
     }
 
     public static URL getDocURL() {
@@ -258,23 +262,13 @@ public class CommonUtil {
         return url;
     }
 
-    public static String getDocURLString() {
+    public static @NotNull String getDocURLString() {
         return getApplicationBundle().getString("docURL");
     }
 
-    public static String[] getFeatureGroups() {
-        return getApplicationBundle().getString("featureGroups").split(",");
+    public static @NotNull String getApplicationProperty(String key) {
+        return getApplicationBundle().getString(key);
     }
-
-    /**
-     * 공지사항 리스트 URL 리턴
-     *
-     * @return
-     */
-    public static String getNoticeListURL() {
-        return getApplicationBundle().getString("noticeListURL");
-    }
-
 
     /**
      * MethodName	: getAppDataLocation
@@ -454,7 +448,7 @@ public class CommonUtil {
         return properties;
     }
 
-    public static void setProperties(File propertiesFile, Properties properties, String comments) {
+    public static void setProperties(@NotNull File propertiesFile, Properties properties, String comments) {
         OutputStream os = null;
         try {
             if (!propertiesFile.canWrite()) {
@@ -533,47 +527,34 @@ public class CommonUtil {
         if (pythonCmd == null || pythonCmd.getCmd().isEmpty()) {
             pythonCmd = new PythonCmd();
 
-            File defaultPython = new File(SYSTEM_USR_BIN, COMMOND_PYTHON);
-            if (defaultPython.exists() && defaultPython.canExecute()) {
-                pythonCmd.cmd = defaultPython.getAbsolutePath();
+            String python = ExecCommandUtil.findPathWithWhich(COMMOND_PYTHON + "3").trim();
+            if(python != null && !python.isEmpty()) {
+                pythonCmd.cmd = python;
             } else {
-                File folder = new File(SYSTEM_USR_BIN);
-                File[] pythons = folder.listFiles(new FileFilter() {
-
-                    @Override
-                    public boolean accept(File pathname) {
-                        // TODO Auto-generated method stub
-                        String name = pathname.getName();
-                        if (name.startsWith(COMMOND_PYTHON) &&
-                                Character.isDigit(name.charAt(6)))
-                            return true;
-
-                        return false;
-                    }
-                });
-                if (pythons != null && pythons.length > 0) {
-                    for (File python : pythons) {
-                        log(Log.LEVEL_DEBUG, SYSTEM_USR_BIN + " ] Finded Python ----> " + python.getAbsolutePath());
-                        if (python.canExecute()) {
-                            pythonCmd.cmd = python.getAbsolutePath();
-                            break;
-                        }
+                python = ExecCommandUtil.findPathWithWhich(COMMOND_PYTHON).trim();
+                if(python != null && !python.isEmpty()) {
+                    pythonCmd.cmd = python;
+                } else {
+                    python = findPythonExecFile();
+                    if(python != null && !python.isEmpty()) {
+                        pythonCmd.cmd = python;
+                    } else {
+                        pythonCmd = null;
+                        return null;
                     }
                 }
             }
-            if (pythonCmd.cmd == null || pythonCmd.cmd.isEmpty()) {
-                pythonCmd = null;
-                return null;
-            }
 
-            Path modPbxprojPath = getPath(getToolsPath(), MODPBXPROJ);
+            Path toolsPath = getToolsPath();
+            Path modPbxprojPath = getPath(toolsPath, MODPBXPROJ);
             pythonCmd.version = getPythonVersion(pythonCmd.cmd);
             log(Log.LEVEL_DEBUG, "Pyphon command result ] " + pythonCmd.version);
             String xcodeVersion = getXcodeVersion();
-            if (!xcodeVersion.isEmpty() && xcodeVersion.compareToIgnoreCase("14") >= 0) {
-                modPbxprojPath = getPath("tools", MODPBXPROJ14);
-            } else if (!pythonCmd.version.isEmpty() && pythonCmd.version.compareToIgnoreCase("3") >= 0) {
-                modPbxprojPath = getPath("tools", MODPBXPROJ3);
+            if (!pythonCmd.version.isEmpty() && pythonCmd.version.compareToIgnoreCase("3") >= 0) {
+                modPbxprojPath = getPath(toolsPath, MODPBXPROJ3);
+                if (!xcodeVersion.isEmpty() && xcodeVersion.compareToIgnoreCase("14") >= 0) {
+                    modPbxprojPath = getPath(toolsPath, MODPBXPROJ14);
+                }
             }
             System.out.println("Pyphon version : " + pythonCmd.version + "] modPbxprojPath : " + modPbxprojPath);
 
@@ -584,20 +565,42 @@ public class CommonUtil {
         return pythonCmd;
     }
 
+    private static @Nullable String findPythonExecFile() {
+        String cmd = null;
+        File folder = new File(SYSTEM_USR_BIN);
+        File[] pythons = folder.listFiles(pathname -> {
+            String name = pathname.getName();
+            if (name.startsWith(COMMOND_PYTHON) && name.length() >= 6 &&
+                    Character.isDigit(name.charAt(6)))
+                return true;
+
+            return false;
+        });
+        if (pythons != null && pythons.length > 0) {
+            for (File python : pythons) {
+                log(Log.LEVEL_DEBUG, SYSTEM_USR_BIN + " ] Finded Python ----> " + python.getAbsolutePath());
+                if (python.canExecute()) {
+                    cmd = python.getAbsolutePath();
+                    break;
+                }
+            }
+        }
+
+        if (cmd == null || cmd.isEmpty()) {
+            File defaultPython = new File(SYSTEM_USR_BIN, COMMOND_PYTHON);
+            if (defaultPython.exists() && defaultPython.canExecute()) {
+                cmd = defaultPython.getAbsolutePath();
+            }
+        }
+        return cmd;
+    }
+
     @Nullable
     private static Path getToolsPath() {
-        final Path[] toolPath = new Path[1];
-        ApplicationManager.getApplication().runReadAction(new Runnable() {
-            @Override
-            public void run() {
-                @org.jetbrains.annotations.Nullable String jarPath = PathManager.getJarPathForClass(getClass());
-                System.out.println("JarPath : " + jarPath);
-                String classPath = JarUtils.classNameToClassfilePath(getClass().getName());
-                System.out.println("ClassPath : " + classPath);
-                toolPath[0] = CommonUtil.getPath(jarPath, TOOLS_RESOURCE_PATH);
-            }
-        });
-        return toolPath[0];
+        String dataPath = CommonUtil.getAppDataLocation();
+        File toolsFolder = new File(dataPath, TOOLS_FOLDER_NAME);
+
+        return toolsFolder.toPath().toAbsolutePath();
     }
 
     public static void readFile(String filePath) {
@@ -613,7 +616,7 @@ public class CommonUtil {
         }
     }
 
-    public static String getPythonVersion(String pythonCmd) {
+    public static @NotNull String getPythonVersion(String pythonCmd) {
 
         final AtomicReference<String> result = new AtomicReference<String>();
         try {
@@ -687,9 +690,11 @@ public class CommonUtil {
                 @Override
                 public void err(@Nullable String line) {
                     if (line != null && !line.isEmpty() && !line.equals("null")) {
-                        if (!line.isEmpty() && line.contains(xcode)) {
+                        if (line.contains(xcode)) {
                             log(Log.LEVEL_DEBUG, "[getXcodeVersion]" + line);
                             version.append(line.substring(line.indexOf(xcode) + xcode.length()));
+                        } else if (line.contains("xcode-select: error: tool 'xcodebuild' requires Xcode")) {
+                            connectXCodeBuild();
                         }
                         LOG.error("[getXcodeVersion error] " + line);
                     }
@@ -701,6 +706,11 @@ public class CommonUtil {
             LOG.error("[getXcodeVersion error : " + e.toString() + "] " + e.getMessage());
         }
         return version.toString();
+    }
+
+    protected static void connectXCodeBuild() {
+        // sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+        CommonUtil.openErrorDialog("XCode connection error", CoreMessages.get(CoreMessages.XCodeConnectionError));
     }
 
     public static boolean isAndroidStudio() {
@@ -779,29 +789,5 @@ public class CommonUtil {
         }
 
         return modified;
-    }
-
-    /**
-     * @param project
-     * @return
-     */
-    public static boolean refreshProject(@NotNull Project project) {
-        @Nullable VirtualFile projectFile = project.getWorkspaceFile().findChild(project.getName());
-        if (projectFile != null) {
-            projectFile.refresh(true, true);
-            return true;
-        }
-
-        return false;
-    }
-
-    public static boolean refreshProject(@NotNull String projectRootPath) {
-        @Nullable VirtualFile root = VirtualFileManager.getInstance().findFileByNioPath(Paths.get(projectRootPath));
-        if (root != null) {
-            root.refresh(true, true);
-            return true;
-        }
-
-        return false;
     }
 }

@@ -40,8 +40,9 @@
         <action id="NewEmptyProject" class="m.client.ide.morpheus.ui.action.MorpheusNewProjectAction">
             <add-to-group group-id="JavaNewProjectOrModuleGroup" anchor="after" relative-to-action="NewProject"/>
         </action>
-        <action id="OpenAndConvertProject" class="m.client.ide.morpheus.ui.action.MorpheusOpenProjectAction">
+        <action id="OpenAndConvertProject" class="m.client.ide.morpheus.ui.action.MorpheusOpenProjectAction" icon="CoreIcons.icon16">
             <add-to-group group-id="JavaNewProjectOrModuleGroup" anchor="after" relative-to-action="NewEmptyProject"/>
+            <add-to-group group-id="WelcomeScreen.QuickStart" anchor="after" relative-to-action="ImportProject"/>
         </action>
         <!--action id="ImportMorpheusProject" class="m.client.ide.morpheus.ui.action.ImportEclipseMorpheusAction"
                 text="Import Old Morpheus Project"
@@ -202,15 +203,5 @@
         <runConfigurationProducer implementation="m.client.ide.morpheus.launch.IOSRunConfigurationProducer"/>
         <programRunner implementation="m.client.ide.morpheus.launch.IOSRunner"/>
     </extensions>
-
-    <!-- WizardTemplateProviderImpl 클래스에서 실행될 template 을 정의 -->
-    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
-        <!--        <wizardTemplateProvider-->
-        <!--                implementation="m.client.ide.morpheus.framework.template.MorpheusAppProjectTemplatesProvider"/>-->
-    </extensions>
-    <applicationListeners>
-        <!--        <listener class="m.client.ide.morpheus.framework.template.MorpheusAppProjectListener"-->
-        <!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
-    </applicationListeners>
 
 </idea-plugin>

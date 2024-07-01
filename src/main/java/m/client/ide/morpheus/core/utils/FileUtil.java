@@ -14,6 +14,8 @@ import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import m.client.ide.morpheus.Constants;
+import m.client.ide.morpheus.framework.cli.jsonParam.LibraryParam;
+import net.minidev.json.parser.ParseException;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
 import org.apache.commons.io.FileUtils;
@@ -23,9 +25,8 @@ import org.jetbrains.annotations.*;
 import java.io.*;
 import java.net.URL;
 import java.nio.channels.FileChannel;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 import java.util.zip.ZipInputStream;
 
 public class FileUtil {
@@ -57,7 +58,7 @@ public class FileUtil {
 		}
 
 		if(!target.exists()) {
-			writeFile(source, target);
+			writeToFile(source, target);
 		} else {
 			FileUtils.copyFile(source, target);
 		}
@@ -141,7 +142,7 @@ public class FileUtil {
 		return path.replace('/', separatorChar).replace('\\', separatorChar);
 	}
 
-	public static Project getProject(File file) {
+	public static @Nullable Project getProject(File file) {
 		VirtualFile virtualFile = LocalFileSystem.getInstance().findFileByIoFile(file);
 		if(virtualFile != null) {
 			return ProjectLocator.getInstance().guessProjectForFile(virtualFile);
@@ -150,25 +151,25 @@ public class FileUtil {
 		return null;
 	}
 
-	public static @Nullable File getChildFile(Project project, String childName) {
+	public static File getChildFile(@NotNull Project project, @NotNull String childName) {
 		@Nullable @SystemIndependent @NonNls String path = project.getBasePath();
 		File projectFile = new File(path);
 
 		return getChildFile(projectFile, childName.split(File.separator));
 	}
 
-	public static @Nullable File getChildFile(@NotNull File parent, @NotNull String childName) {
+	public static File getChildFile(@NotNull File parent, @NotNull String childName) {
 		return getChildFile(parent, childName.split(File.separator));
 	}
 
-	public static @Nullable File getChildFile(Project project, String... paths) {
+	public static File getChildFile(@NotNull Project project, String... paths) {
 		@Nullable @SystemIndependent @NonNls String path = project.getBasePath();
 		File projectFile = new File(path);
 
 		return FileUtils.getFile(projectFile, paths);
 	}
 
-	public static @Nullable File getChildFile(File parent, String... paths) {
+	public static File getChildFile(File parent, String... paths) {
 		return FileUtils.getFile(parent, paths);
 	}
 
@@ -176,7 +177,7 @@ public class FileUtil {
 		return getBundleFile(Constants.MORPHEUS_PLUGIN_ID, path);
 	}
 
-	public static File getBundleFile(String pluginId, String path) {
+	public static @Nullable File getBundleFile(String pluginId, String path) {
 		PluginSet pluginSet = PluginManagerCore.getPluginSet();
 		IdeaPluginDescriptorImpl result = null;
 		if (pluginSet != null && pluginId.contains(".")) {
@@ -201,12 +202,12 @@ public class FileUtil {
 		return null;
 	}
 
-	public static void writeFile(String srcString, String path) {
+	public static void writeToFile(String srcString, String path) {
 		File file = new File(path);
-		writeFile(srcString, file);
+		writeToFile(srcString, file);
 	}
 	
-	public static void writeFile(String srcString, File file) {
+	public static void writeToFile(String srcString, @NotNull File file) {
 		if(!file.getParentFile().isDirectory()) {
 			file.getParentFile().mkdirs();
 		}
@@ -226,7 +227,7 @@ public class FileUtil {
 		}
 	}
 
-	public static void writeFile(File srcFile, File destFile) {
+	public static void writeToFile(File srcFile, File destFile) {
 		BufferedReader br = null;
 		BufferedWriter bw = null;
 
@@ -674,7 +675,7 @@ public class FileUtil {
 	 * @param preserveFileDate whether to preserve the file date
 	 * @throws IOException if an error occurs
 	 */
-	public static void doCopyFile(File srcFile, File destFile, boolean preserveFileDate) throws IOException {
+	public static void doCopyFile(File srcFile, @NotNull File destFile, boolean preserveFileDate) throws IOException {
 		if (destFile.exists()) {
 			if (destFile.isDirectory()) {
 				throw new IOException("Destination '" + destFile + "' exists but is a directory");
@@ -719,6 +720,44 @@ public class FileUtil {
 		if (preserveFileDate) {
 			destFile.setLastModified(srcFile.lastModified());
 		}
+	}
+
+	public static void writeUTF8ToFile(@NotNull String contents, @NotNull File toFile) throws IOException {
+		if(!toFile.exists()) {
+			toFile.createNewFile();
+		}
+		ByteArrayInputStream stream = new ByteArrayInputStream(contents.getBytes(StandardCharsets.UTF_8));
+		BufferedReader br = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(toFile), StandardCharsets.UTF_8));
+
+		String line;
+		while ((line = br.readLine()) != null) {
+			bw.write(line + "\n");
+		}
+		bw.flush();
+	}
+
+	public static String readResFile(String fileName) {
+		try {
+			InputStream in = null;
+			try {
+				in = LibraryParam.class.getResourceAsStream(fileName);
+				byte[] buff = new byte[1024];
+
+				String contents = "";
+				for (int count = 0; (count = in.read(buff)) != -1; ) {
+					contents += new String(buff, 0, count);
+				}
+
+				return contents;
+			} finally {
+				if (in != null) in.close();
+			}
+		} catch (IOException e) {
+			CommonUtil.log(Log.LEVEL_ERROR, e.getMessage(), e);
+		}
+
+		return "";
 	}
 
 }

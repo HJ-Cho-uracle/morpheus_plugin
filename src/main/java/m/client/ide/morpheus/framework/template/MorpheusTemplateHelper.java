@@ -76,7 +76,7 @@ public class MorpheusTemplateHelper {
             default:
                 commands = new String[] { morpheus, "create", projectName, "-c",
                         "{" +
-                            "\"license\": \"" + templateData.getLicense() + "\"," +
+                            "\"license\": \"" + templateData.getApplicationId() + "\"," +
                             "\"androidAppName\": \"" + templateData.getAndroidAppName() + "\"," +
                             "\"iosAppName\": \"" + templateData.getAndroidAppName() + "\"," +
 //                            "\"appName\": \"" + templateData.getAndroidAppName() + "\"," +

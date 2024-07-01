@@ -4,41 +4,59 @@ import com.esotericsoftware.minlog.Log;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import m.client.ide.morpheus.core.config.AbstractJasonFileManager;
+import m.client.ide.morpheus.core.npm.NpmConstants;
 import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.core.utils.FileUtil;
 import m.client.ide.morpheus.framework.cli.jsonParam.AbstractJsonElement;
+import m.client.ide.morpheus.framework.eclipse.AppXMLManager;
 import net.minidev.json.JSONObject;
 import net.minidev.json.JSONStyle;
 import net.minidev.json.parser.JSONParser;
 import net.minidev.json.parser.ParseException;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.io.IOException;
 
 public class MorpheusConfigManager extends AbstractJasonFileManager {
 
-    private static MorpheusConfigManager configManager;
     private MorpheusProjectInfo info;
     private Project project;
 
     public static boolean isMorpheusProject(@NotNull Project project) {
-        File configFile = FileUtil.getChildFile(project, "morpheus.config.json");
+        File configFile = FileUtil.getChildFile(project, NpmConstants.CONFIG_JSON_FILE);
         if (!configFile.exists()) {
             return false;
         }
-        if (configManager == null) {
-            configManager = new MorpheusConfigManager(project);
-        } else {
-            Project oldProject = configManager.getProject();
 
-            if (configManager.filePath == null ||
-                    oldProject == null || !oldProject.equals(project)) {
-                configManager = new MorpheusConfigManager(project);
-            }
+        MorpheusConfigManager configManager = new MorpheusConfigManager(project);
+        return configManager.filePath != null && !configManager.filePath.isEmpty();
+    }
+
+    public static @NotNull MorpheusConfigManager makeMorpheusConfigFile(@NotNull Project project, @NotNull AppXMLManager appXMLmanager) {
+        File configFile = new File(project.getBasePath(), NpmConstants.CONFIG_JSON_FILE);
+
+        return makeMorpheusConfigFile(configFile, appXMLmanager);
+    }
+
+    public static @NotNull MorpheusConfigManager makeMorpheusConfigFile(File configFile, @NotNull AppXMLManager appXMLmanager) {
+        MorpheusConfigManager configManager = new MorpheusConfigManager(configFile);
+        try {
+            configManager.init(configFile);
+
+            configManager.info = new MorpheusProjectInfo();
+            configManager.info.setProjectName(appXMLmanager.getProjectName());
+            configManager.info.setApplicationId(appXMLmanager.getApplicationId());
+            configManager.info.setAndroidAppName(appXMLmanager.getAndroidAppName());
+            configManager.info.setAndroidPackageName(appXMLmanager.getAndroidPackageName());
+            configManager.info.setIosAppName(appXMLmanager.getIosAppName());
+            configManager.info.setIosBundleId(appXMLmanager.getIosBundleId());
+            configManager.saveToFile();
+        } catch (IOException | ParseException e) {
+            CommonUtil.log(Log.LEVEL_ERROR, e.getLocalizedMessage(), e);
         }
 
-        return configManager.filePath != null && !configManager.filePath.isEmpty();
+        return configManager;
     }
 
     private void setProject(Project project) {
@@ -54,8 +72,11 @@ public class MorpheusConfigManager extends AbstractJasonFileManager {
     }
 
     public MorpheusConfigManager(Project project) {
+        this(FileUtil.getChildFile(project, NpmConstants.CONFIG_JSON_FILE));
+    }
+
+    public MorpheusConfigManager(File configFile) {
         try {
-            @Nullable File configFile = FileUtil.getChildFile(project, "morpheus.config.json");
             filePath = configFile != null && configFile.exists() && configFile.isFile() ? configFile.getAbsolutePath() : "";
             init();
         } catch (Exception e) {
@@ -65,7 +86,7 @@ public class MorpheusConfigManager extends AbstractJasonFileManager {
     }
 
     @Override
-    public String getJSONString() {
+    protected String makeJsonString() {
         StringBuffer sb = new StringBuffer();
 
         JSONObject object = new JSONObject();

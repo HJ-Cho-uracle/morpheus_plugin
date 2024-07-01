@@ -18,18 +18,29 @@ import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.util.Condition;
 import com.intellij.openapi.util.Conditions;
 import com.intellij.openapi.util.Key;
+import com.intellij.terminal.JBTerminalWidget;
+import com.intellij.ui.content.Content;
+import com.intellij.ui.content.ContentManager;
 import com.intellij.util.concurrency.AppExecutorUtil;
 import com.intellij.util.io.IdeUtilIoBundle;
 import m.client.ide.morpheus.core.config.CoreSettingsState;
+import m.client.ide.morpheus.core.constants.Const;
+import m.client.ide.morpheus.core.npm.NpmConstants;
 import m.client.ide.morpheus.core.npm.NpmUtils;
+import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.plugins.terminal.ShellTerminalWidget;
+import org.jetbrains.plugins.terminal.TerminalView;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -216,6 +227,7 @@ public class ExecCommandUtil {
 
         return ret.get();
     }
+
     public static @NotNull String execProcessHandler(String[] commands) {
         return execProcessHandler("", null, commands);
     }
@@ -276,7 +288,11 @@ public class ExecCommandUtil {
         return generalCommandLine;
     }
 
-    public static @NotNull String execProcessHandler(String task, Project project, File cwd, String[] commands, @org.jetbrains.annotations.Nullable Map<String, String> envs) {
+    public static @NotNull String execProcessHandler(String task, Project project, File cwd, String[] commands, @Nullable Map<String, String> envs) {
+        return execProcessHandler(task, project, cwd, commands, envs, null);
+    }
+
+    public static @NotNull String execProcessHandler(String task, Project project, File cwd, String[] commands, @Nullable Map<String, String> envs, Runnable runnable) {
         GeneralCommandLine generalCommandLine = createGeneralCommandLine(project, cwd, commands, envs);
 
         printCommands("execProcessHandler] Execution command ", commands);
@@ -289,14 +305,30 @@ public class ExecCommandUtil {
                     output.append(/*ScriptRunnerUtil.*/getProcessOutput(generalCommandLine));
                     printCommands("execProcessHandler] Complete ", commands);
                     CommonUtil.log(Log.LEVEL_DEBUG, finalProject, "===================> [output : " + output.toString());
-                } catch (ExecutionException e) {
+
+                    SwingUtilities.invokeAndWait(() -> {
+                        if (runnable != null) {
+                            runnable.run();
+                        }
+                    });
+                } catch (ExecutionException | InterruptedException | InvocationTargetException e) {
                     CommonUtil.log(Log.LEVEL_ERROR, finalProject, "execProcessHandler [error : " + e.toString() + "] " + e.getMessage());
                 }
             }
         };
-        ProgressManager.getInstance().run(modalTask);
+        ExecCommandUtil.runProcessWithProgressSynchronously(modalTask, task, false, project);
 
         return output.toString();
+    }
+
+    public static void runProcessWithProgressSynchronously(Task.Modal modalTask, String task, boolean b, Project project) {
+        @NotNull ProgressManager progressmanager = ProgressManager.getInstance();
+        progressmanager.runProcessWithProgressSynchronously(new Runnable() {
+            @Override
+            public void run() {
+                modalTask.run(progressmanager.getProgressIndicator());
+            }
+        }, task, false, project);
     }
 
     /**
@@ -367,6 +399,37 @@ public class ExecCommandUtil {
         } else {
             return outputBuilder.toString();
         }
+    }
+
+    public static @NotNull ShellTerminalWidget getShellWidget(Project project, String tabName, String workingDir) {
+        TerminalView terminalView = TerminalView.getInstance(project);
+        return getShellWidget(terminalView, tabName, workingDir);
+    }
+
+    public static @NotNull ShellTerminalWidget getShellWidget(@NotNull TerminalView terminalView, String tabName, String workingDir) {
+        Set<JBTerminalWidget> shellWidgets = terminalView.getWidgets();
+        ShellTerminalWidget shellWidget = null;
+        for (JBTerminalWidget widget : shellWidgets) {
+            if (widget instanceof ShellTerminalWidget && StringUtils.equals(widget.getToolTipText(), tabName)) {
+                shellWidget = (ShellTerminalWidget) widget;
+                @NotNull ContentManager contentManager = terminalView.getToolWindow().getContentManager();
+                Content content = contentManager.getContent(shellWidget);
+                contentManager.setSelectedContent(content);
+            }
+        }
+
+        if (shellWidget == null) {
+            shellWidget = terminalView.createLocalShellWidget(workingDir, tabName);
+            shellWidget.setToolTipText(tabName);
+        } else if(workingDir != null && !workingDir.isEmpty()){
+            String commandLine = "cd" + Const.SPACE_STRING + workingDir + Const.ENTER_STRING;
+            try {
+                shellWidget.executeCommand(commandLine);
+            } catch (IOException err) {
+                err.printStackTrace();
+            }
+        }
+        return shellWidget;
     }
 
 //    Intellij 자체 에러 Message : Ignore

@@ -1,0 +1,3249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraries>
+	<library id="m.client.library.addon.locale" type="addon">
+		<api>2.1</api>
+		<name>애드온 Locale 라이브러리</name>
+		<description>다국어 관련 기능을 지원합니다.</description>
+		<revision>4.3</revision>
+		<history># 2.1.4.3 ( 2016.10.13 )
+  - 다국어 파일을 불러오지 못하던 오류 수정
+
+# 2.1.0.1
+  - Addon Locale Library 2.1.0.1 Release</history>
+	</library>
+	<library id="m.client.library.plugin.social" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Social 라이브러리</name>
+		<description />
+		<revision>0.1</revision>
+		<history># 2.1.0.1
+  - Plugin Social Library 2.1.0.1 Release</history>
+	</library>
+	<library id="m.client.library.plugin.mqtt" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Mqtt 라이브러리</name>
+		<description />
+		<revision>0.8</revision>
+		<history># 2.1.0.8 (2016.01.03)
+  - [ui, iOS, Android]isConnected API추가 
+  - connect, subscribe, unsubscribe 'topic' 파라메터 배열, 문자열 두타입으로 처리
+
+# 2.1.0.7 ( 2016.08.04 )
+  - [Android] 접속정보 입력 method 추가
+
+# 2.1.0.6 ( 2016.04.12 )
+  - [iOS] 폰 잠금 등으로 Lost 이벤트 발생시 Reconnect 를 실행하도록 적용
+  - [UI] onLostConnection 발생시 M.mqtt.onLost 로 바인딩된 함수 호출하도록 API 추가
+
+# 2.1.0.5 ( 2016.04.04 )
+  - [iOS] Connect 후 Subscribe 를 Native 에서 Callback 방식으로 처리
+
+# 2.1.0.4 ( 2016.03.23 )
+  - [Android] 라이브러리 통합
+  - [iOS] Payload 변환 오류 수정
+
+# 2.1.0.3 ( 2016.03.22 )		
+  - [iOS] log 로 payload data 도 출력
+  - [iOS] UTFString 으로 변환 시 nil 처리 나는 경우 EUC-KR 로 다시 인코딩
+
+# 2.1.0.2 ( 2016.03.16 )
+  - [iOS] payload 변환 시 nil 처리되는 오류 수정
+
+# 2.1.0.1 ( 2016.03.04 )
+  - Plugin Mqtt Library 2.1.0.1 Release</history>
+	</library>
+	<library id="m.client.library.plugin.beacon" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Beacon 라이브러리</name>
+		<description />
+		<revision>0.1</revision>
+		<history># 2.1.0.1
+  - Plugin Beacon Library 2.1.0.1 Release</history>
+	</library>
+	<!--
+	<library id="m.client.library.plugin.push" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Push 라이브러리</name>
+		<description />
+		<revision>5.9</revision>
+		<history><![CDATA[# 2.1.5.9 ( 2019.01.15 )
+  - [iOS] token 요청 API 수정
+
+# 2.1.5.8 ( 2017.04.20 )
+  - [iOS] EE 기능 제거(4.x 버전과 통합)
+
+# 2.1.5.7 ( 2016.10.20 HotFix )
+  - [Android] Doze Mode 적용시, 더미데이터 노티 및 화면 깨움 처리 아이콘 변경(투명 1X1)
+
+# 2.1.5.6 ( 2016.10.12 HotFix )
+  - [iOS] 4.0EE 이상 서버에서 send api 사용 시 badge 값도 전달 할 수 있도록 기능 추가
+
+# 2.1.5.5 ( 2016.10.11 HotFix )
+  - [iOS] iOS 10 이상에서 unregisterRemoteNotifications 실행시 다시 token 을 받을수 없게 되어 제거
+  - [iOS] unregisterRemoteNotifications 는 필요시 따로 호출해야됨 
+
+# 2.1.5.4 ( 2016.10.10 HotFix )
+  - [iOS] useCachePushToken 을 활성화 하는 경우 저장된 토큰값을 쓸수있도록 기능 추가
+  - [iOS] iOS 10 이상에서 UserNotifications framework 사용
+  - [iOS] Log 사용시 debugging 범위 확대
+
+# 2.1.5.3 ( 2016.10.06 )
+  - [iOS] send api 에서 cuid 를 통해 발송 할 수 있도록 수정
+
+# 2.1.5.2 ( 2016.09.29 )
+  - [iOS] 4.0 에서 service and user 등록시 mode 값 전달
+
+# 2.1.5.1 ( 2016.09.08 )
+  - [iOS, UI] Service And User 4.0 API 추가
+
+# 2.1.4.5 ( 2016.08.04 )
+  - [Android] MY_PACKAGE_REPLACED 기능 추가 (AndroidManifest.xml > intentFilter 로 등록하여, 패키지를 재설치하는 경우, background service를 구동)
+  - [Android] JSON Decrypt process 변경 (암호화 데이터의 경우, JSON_DECRYPT 키를 이용하여, 값을 추출하도록 변경)
+  - [Android] 재가입 process 수정
+  - [Android] 서비스 등록시 auth 키에 대한 초기화 처리
+  - [Android] PushHandler 데이터 migration 제거
+  - [Android] 스토리지 데이터 삭제시, network 구간 오류에 대한 exception 처리
+  - [Android] mqtt keepAlive 로직 수정 (1/1000 차이에 의해 미수행  오류 수정 )
+  - [iOS] 3.6 에서는 저장된 토큰이 다른 경우 항상 서비스 등록하도록 수정
+  - [iOS] 시작시 들어오는 Notification 처리 추가
+
+# 2.1.4.4 ( 2016.06.30 )
+  - [iOS] 직접 payload 를 전달하는 경우 seqNo, sendDate 값에 대한 타입오류 수정
+
+# 2.1.4.3 ( 2016.06.24 )
+  - [iOS] 4.0EE 에서 APNS Mode 값이 상이하던 오류 수정
+  - [UI] M.push.info 에서 정보를 set 할 수 없었던 오류 수정
+
+# 2.1.4.2 ( 2016.06.16 )
+  - [Android, iOS] 암복호화된 데이타에 대한 무결성 및 안전성 향상
+  - [Android, iOS] securityIndexes 를 Manifest 를 통해서만 적용되도록 수정
+  - [Android, iOS] 암복호화에 대한 3.7 이상에서 암복호화에 필요한 리소스를 서버에서 받아 비동기로 적용
+  - [iOS] 데이타를 사용하지 않을 경우 Manifest 에 storage 를 n 으로 하여 적용 가능
+  - [iOS] PushManager 에 didLoadPushInfo 에 대한 delegate method 추가
+  - [iOS] 오류 코드 정리
+
+# 2.1.4.1 ( 2016.06.10 ) 
+  - [Android, iOS, UI] Register Service And User API 추가
+
+# 2.1.3.2 ( 2016.05.04 )
+  - [iOS] PushManager 에 등록된 개체는 메모리에서 해제되지 않도록 수정
+
+# 2.1.3.1 ( 2016.04.26 )
+  - [iOS] Keychain Library 교체
+
+# 2.1.2.2 ( 2016.04.05 )
+  - [iOS] Security Indexes 적용시 Core 를 업데이트 하지 않은 경우 예외 처리
+  - [iOS] 호출한 ViewController 가 메모리에서 제거된 경우 callback handler 를 호출하지 않도록 수정
+  - [iOS] User 해제 API 오류수정
+  - [iOS] PSID 값이 전화번호로 대치되는 오류 수정
+  - [iOS] 3.6이상에서 AuthKey 를 한번 통신한 경우에는 데이타를 유지하고, 40100 인증 오류가 발생된 경우에만 asking 을 다시 호출하도록 변경
+  - [iOS] 3.7 이상 Version feedback, read API 에 db_in 파라미터 추가
+  - [iOS] Version 값에 EE 가 뒤에 붙은 경우 enterprise 로직 적용
+  - [iOS] 4.0EE 버전에서 Check Sevice 로직 변경
+  - [iOS] 4.0EE 버전 API 관련 Check Service 로직 추가
+  - [iOS] 4.0EE 버전 API 관련 읽음 확인 및 badge 강제 업데이트 API 추가
+  - [iOS] 4.0EE 에서만 get-service 가 되던 로직 수정
+  - [iOS] KeychainItemWrapper Class 의 이름을  PushKeychainItemWrapper 으로 Rename Refactoring 함
+  - [iOS] API 호출시  ViewController 가 메모리에서 제거된 경우(nil 인 경우) callback handler 를 호출하지 않도록 수정
+  - [iOS] 암복호화시 set, get 이 이상 처리되던 문제 수정
+
+# 2.1.2.1 ( 2016.02.25 )
+  - [Android, iOS] 4.0 API 로직 추가
+  - [iOS] 3.0 ASP API 에서 Unregister Service 시 파라미터 변경
+
+# 2.1.1.1 ( 2016.02.04 )
+  - [Android, iOS] Security Indexes 값 적용 시 보안 로직 적용하여 Reference 데이타 암호화 저장
+  - [Android] 사용자 정보 반환 시 psid 포함되도록 변경
+
+# 2.1.0.7 ( 2015.12.10 )
+  - [Android, iOS] Manifest.xml 내 policy 값이 device 인 경우 One-User One-Device 설정 적용
+  - [iOS] 유저등록 실패시 서비스 등록 시간을 초기화, 서비스 등록관련 API 를 처리할 수 있도록 수정
+  - [iOS] 마지막 서비스 등록 시간을 초기화 하는 방법 추가
+
+# 2.1.0.6 ( 2015.12.03 )
+  - [iOS] Info 정보가 앱 종료화 함께 초기화 되던 버그 수정
+
+# 2.1.0.5 ( 2015.11.25 )
+  - [iOS] Info 정보를 Service 등록 전에도 최신화 할 수 있도록 수정
+
+# 2.1.0.4 ( 2015.11.09 )
+  - [Android, iOS] 3.7 API 적용
+
+# 2.1.0.3 ( 2015.09.10 )
+  - [Android] 로컬 푸시가 백그라운드 상태에서 온경우 노티피케이션 혹은 팝업을 사용하도록 수정
+  - [iOS] 로컬 푸시 API 에서 wait 값을 milliseconds로 적용
+
+# 2.1.0.2 ( 2015.08.31 )
+  - [UI] callback 함수의 result에 대한 데이타 확장을 고려하여 문자값(status)에서 Object.status 형태로 변경
+  - [Android,iOS,UI] M.push.local API 추가
+
+# 2.1.0.1 ( 2015.07.07 )
+  - Plugin Push Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.push.WNInterfacePush</interface>
+		</interfaces>
+	</library>
+	-->
+	<library id="m.client.library.addon.zip" type="addon">
+		<api>2.1</api>
+		<name>애드온 Zip 라이브러리</name>
+		<description><![CDATA[압축관련 기능을 제공합니다.
+  A. 내부적으로 리소스 업데이트 시, 압축형태로 제공하므로, 리소스 업데이트가 필요한 환경에서는 반드시 포함되어야 합니다.]]></description>
+		<revision>4.4</revision>
+		<history><![CDATA[# 2.1.4.4 ( 2023.03.16 )
+  - [iOS] framework -> xcframework 변경
+  
+# 2.1.4.3 ( 2020.07.24 )
+  - [Android - 2.1.4.3] assets 영역 zip 해제 기능 추가 
+  
+# 2.1.4.2 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 실행에 대한 신뢰성 향상
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+
+# 2.1.1.1 ( 2015.04.24 HotFix )
+  - [Android, iOS, UI] M.zip API 사용성 개선 및 2.2 Interface 적용
+  - [Android, iOS, UI] 파일경로(doc://xxx, app://xxx, /xxx )에 대한 정의를 통합
+  - [iOS] ProgressView 최신화된 UI 적용
+
+# 2.1.0.4 ( 2015.03.19 )
+  - [iOS] Dsymutil Warning 제거
+  - [UI] M.zip API 사용성 개선
+
+# 2.1.0.3 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] 버전 정보 전달
+	
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon Zip Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.zip.WNInterfaceZip</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.plugin.location" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Location 라이브러리</name>
+		<description />
+		<revision>0.9</revision>
+		<history><![CDATA[# 2.1.0.9 ( 2023.03.21 )
+  - [iOS] framework -> xcframework 변경
+        
+# 2.1.0.8 ( 2020.01.22 )
+  - [Android] 
+		- 팝업 화면에 대한, cancelable false 처리 
+	
+# 2.1.0.7 ( 2019.09.30 )
+  - [Android] 
+		- alert 테마 적용
+		- fail event 처리    
+
+
+# 2.1.0.6 ( 2019.04.03 )
+  - [Android] - 최신 정보 정확도 처리 
+
+# 2.1.0.5 ( 2017.08.17 )
+  - [Android] - 다중 호출시, 반응 속도 향상 처리
+
+# 2.1.0.4 ( 2017.03.23 )
+  - [iOS] 가장 최신의 위치정보 전달하도록 변경(maximumAge 무시)  
+
+# 2.1.0.3 ( 2016.12.07 )
+  - [iOS] Location 정보Callback 시 요청화면 Alive 체크
+
+# 2.1.0.2 ( 2015.10.22 HotFix )
+  - [iOS] LocationManager 를 MLocationManager 로 Rename 함
+
+# 2.1.0.1 ( 2015.08.21 )
+  - Plugin Location Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.location.WNInterfaceLocation</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.plugin.viewer" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Viewer 라이브러리</name>
+		<description />
+		<revision>1.13</revision>
+		<history><![CDATA[# 2.1.1.13 ( 2023.03.21 )
+  - [iOS] framework -> xcframework 변경
+
+# 2.1.1.12 ( 2022.09.22 )
+  - [iOS] iOS16 버전에서 Crash 관련 수정
+
+# 2.1.1.11 ( 2022.06.28 )
+  - [iOS] 커스텀 UI를 지정하기 위한 page 옵션 추가
+  - [Android v2.1.1.8] 커스텀 UI를 지정하기 위한 page 옵션 추가
+  - [UI] 커스텀 UI를 지정하기 위한 page 옵션 추가
+
+# 2.1.1.10 ( 2021.07.23 )
+  - [iOS] Bundle font 제거
+  
+# 2.1.1.9 ( 2020.11.16 )
+  - [Android] 안드로이드 6.0 오류로, JNI 라이브러리 교체
+  - [Android] 타이틀 편집 기능 추가 
+  - [iOS] 타이틀 편집 기능 추가 
+
+
+# 2.1.1.8 ( 2019.12.11 )
+  - [Android] 페이지전환 / 테마 적용 방식 수정
+
+
+# 2.1.1.6 ( 2019.08.09 )
+  - [Android] 비정상 파일에 대한 에러 처리
+
+# 2.1.1.5 ( 2019.05.30 )
+  - [iOS] 아이폰X 해상도 관련 수정 (1.4)
+
+# 2.1.1.3 ( 2018.06.21 )
+  - [Android] Android 8.0(오레오) 버전 대응 
+	
+# 2.1.1.3 ( 2018.06.20 )
+  - [iOS] 아이폰X 해상도 관련 수정
+
+# 2.1.1.2 ( 2016.03.03 )
+  - [Android] 뷰어 플러그인 이용 시 MuPDF 오픈 소스 오류 수정
+
+# 2.1.1.1 ( 2016.01.14 )
+  - [iOS] AES-256 암호화 리소스 지원
+  - [UI] M.viewer.doc API 를 지원
+
+# 2.1.0.6 ( 2015.04.02 )
+  - [UI,iOS,Android] 실행 옵션으로 animation 과 orientation 값 추가 
+  - [iOS] Layout Design 변경 
+  - [iOS] 닫기 후 Animation 을 초기 설정된 값의 reverse animation type 값으로 구현
+  - [iOS] Animation 에 따라 Button 위치와 이미지 변경 (SLIDE_LEFT 인 경우만 Back Button, 그외 Close Button)
+
+# 2.1.0.5 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+  - [Android] google doc 연동 수정
+
+# 2.1.0.4 ( 2014.09.25 )
+  - [Android] 타이틀 영역 제거 
+  - [Android] 파일 체크
+
+# 2.1.0.3 ( 2014.08.08 )
+  - [Android] 파일 패스 오류 수정
+
+# 2.1.0.2
+  - [iOS] 암호화 된 문서 열기 기능 추가	
+  - [Android] 내장 PDF 뷰어 기능 추가 (layout.xml 추가, libs/armeabi 추가)
+	
+# 2.1.0.1
+  - Plugin Viewer Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.viewer.WNInterfaceViewer</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.addon.popup" type="addon">
+		<api>2.1</api>
+		<name>애드온 팝업 라이브러리</name>
+		<description><![CDATA[Native 팝업관련 기능을 제공합니다.
+  A. 알림, Date Picker, List 를 지원합니다.]]></description>
+		<revision>4.34</revision>
+		<history><![CDATA[# 2.1.4.34 ( 2023.09.08 )
+ - [Android-2.1.4.32]
+  - dialog gravity 수정
+  	   
+# 2.1.4.33 ( 2023.03.16 )
+ - [iOS]
+  - framework -> xcframework 변경
+
+# 2.1.4.32 ( 2022.12.14 )
+ - [iOS]
+  - datePicker interval 관련 기능 수정
+  - picker UI 버그 수정
+
+# 2.1.4.31 ( 2022.01.12 )
+ - [Android-2.1.4.30]
+  	Reason :
+  	   - android 11 : time picker result 오류 수정
+
+# 2.1.4.30 ( 2021.09.08 )
+ - [iOS]
+  - pop.instance 시간 설정 기능 수정
+        
+# 2.1.4.29 ( 2021.06.16 )
+ - [Android-2.1.4.29]
+  	Reason :
+  	    - date 타입시, mode : 'calnendar' option 추가
+
+# 2.1.4.28 ( 2021.03.03 )
+ - [iOS]
+  - pad 팝업 사이즈 변경
+  - Plugin-info.plist 에 MDatePickerStyle 옵션 추가
+  
+# 2.1.4.27 ( 2020.11.12 )
+ - [iOS]
+  - 다크모드 관련 색상 변경
+  - Plugin-info.plist 에 NoShowHideAnimation 옵션 추가
+
+# 2.1.4.26 ( 2020.07.21 )
+- [Android - 2.1.4.28]
+	- Android 9 이상, spinner mode 미동작 수정
+
+# 2.1.4.25 ( 2020.07.01 )
+- [Android - 2.1.4.27]
+	- Context null 체크
+
+# 2.1.4.24 ( 2020.02.27 )
+- [iOS]
+      - iOS13 다크모드 버그 수정
+
+
+# 2.1.4.23 ( 2019.10.31 )	
+  - [Android] 
+  	    - 팝업 center 정렬 
+
+
+# 2.1.4.22 ( 2019.09.10 )	
+  - [Android] 
+    - 참조 Context 변경 (web > activity)
+	
+# 2.1.4.21 ( 2019.02.15 )	
+  - [Android] 
+    - M.pop.date 시간 스타일 : spinner 추가  
+	
+# 2.1.4.20 ( 2019.01.17 )	
+  - [Android] 
+	- 킷켓 이상 팝업 테마 통일 : android.R.style.Theme_DeviceDefault_Light_Dialog
+ 	- 킷켓 미만 : android.R.style.Theme_Panel
+ 	- 팝업 테마 변경 방법
+ 	   Define.KEY_POPUP_THEME 와 LibDefinitions.strings.KEY_POPUP_THEME 동일 키값임
+ 	   CommonLibUtil.setVariableToStorage(Define.KEY_POPUP_THEME, ""+android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar, context);
+ 	   CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_POPUP_THEME, ""+android.R.style.Theme_Black, this);
+
+	
+# 2.1.4.19 ( 2019.01.09 )	
+  - [Android] 
+		- 테마 적용관련 하위 버전 호환성 처리 
+		- 허니컴 date picker 오류 수정 
+	
+# 2.1.4.18 ( 2018.05.30 )	
+  - [Android] 테마 변경 기능 추가 
+	CommonLibUtil.setVariableToStorage(Define.KEY_POPUP_THEME, ""+android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar, context);
+	
+# 2.1.4.17 ( 2017.03.23 )
+  - [Android] 화면전환과 연계된 팝업 생성시, Activity 참조 오류 수정
+  - [Android] 타임 픽커 키보드 입력 시 숫자 키보드가 떠야하므로 인풋 타입 변경
+# 2.1.4.16 ( 2016.12.06 )
+  - [iOS] Media.optimize 기능 제거(Media 라이브러리에 있어야 할 기능) 
+
+# 2.1.4.15 ( 2016.12.01 )
+  - [Android] 안드로이드 7.0 대응 TimePicker Theme 적용 
+	
+# 2.1.4.14 ( 2016.10.20 )
+  - [iOS] VoiceOver 활성화시 ListPopup에 대해서는 focus이동이 되지 않던 오류 수정
+  
+  
+# 2.1.4.13 ( 2016.09.08 )
+  - [Android] 타임 픽커 다이얼로그 취소 버튼 클릭 시 반환 값 없도록 수정
+  - [Android] 인터벌이 0일 경우 오류 수정
+
+# 2.1.4.12 ( 2016.08.12 )
+  - [iOS] Button Localized Key 오류 수정
+
+# 2.1.4.11 ( 2016.08.04 ) 
+  - [Android] 초기값 display 설정
+
+# 2.1.4.10 ( 2015.12.29 HotFix )
+  - [Android, iOS, UI] 알림창에 시스템 언어와 상관 없이 한국어로 고정되던 부분을 시스템 언어(플러그인)로 적용
+  - [Android, iOS, UI] 리스트에 제목과 버튼이 항상 한국어로 고정되던 부분을 시스템 언어(플러그인)로 적용
+  - [iOS] MPopupListViewController 로 리스트 팝업 기능 통합 구현
+  - [iOS] 화면이 강제회전되었을때 device bounds size 가 상이하던 부분 수정
+  - [iOS] iOS 6.0 이하에서 리스트 팝업이 열리지 않거나 팝업화면 크기가 device size 와 상이하던 버그 수정
+  - [UI] M.pop.list 에서 mode 가 MULTI 인 경우 selected 값이 배열이 아닌 값이여도 처리될 수 있도록 기능 추가
+
+# 2.1.4.9 ( 2015.12.10 )
+  - [Android] 진저브레드 버전에서 생기던 Confirm Popup 생성시 오류사항 수정
+
+# 2.1.4.8 ( 2015.11.26 )
+  - [iOS] Plugin 용 Info.plist 를 Plugin-Info.plist 로 변경
+
+# 2.1.4.7 ( 2015.11.12 )
+  - [Android] 리스트 팝업 이용 시 selected 옵션 오류 수정
+
+# 2.1.4.6 ( 2015.10.26 HotFix )
+  - [iOS] DeviceOrientation 를 이용하여 ScreenSize 를 가져오던 부분을 MainScreen Bounds 값을 이용하여 적용
+
+# 2.1.4.5 ( 2015.10.08 )
+  - [iOS] AlertViewController 를 rootViewController 가 아닌 current view controller 에 적용 (Technical Q&A 참고)
+
+# 2.1.4.4 ( 2015.09.24 )
+  - [Android] DialogFragment 적용후 이슈사항 반영
+
+# 2.1.4.3 ( 2015.08.21 )
+  - [Android] DialogFragment 를 이용하도록 수정
+  - [iOS] DatePicker HM24 Type 을 Custom 으로 구현하여 0시 0분도 선택 가능
+  - [iOS] DatePicker 선택시 Highlighted 배경색이 변경되는 현상 수정
+
+# 2.1.4.2 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 실행에 대한 신뢰성 향상
+  - [iOS] iOS8 이전에서 UIAlertView 에서 일부 private 함수 호출을 배제하고 실행
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+
+# 2.1.2.1 ( 2015.04.30 HotFix )
+  - [iOS] M.pop.alert 호출 중에는 화면 이동 및 하위 스크립트가 실행되지 않도록 표준화의 1안으로 변경됨
+  - [iOS] 타블렛에서는 리스트 팝업 사이즈가 300x265 에서 550 x 485 으로 크게 출력되도록 변경
+  - [iOS] ios8 이상에서 토스트 팝업 위치 조정
+  - [iOS] 데이트 팝업 사용시 os 버전 상관없이 레이아웃이 정의되도록 Custom UI 로 구성
+  - [iOS] 리스트 팝업 UI 개선
+  - [iOS] 리스트 팝업 사용시 셀을 선택시에만 셀배경이 바뀌도록 수정
+  - [iOS] callback 함수내에서 alert 을 실행 할 수 있도록 interval 추가
+  - [iOS] Dsymutil Warning 제거
+  - [Android, iOS, UI] M.pop.alert 으로 Alert 호출 시 로직이 멈추도록 변경
+  - [Android, iOS, UI] M.pop API 사용성 개선 및 2.2 Inteface 적용
+
+# 2.1.1.5 ( 2014.12.29 )
+  - [Android] 팝업 dismiss 하는 확장 함수 추가
+
+# 2.1.1.4 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할 수 있도록 구조 수정
+  - [iOS] iPad 에서 방향을 알수 없는 경우 새로화면으로 그려지는 버그 수정
+  - [iOS] 창이 열리고 닫히는 에니메이션을 단순하게 처리되도록 수정
+  - [UI, Android] M.pop.alert API 를 통해 띄워진 팝업을 back 키를 통해 취소할 수 있도록 cancelable 옵션 추가
+
+# 2.1.1.3 ( 2014.11.11 )
+  - [iOS] M.pop.list 를 가로 화면에서 띄운경우 화면 회전시 가로 세로를 window size 상태 그대로 반영되도록 수정
+
+# 2.1.1.2 ( 2014.11.03 )
+  - [Android] time picker 테마 적용 (HONEYCOMB 이상인경우, android.R.style.Theme_Holo_Light_Dialog_NoActionBar 적용)
+
+# 2.1.1.1 ( 2014.10.24 )
+  - [iOS] M.pop.date API 에서 YM or MMYYYY 모드인 경우 month 의 출력 값이 1개 밀리는 현상 수정
+
+# 2.1.0.9 ( 2014.10.06 )
+  - [iOS] UIAlertController 및 UIAlertAction 에 대한 실행을 NSClassFromString 으로 바꾸어서 SDK 8.0 아래의 버전에서 빌드시 오류 없도록 수정
+
+# 2.1.0.8 ( 2014.09.26 )
+  - [iOS] M.pop.date API 와 관련하여 취소버튼을 누른경우 결과함수 호출없이 창 닫히도록 수정
+
+# 2.1.0.7 ( 2014.09.25 )
+  - [iOS] M.pop.date API 와 관련하여 UIActionSheet 를 사용하는 경우 iOS 8 에서 화면이 나오지 않는 현상을 UIAlertController 로 변경하여 수정
+
+# 2.1.0.6 ( 2014.06.19 )
+  - [Android] 각종 초이스 팝업을 선택하지 않고 버튼을 누른 경우 예외 처리
+  - [iOS] 각종 초이스 팝업을 선택하지 않고 버튼을 누른 경우 예외 처리
+  - [UI] M.pop.date 에서 dateType 옵션값이 YMD대신 YYYYMMDD, YYMM대신 YYYYMM 옵션값이 적용되도록 수정
+	
+# 2.1.0.5 ( 2014.06.12 )
+  - [UI] M.pop.date 의 Setting 값으로 startDate, endDate 옵션을 추가함
+	
+# 2.1.0.4 ( 2014.05.29 )
+  - [UI] Button Factory 에 대한 소스를 Core 에서 Addon 으로 이동 하여 리펙토링
+	
+# 2.1.0.3 ( 2014.05.16 )
+  - [UI] M.pop.date 에 interval 기능 추가
+  - [Android, iOS] timepicker에 interval 적용
+	
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] M.pop.list 의 mode 값이 MULTI 인 경우 setting 중 selected 값은 항상 배열로 되도록 수정
+  - [UI] M.pop.instance 에서 time 값을 숫자로 넘기는 경우에도 실행 되도록 수정
+  - [Android] res/layout xml 파일에 기존 패키지명 변경
+  - [Android] kitkat에서 TimePickerDialog의 onTimeSet 이벤트가 2번 발생되는 현상 수정
+  - [UI] 버전 정보 전달
+	
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon Popup Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.popup.WNInterfacePopup</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.addon.db" type="addon">
+		<api>2.1</api>
+		<name>애드온 DB 라이브러리</name>
+		<description><![CDATA[로컬 Data Base의 기능을 제공하는 Lib 입니다.
+  A. Create, Remove, Open, Close,  SQL 실행 기능 등을 제공합니다.]]></description>
+		<revision>4.13</revision>
+		<history><![CDATA[# 2.1.4.13 ( 2024.02.16 )
+  - [Android - 2.1.4.7]
+  	select문 판단 로직 추가(공백, 줄바꿈, 주석) 
+
+# 2.1.4.12 ( 2023.10.26 )
+  - [iOS] 레코드 갯수제한 제거
+    [iOS] 32비트 아키텍처 제거
+
+# 2.1.4.11 ( 2023.03.15 )
+  - [iOS] framework -> xcframework 변경
+  
+# 2.1.4.10 ( 2021.06.16 )
+  - [Android - 2.1.4.6]
+	long 타입 데이터 오류 수정 
+  
+# 2.1.4.9 ( 2021.05.03 )
+  - [iOS] API 실패 결과 문구 변경 
+
+# 2.1.4.8 ( 2020.09.04 )
+  - [Android] 2.1.4.5
+	multiple 옵션시, result 처리 
+        
+# 2.1.4.7 ( 2019.12.03 )
+  - [iOS] 여러 DB파일에 접근시 비정상적으로 동작 수정
+
+# 2.1.4.6 ( 2016.03.10 )
+  - [iOS] Exception 처리 Crash 오류 수정
+
+# 2.1.4.5 ( 2016.02.24 )
+  - [Android, iOS] execute 결과 개수를 200개로 제한
+
+# 2.1.4.4 ( 2015.11.12 )
+  - [UI, Android, iOS] Execute API 에 비동기로 Queue 관리하여 실행하도록 하는 async 옵션 추가
+
+# 2.1.4.3 ( 2015.08.21 )
+  - [Android, UI] M.db.execute 의 결과를 key,value 로 조정하고 index 값을 추가로 할당하려 Return 하도록 변경
+
+# 2.1.4.2 ( 2015.07.15 HotFix )
+  - [UI] M.db API 에 대한 callback 뿐만 아니라 direct 로도 결과를 Return 하도록 변경
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+		
+# 2.1.1.1 ( 2014.03.19 )
+  - [iOS] 간혹 DB Execute 중 앱이 종료되는 현상 수정
+  - [iOS] M.db API 사용성 개선
+  - [iOS] DB 사용함에 있어 이미 열려있는 경우에 열면 SUCCESS, 닫혀있는 경우에 닫으면 SUCCESS 로 처리하고 로그 출력
+  - [iOS] Dsymutil Warning 제거
+
+# 2.1.0.3 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.0.2 ( 2014.11.03 )
+  - [UI] callback 함수로 API 문서와 상이한 결과 반환을 수정
+  - [UI] 버전 정보 전달
+	
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon DB Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.db.WNInterfaceDB</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.plugin.prevention" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Prevention 라이브러리</name>
+		<description />
+		<revision>0.4</revision>
+		<history><![CDATA[# 2.1.0.4
+  - [Android]
+    - 루팅체크 변경
+     implementation 'com.scottyab:rootbeer-lib:0.1.0'
+    - NetworkManager 사용 가능하도록 변경
+
+# 2.1.0.3
+  - [iOS]
+    - xcframework 변경
+    - 루팅체크 로직 보강
+    - NetworkManager 사용 가능하도록 변경
+
+# 2.1.0.2
+  - [Android ver 2.1.0.3]
+	- bundles 체크 로직 오류 수정 
+  
+# 2.1.0.1
+  - Plugin Prevention Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.prevention.WNInterfacePrevention</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.addon.netExt" type="addon">
+		<api>2.1</api>
+		<name>애드온 네트워크 확장 라이브러리</name>
+		<description><![CDATA[파일 업로드 관련 기능을 제공합니다.
+  A. HTTP, FTP 프로토콜을 지원합니다.]]></description>
+		<revision>4.35</revision>
+		<history><![CDATA[# 2.1.4.35 (2023.04.30)
+  - [UI]
+  	- M.net.ftp.upload body 기본값 추가
+
+# 2.1.4.34 (2023.03.16)
+  - [iOS]
+     - framework -> xcframework 변경
+
+# 2.1.4.33 (2022.10.25)
+  - [Android 2.1.4.24] 
+     - File Download 시 ISO_8859_1 인코딩 예외 처리
+     - file name option 추가 
+  - [iOS]
+     - File Download 시 인코딩 관련 예외 처리
+     - fileName option 추가
+
+
+# 2.1.4.32 (2022.05.26)
+  - [Android 2.1.4.23] 
+     - File Download 시 external Storage 예외 처리
+     - File Download 오류시 오류메시지 전달
+     
+  - [iOS] 파일 다운로드 오류시 오류메시지 전달
+  - [iOS] 파일 업로드시 파일명 수정
+
+# 2.1.4.31 (2021.12.14)
+  - [iOS] PHAsset 파일명 관련 수정
+  - [iOS] 파일 업로드 인코딩 관련 수정
+
+# 2.1.4.30 (2021.06.08)
+  - [iOS] 헤더 설정 오류 수정
+  - [iOS] 파일 업로드 인코딩 처리
+  
+# 2.1.4.29 (2021.05.03)
+  - [iOS] 파라메터 타입에 따른 처리 변경
+  
+# 2.1.4.28 (2021.04.12)
+  - [Androd] 2.1.4.21
+	- Custom Session 기능 추가 
+
+# 2.1.4.27 (2021.03.02)
+  - [iOS] path 변경에 맞춘 수정 (MCore 2.1.7.88)
+
+# 2.1.4.26 (2020.03.05)
+  - [iOS] 파라메터 처리 예외사항 추가
+
+# 2.1.4.25 (2019.12.03)
+  - [iOS] 파일 업로드 정상 결과값 변경 200~299
+  - [iOS] 멀티파트 업로드시 파라메터가 오브젝트가 아닐경우에 스토리지 값 설정 추가
+          NO_PARAMETER_OBJECT
+
+# 2.1.4.24 (2019.11.25)
+  - [Android] Indicator 오타 수정 (Downloding > Downloading)   
+	
+# 2.1.4.23 (2019.08.09)
+  - [Android] 파일 사이즈가 0인 경우, fail 처리     	
+		
+# 2.1.4.22 (2019.03.25)
+  - [Android] Header에 filename 누락시, 예외 처리     	
+	
+# 2.1.4.21 (2018.12.28)
+  - [UI] M.net.http.upload timeout 옵션 관련 수정
+        
+# 2.1.4.20 (2018.08.16)
+  - [Android] User Agent 추가 
+  
+# 2.1.4.19 (2018.05.30)
+  - [iOS] 파일 다운로드시 Content-type관련 수정
+  - [iOS] 파일 이름 인코딩 적용
+
+# 2.1.4.18 (2018.05.16)
+  - [Android] 파일 확장자 ';' 오류 수정 	
+	
+# 2.1.4.17 (2018.05.09)
+  - [Android] URL.decode escape (%) pattern 오류 예외 처리
+  
+# 2.1.4.16 ( 2018.04.04 )
+  - [Android] json type 비교 구문 수정 재배포
+	
+# 2.1.4.15 ( 2018.04.03 )
+  - [Android] json type 비교 구문 수정 		
+	
+# 2.1.4.14 ( 2018.01.23 )
+  - [Android] multi session 허용 기능 추가 	
+	
+# 2.1.4.13 ( 2017.12.21 )
+  - [Android] File Download 시, filename 예외case 허용
+	
+# 2.1.4.12 ( 2017.06.15 )
+  - [iOS] File upload 시 Progress 수치 수정
+
+# 2.1.4.11 ( 2017.06.15 )
+  - [Androd] 세션 동기화 처리 보완  
+	
+# 2.1.4.10 ( 2017.05.12 )
+  - [Androd] 세션 동기화 처리 
+	
+# 2.1.4.9 ( 2016.10.13 )
+  - [UI] File Upload API 사용시 하위 WebKit 을 호환하는 소스 추가
+
+# 2.1.4.8 ( 2016.02.23 HotFix )
+  - [iOS, UI] progress event 에 remainingBytes와 percentage 파라미터가 추가 전달되도록 수정
+
+# 2.1.4.7 ( 2015.11.26 )
+  - [iOS] directory 설정값을 받지 못하던 오류 수정
+  - [iOS] 업로드를 반복하면 쿠키값이 여러개 생성되는 오류 수정
+  - [iOS] Plugin 용 Info.plist 를 Plugin-Info.plist 로 변경
+
+# 2.1.4.6 ( 2015.10.22 )
+  - [iOS] 파일 업로드시 사진첩에 파일도 /media.link 경로를 통해 업로드 할 수 있도록 기능 추가
+  - [iOS] 파일 업로드시 파일명을 추출하는 로직 수정
+
+# 2.1.4.5 ( 2015.10.08 )
+  - [iOS] File Upload시 File이 없는 경우에도 Parameters가 전달되도록 수정
+
+# 2.1.4.4 ( 2015.08.31 HotFix )
+  - [Android,iOS,UI] M.net.http.download 시 Header값에 Content-Type 을 application/json 로 세팅하면 json 으로 파라미터 전달하도록 수정
+  - [iOS] M.net.http.download, upload 시 progress 정보를 upload와 download 를 구분하여 처리하도록 수정
+
+# 2.1.4.3 ( 2015.08.13 )
+  - [Android,iOS] M.net.http.download, M.net.http.upload 시 추가된 useCookie, contentType(mimetype) 옵션으로 Header 값 수정
+
+# 2.1.4.2 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 실행에 대한 신뢰성 향상
+  - [Android] 업로드 API 성공 여부에 대한 체크 로직 수정
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+
+# 2.1.1.6 ( 2015.05.07 HotFix )
+  - [UI] M.net.http.upload 에서 결과를 API 문서대로 받도록 수정
+  - [Android,iOS] 업로드된 파일에 대한 file input key 값을 임의로 적용할 수 있게 수정
+
+# 2.1.1.5 ( 2015.04.24 HotFix )
+  - [Android, iOS, UI] M.net.http.download/upload API 사용성 개선 및 2.2 Interface 적용
+  - [Android, iOS, UI] 파일경로(doc://xxx, app://xxx, /xxx )에 대한 정의를 통합
+  - [iOS] 업로드 최대 사이즈에 대한 정의를 Bundle 내 Info.plist 에 MaximumFileUploadSize 로 정의
+
+# 2.1.1.4 ( 2015.04.16 HotFix )
+  - [Android,iOS,UI] 다운로드 동작 중 중지 할 수 있는 API 추가
+  - [Android,iOS,UI] M.net.http.download 에 overwrite 옵션 추가 (기본값은 false)
+  - [Android,iOS,UI] 2.2 Interface 적용 
+  - [iOS, UI] M.net extends API 사용성 개선
+  - [iOS] 파일 다운로드 및 업로드 시 Indicator 를 MProgressView 로 변경 ( Accelerate.framework 추가 필요 )
+  - [iOS] 파일 다운로드 안전성 개선
+  - [iOS] Dsymutil Warning 제거
+
+# 2.1.1.3 ( 2014.12.29 )
+  - [iOS] 파일 업로드시 같은 이름으로 중복선언된 name 값을 허용하도록 수정
+
+# 2.1.1.2 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.1.1 ( 2014.10.24 )
+  - [Androd,iOS] Upload and Downalod 실행시 인스턴스 메세지는 띄우지 않도록 수정
+
+# 2.1.0.10 ( 2014.09.25 )
+  - [Android] URL parsing 오류시 error event 추가
+  - [Android] annotation 처리 
+
+# 2.1.0.9 ( 2014.08.22 )
+  - [UI] M.net.http.download 에 이벤트 처리 오류 수정
+
+# 2.1.0.8 ( 2014.08.19 )
+  - [UI] M.net.http.upload 에서 parameter, headerParameter 등이 전달되지 않은 내용 수정
+
+# 2.1.0.7 ( 2014.08.08 )
+  - [UI] M.net.http.download 옵션의 기본값 수정
+
+# 2.1.0.6 ( 2014.07.14 )
+  - [UI] M.net.http.upload 옵션값이 전달되지 않는 버그 재수정
+
+# 2.1.0.5 ( 2014.06.20 )
+  - [UI] M.net.http.upload 옵션값이 전달되지 않는 버그 수정
+	
+# 2.1.0.4 ( 2014.05.29 )
+  - [Android] wn2NetHttpDownload 추가
+  - [iOS] M.net.http.download 버그 수정
+	
+# 2.1.0.3 ( 2014.05.16 )
+  - [UI] HTTP File Upload, Download Progress 기능 추가
+	
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] 버전 정보 전달
+	
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon Network Extension Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.netext.WNInterfaceNetExt</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.addon.net" type="addon">
+		<api>2.1</api>
+		<name>애드온 네트워크 라이브러리</name>
+		<description><![CDATA[네트워크 관련 기능을 제공합니다.
+  A. HTTP, TCP, FTP 프로토콜을 지원합니다.
+  B. 화면에서 사용할 리소스 업데이트 기능을 제공합니다.]]></description>
+		<revision>4.23</revision>
+		<history><![CDATA[# 2.1.4.23 ( 2024.05.10 )
+ - [Android] 리소스 사전배포 기능 관련 userInfo 추가
+
+# 2.1.4.22 ( 2023.03.15 )
+ - [iOS] framework -> xcframework 변경
+
+# 2.1.4.21 ( 2022.12.21 )
+ - [Android - 2.1.4.21] 
+   - 버전 코드 싱크 처리 
+
+# 2.1.4.20 ( 2021.05.03 )
+ - [iOS] wn2NetResetResourceVersion return 추가
+
+# 2.1.4.19 ( 2021.04.08 )
+  - [Android - 2.1.4.21] 
+	- custom session 적용
+
+# 2.1.4.18 ( 2021.01.28 )
+  - [Android - 2.1.4.20] 
+	- M.net.res.check 후, 리소스를 찾지 못하는 오류 수정 	
+	  오류조건 - 클라이언트와 리소스 배포서버간 리소스는 동기화 된 상태에서, 앱(바이너리)을 업데이트 하는 경우 
+	  M.net.res.update 를 호출하지 않아 발생하는 현상임
+	  
+
+# 2.1.4.17 ( 2020.09.23 )
+  - [Android - 2.1.4.19] 
+	- wn2NetResetResourceVersion return 추가 
+	- 네트워크 속도 향상 (수신 후, 500m/s delay 제외)		 	
+	
+# 2.1.4.16 ( 2020.07.07 )
+  - [Android - 2.1.4.18] 
+	 - 리소스 초기화 시, file path 오류 수정 	
+
+# 2.1.4.15 ( 2019.04.01 )
+  - [Android] 리소스 초기화 로직 수정
+s	
+# 2.1.4.14 ( 2019.03.25 )
+  - [Android] 리소스 버전 체크 api 추가
+  - [iOS] 리소스 버전 체크 api 추가 (core 2.1.7.50 이상 필요)
+  - [UI] 리소스 버전 체크 api 추가
+        
+# 2.1.4.13 ( 2019.03.14 )
+  - [Android] 리소스 초기화, [타겟서버 변경 / mode] 변경 추가 
+  - [iOS] 리소스 초기화, [타겟서버 변경 / mode] 변경 추가   
+  - [UI] 리소스 초기화, [타겟서버 변경 / mode] 변경 추가   
+	
+# 2.1.4.12 ( 2018.06.18 )
+  - [Android] 데이터수신 후, 500ms 에 대한 사용 여부 플래그추가 
+	
+# 2.1.4.11 ( 2018.05.03 )
+  - [Android] 대용량 데이터에 대한 호출 방식 변경 (evaluateJavascript 지원)
+
+	
+# 2.1.4.10 ( 2017.05.12 )
+  - [Android] Native 앱업데이트 이후, root target 초기화 처리 (리소스 다운로드가 없는 경우, 패스가 assets로 고정되는 오류 수정 )
+  
+# 2.1.4.9 ( 2016.10.20 )
+  - [Android] 앱업데이트 이후, root target 초기화 처리 (리소스 다운로드가 없는 경우, 패스가 assets로 고정되는 오류 수정 )
+	
+# 2.1.4.8 ( 2016.08.19 )
+  - [UI, Android, iOS] retargetUrl 값이 적용되도록 API 수정
+
+# 2.1.4.7 ( 2016.08.04 )
+  - [iOS] Network Provider 에 Patch Method 추가
+
+# 2.1.4.6 ( 2016.07.15 ) 
+  - [UI] M.net.http.send 에서 url 값도 적용 되도록 수정
+
+# 2.1.4.5 ( 2016.03.10 )
+  - [iOS] Network Delegate 오류 수정
+
+# 2.1.4.4 ( 2016.02.19 HotFix )
+  - [Android, iOS, UI] Socket 통신 시 옵션 오류 수정
+
+# 2.1.4.3 ( 2015.08.13 )
+  - [Android, iOS, UI] Native 에서 저장하고 있는 쿠키관리를 위한 M.net.cookie API 추가
+  - [iOS] M.net.http.send 에서 data(param) 값이 없어도 데이타를 호출 할 수 있도록 수정
+
+# 2.1.4.2 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 실행에 대한 신뢰성 향상
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+
+# 2.1.1.4 ( 2015.03.12 )
+  - [UI] M.net API 사용성 개선
+  - [iOS, Android] rsp 값에 암호화 방식 개선
+  - [iOS] Dsymutil Warning 제거
+
+# 2.1.1.3 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+  - [Android] app_version_info json 검증 로직 추가
+
+# 2.1.1.2 ( 2014.11.19 )
+  - [iOS, Android] Sample 소스로 제공되었던 HttpDataNetworkManager 가 더 이상 배포되지 않음 
+
+# 2.1.1.1 ( 2014.11.07 )
+  - [iOS] 리소스 업데이트 시 info 값이 기존과 상이한 결과가 전달되던 부분 수정
+
+# 2.1.0.9 ( 2014.10.24 )
+  - [iOS] 리소스 업데이트 리펙토링 진행<속도, 안정성 개선> ResourceUpdate 로직 수정
+
+# 2.1.0.8 ( 2014.09.25 )
+  - [Android] webview null 체크
+  - [Android] log 정보 보강
+
+# 2.1.0.7 ( 2014.07.25 )
+  - [Android] 앱 버전 값에 따른  강제업데이트 로직 수정
+	
+# 2.1.0.6 ( 2014.07.24 )
+  - [Android] 리소스 업데이트 json data 예외처리
+	
+# 2.1.0.5 ( 2014.07.14 )
+  - [iOS, Android] M.res.update 를 통해 리소스 업데이트 완료시 info 값에 공지사항 정보인 notice_list 추가
+	
+# 2.1.0.4 ( 2014.06.26 )
+  - [Android] WNResponseJsonDataFromServer 호출 시 setTimeout 스크립트 추가
+	
+# 2.1.0.3 ( 2014.06.20 )
+  - [UI] M.net.http.send 에 indicator 기능 추가
+  - [UI] M.net.http.send 에 start, finish 이벤트 추가
+	
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] 리소스 버전을 초기화 하는 API 로 M.net.res.reset 와 WNResetResourceVersion 함수 추가
+  - [UI] 버전 정보 전달
+	
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon Network Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.net.WNInterfaceNet</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.addon.file" type="addon">
+		<api>2.1</api>
+		<name>애드온 File 라이브러리</name>
+		<description><![CDATA[File IO와 관련한 기능을 제공하는 Lib입니다.
+  A. Create, Remove, Info, Read, Write, copy, move 등을 제공합니다.]]></description>
+		<revision>4.19</revision>
+		<history><![CDATA[# 2.1.4.19 ( 2023.05.14 )
+- [Android, iOS, UI] BASE64 쓰기 기능 추가
+
+# 2.1.4.18 ( 2023.03.15 )
+- [iOS] framework -> xcframework 변경
+
+# 2.1.4.17 ( 2022.06.08 )
+- [Android 2.1.4.15] - M.file.picker api 추가
+- [iOS] M.file.picker api 추가
+
+# 2.1.4.16 ( 2022.03.30 )
+- [iOS] 파일 복사 API 버그 수정
+        
+# 2.1.4.15 ( 2021.04.08 )
+- [Android]  2.1.4.14
+	- 파일 복사 로직 수정 
+   	- 암호화 처리로직 교체 (JNI)
+
+# 2.1.4.14 ( 2021.03.02 )
+- [iOS] path 변경에 맞춘 수정
+        MCore.2.1.7.88
+
+# 2.1.4.13 ( 2020.01.06 )
+- [Android] file write 시 result 값 에서 data 제외 (JSON 규격 오류 이슈)
+
+# 2.1.4.12 ( 2019.12.03 )
+- [Android] 파일 암호화 기능 추가
+- [iOS] 파일 암복호화 기능 추가
+- [iOS] readFile 용량 제한 제거
+
+# 2.1.4.11 ( 2018.11.06 )
+- [Android] result format 보완
+	
+# 2.1.4.10 ( 2018.09.14 )
+- [Android] 
+- [UI] M.file.write 응답값 패치
+
+# 2.1.4.9 ( 2018.06.27 )
+  - [Android] BASE64 읽기 기능 추가
+  - [iOS] BASE64 읽기 기능 추가	
+
+# 2.1.4.8 ( 2016.07.14 )
+  - [UI] Interface 결과가 null 인 경우 예외 처리 추가
+
+# 2.1.4.7 ( 2016.05.12 )
+  - [Android] 외장 root 폴더에 복사 기능하도록 수정 
+  - [Android] Assets 폴더 파일을  sd card로 복사 기능하도록 수정 
+
+# 2.1.4.6 ( 2016.03.03 )
+  - [Android, UI] 파일 리스트 API 이용 시 필터 동작 오류 수정
+
+# 2.1.4.5 ( 2015.10.22 )
+  - [iOS] /media.link 를 통해 파일 경로를 간혹 찾지 못하던 버그 수정
+
+# 2.1.4.4 ( 2015.09.24 )
+  - [iOS] M.file API 를 background 처리하면서 나온 이슈사항 반영
+
+# 2.1.4.3 ( 2015.09.17 HotFix )
+  - [iOS] M.file.copy 를 통해 사진첩 사진 파일도 /media.link 경로를 통해 복사 할 수 있도록 기능 확장
+
+# 2.1.4.2 ( 2015.09.11 )
+  - [iOS] Error 처리시 메모리 오류 수정
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+
+# 2.1.1.1 ( 2015.04.24 HotFix )
+  - [Android, iOS, UI] M.file API 사용성 개선 및 2.2 Interface 적용
+  - [Android, iOS, UI] 파일경로(doc://xxx, app://xxx, /xxx )에 대한 정의를 통합
+  - [Android, iOS, UI] Copy, Move 에 대한 ProgressEvent 로 파일 인덱스, 파일수리 대상파일, 이동된파일 정보 전달
+  - [iOS] IndicatorView, ProgressView 최신화된 UI 적용
+
+# 2.1.0.8 ( 2015.03.19 )
+  - [iOS] Dsymutil Warning 제거
+  - [UI] M.file API 사용성 개선
+
+# 2.1.0.7 ( 2015.01.26 )
+  - [UI] M.file API 들의 실행 오류 수정
+
+# 2.1.0.6 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.0.5 ( 2014.11.11 )
+  - [iOS] file info로 전달된 path 값에 documents 경로에 document path 가 있는 경우에는 document path 를 붙이지 않도록 수정
+
+# 2.1.0.4 ( 2014.11.06 )
+  - [UI] file copy 시 indicator 기능 추가
+
+# 2.1.0.3 ( 2014.05.29 )
+  - [UI] 내부 구조 변경
+	
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] API 문서와 상이한 결과 반환을 수정
+  - [UI] 버전 정보 전달
+	
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon File Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.file.WNInterfaceFile</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.plugin.protect" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Protect 라이브러리</name>
+		<description />
+		<revision>0.1</revision>
+		<history><![CDATA[# 2.1.0.1
+  - Plugin Protect Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.protect.WNInterfaceProtect</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.plugin.qr" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 QRCode Reader 라이브러리</name>
+		<description />
+		<revision>5.22</revision>
+		<history><![CDATA[# 2.1.5.22 ( 2024.05.22 )
+  - [iOS]
+     - 신규 UI MQRViewController 추가
+       기존 UI 사용시 page:'MQRCodeViewController' 로 호출
+
+# 2.1.5.21 ( 2023.10.25 )
+  - [Android 2.1.5.18] 
+    - return format 미 적용 부분 수정
+
+# 2.1.5.20 ( 2023.10.05 )
+   - [Android 2.1.5.17] 
+	 - '/'로 시작하는 코드 파싱 구분 
+     
+# 2.1.5.19 ( 2023.03.20 )
+  - [iOS]
+     - libType zxing 추가
+     - framework -> xcframework 변경
+       
+# 2.1.5.18 ( 2022.12.20 )
+  - [Android 2.1.5.16]
+     - return 값에, format 정보 추가 
+
+# 2.1.5.17 ( 2022.10.14 )
+  - [iOS]
+     - iOS 기본 QR 사용 가능하도록 변경
+       ( libType으로 분기 zbar, ios )
+
+# 2.1.5.16 ( 2022.10.13 )
+  - [Android 2.1.5.15] 
+	 - ZBar, ZXing 액티비티 풀패키지명으로 지정
+
+# 2.1.5.15 ( 2022.10.05 )
+  - [Android 2.1.5.14] 
+	 - ZBar, ZXing 라이브러리 병합 (둘다 이용 가능하도록 libType으로 분기) 
+
+# 2.1.5.14 ( 2022.08.16 )
+  - [Android 2.1.5.13] 
+	 - escape 문자("'") 예외 처리
+	 - gradle 환경 추가
+	
+# 2.1.5.13 ( 2022.07.21 )
+  - [Android 2.1.5.12] 
+	 - QR 데이터 JSON parsing error 수정 (JSON 데이터도 받을수 있도록 수정)
+	
+# 2.1.5.12 ( 2022.04.19 )
+  - [Android 2.1.5.11] 
+	 - filter array 적용
+  - [iOS]
+     - filter array 적용
+
+# 2.1.5.11 ( 2021.02.01 )
+  - [Android 2.1.5.10] 
+	 - qr_string.xml 문구 추가 / 라이브러리 수정 적용
+	 - filter 보완
+	 - onRestart 시 focus 초기화  
+  
+# 2.1.5.10 ( 2019.10.30 )
+  - [Android, iOS, UI] 커스텀 UI를 지정하기 위한 page 옵션 추가
+        
+# 2.1.5.8 ( 2019.10.10 )
+  - [Android] 		
+     - IDE 3.0 대응 jni 라이브러리 배포
+
+# 2.1.5.7 ( 2018.03.05 )
+  - [Android] 		
+		- 플래시기능이 없는 디바이스 대응 
+		- 초점 delay 시간 조정 (3000 > 500 ms)  
+	
+	
+# 2.1.5.6 ( 2018.03.05 )
+  - [Android] 화면 상단 뒤로가기 버튼 기능 추가 [옵션]
+  
+# 2.1.5.5 ( 2018.03.05 )
+  - [Android] 하드웨어 Back 키 이벤트 통일 
+
+	
+# 2.1.5.4 ( 2016.09.29 )
+  - [Android] 태블릿에서 오리엔테이션이 디바이스 별로 상이할 수 있으므로 공통 처리
+
+# 2.1.5.3 ( 2016.09.08 )
+  - [Android] 태블릿에서 오리엔테이션 설정 오류 수정
+
+# 2.1.5.2 ( 2016.08.17 )
+  - [Android] toggle layout 오류 수정 
+  - [iOS] AVAsset 해상도 조절
+  - [iOS] 해상도 조절에 따른 scan 영역 비율 조정
+  - [iOS] 화면회전에 따른 CaptureView 회전 재적용
+
+# 2.1.5.1 ( 2016.08.11 )
+  - [Android, iOS] 데이타의 범위를 정하는 filterType 추가
+  - [Android, iOS, UI] 캡쳐 범위를 정하는 captureScale 추가
+  - [Android, iOS, UI] 가이드 라인을 위한 useGuideLine 옵션 추가
+  - [Android] so파일 변경 (64bit 지원 )
+  - [iOS] Framework config 에 libiconv.tbd 추가
+  - [iOS] Framework config 에서 dylib 를 tbd 로 교체
+
+# 2.1.4.6 ( 2016.05.12 )
+  - [iOS] DWARF warning 수정
+
+# 2.1.4.5 ( 2015.02.05 )
+  - [iOS] Prelink 수정
+  - [iOS] Plugin Info 정보를 불러오지 못하던 오류 수정
+
+# 2.1.4.4 ( 2015.12.29 HotFix )
+  - [Android] Qr 연속 호출 시 카메라 리소스 오류 수정
+  - [UI] 데이타 결과 값에 대해 Android, iOS 결과 통합
+
+# 2.1.4.3 ( 2015.11.26 )
+  - [iOS] Plugin 용 Info.plist 를 Plugin-Info.plist 로 변경
+
+# 2.1.4.2 ( 2015.09.24 )
+  - [Android] QRCode 화면 종료시 이슈사항에 대한 예외 처리 적용
+
+# 2.1.4.1 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 적용 및 실행에 대한 신뢰성 향상
+  - [UI] M.plugin('qr').open 대신 M.plugin('qr').scan 으로 API 실행 
+  - [iOS] MQr.bundle 파일내 Info.plist 를 통해 StatusBar 설정 가능
+
+# 2.1.0.8 ( 2014.12.29 )
+  - [Android] QRCode 라이브러리 교체
+
+# 2.1.0.7 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.0.6 ( 2014.11.03 )
+  - [iOS] iOS8 에서 화면 회전 없이 뷰가 출력되어 어긋난 위치로 View가 출력되는 이슈 수정정
+# 2.1.0.5 ( 2014.10.24 )
+  - 배포 오류 수정
+
+# 2.1.0.4 ( 2014.09.26 )
+  - [iOS] ZXIngObjC 라이브러리 업데이트 / ZXingObjC.framework 없이 구현 (기존 프로젝트는 삭제 필요)
+  - [iOS] iOS8 에서 barcode, qrcode 등이 인식되지 않은 문제 수정
+
+# 2.1.0.3 ( 2014.09.12 )
+  - [iOS] 결과값에 공백 및 줄바꿈 제거
+
+# 2.1.0.2 ( 2014.09.12 )
+  - [Android] res/anim 소스 추가
+	
+# 2.1.0.1 ( 2014.05.16 )
+  - Plugin QrCode Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.qr.WNInterfaceQr</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.plugin.drawing" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Drawing 라이브러리</name>
+		<description />
+		<revision>1.22</revision>
+		<history><![CDATA[# 2.1.1.22 ( 2024.05.21 )
+  - [Android] draw 그리기 하지 않은 경우에도 저장되는 부분 수정 
+        
+# 2.1.1.21 ( 2024.03.21 )
+  - [iOS] 편집시 일부 이미지 표기 안되는 오류 수정
+
+# 2.1.1.20 ( 2023.03.21 )
+  - [iOS] framework -> xcframework 변경
+  - [iOS] ios16 버전에서 앱종료 현상 수정
+        
+# 2.1.1.19 ( 2021.06.28 )
+  -[Android - 2.1.1.12]
+   	Reason :
+   		- 리소스 (plugin_drawing_strings.xml)재배포
+
+# 2.1.1.18 ( 2021.06.16 )
+  -[Android - 2.1.1.12]
+   	Reason :
+   		- 다국어 지원 추가 적용 리소스 배포   
+
+
+# 2.1.1.17 ( 2021.01.21 )
+  -[Android - 2.1.1.12]
+   	Reason :
+   	- androidx exif 라이브러리 교체
+	주츼 : 최신 core 2.1.7.84 적용 필요 	
+
+# 2.1.1.16 ( 2020.09.10 )
+  -[Android - 2.1.1.11]
+    pen drawing 다국어 처리 
+	
+# 2.1.1.15 ( 2020.05.19 )
+  -[Android - 2.1.1.10]
+    button layout 시 배경 이미지 display 오류 수정
+
+# 2.1.1.14 ( 2020.05.19 )
+  - [UI]
+    M.drawing.open에 userInterfaceType 옵션 추가
+  -[ANdroid]
+    취소시, 화면복원 수정   
+    
+# 2.1.1.13 ( 2020.03.03 )
+  - [Android]
+	화면 리사이징시, 데이터 유지
+	
+# 2.1.1.12 ( 2019.07.01 )
+  - [Android]
+	불필요 리소스 제거
+
+# 2.1.1.10 ( 2019.04.03 )
+  - [Android]
+	다국어 적용 
+	
+# 2.1.1.9 ( 2019.02.15 )
+  - [Android]
+	theme 공통 처리 
+	
+# 2.1.1.8 ( 2018.09.27 )
+  - [Android]
+  - 스크린 캡쳐 방지 기능 키값 상수적용 
+	기능 ON 	: CommonLibUtil.setVariableToStorage(DrawingDefine.KEY_FLAG_SECURE, "true", this);
+	기능 OFF 	: CommonLibUtil.setVariableToStorage(DrawingDefine.KEY_FLAG_SECURE, "false", this);
+	
+# 2.1.1.7 ( 2018.01.12 )
+  - [iOS] iPhone X 화면 대응 업데이트(Safe area 가이드라인 적용)
+
+# 2.1.1.6 ( 2017.11.16 )
+  - [Android]
+    App Inside 저장 기능 수정 (일부 단말에서 미작동 오류 수정 )
+    스크린 캡쳐 방지 기능 추가 (drawing 기능만 적용)
+     기능 ON : CommonLibUtil.setVariableToStorage("FLAG_SEURE", "true", this);
+	 기능 OFF : CommonLibUtil.setVariableToStorage("FLAG_SEURE", "false", this);  
+	
+# 2.1.1.5 ( 2017.09.29 )
+  - [iOS] M.drawing.create 에서 savePoint 가 APPOUTSIDE 일떄 항상 FAIL 현상 수정
+# 2.1.1.4 ( 2017.08.21 )
+  - [iOS] M.drawing.create 리턴 경로 이상 수정
+        
+# 2.1.1.3 ( 2017.08.21 )
+  - [iOS] M.drawing.open 기능 무한 로딩 현상 수정
+  
+# 2.1.1.2 ( 2016.01.28 )
+  - [Android] 리소스 파일명 수정
+
+# 2.1.1.1 ( 2015.03.23 )
+  - [Android,iOS,UI] 화면 회전 option 추가
+  - [ANdroid] 메뉴 타입 속성에 따라 레이아웃 구성되도록 수정
+  - [ANdroid] 추가된 레이아웃에 따른 리소스 추가
+  - [iOS] 가로모드시 이미지 크기 저장 팝업 위치 조절
+  - [UI] API 개선 작업 및 이미지 로딩을 위한 open method 추가
+
+# 2.1.0.3 ( 2015.01.22 )
+  - [iOS, Android, UI] format option 추가로 PNG, JPG 포맷을 선택하여 이미지를 생성 할 수 있도록 수정 
+  - [Android] privacy 속성 추가 (false: 갤러리 앱에 확인이 가능. true: 보이지 않음.) 
+
+# 2.1.0.2 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.0.1
+  - Plugin Drawing Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.drawing.WNInterfaceDrawing</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.addon.media" type="addon">
+		<api>2.1</api>
+		<name>애드온 Media 라이브러리</name>
+		<description><![CDATA[Media와 관련한 기능을 제공합니다.
+  A. 미디어 정보(Info), 카메라, 갤러리 호출, 녹취, 미디어 삭제 기능 등을 제공합니다.]]></description>
+		<revision>5.42</revision>
+		<history><![CDATA[# 2.1.5.42 ( 2024.05.22 )
+  - [Android, iOS, UI] M.media.imagePicker 추가 (core 라이브러리 ver2.1.8.43 이상적용)
+  - [iOS] M.media.picker 썸네일 이미지 크기 관련 수정
+
+# 2.1.5.40 ( 2023.08.11 )
+  - [Android 2.1.5.27] 갤러리 앱 연동추가(M.media.picker mode:multi, media:all) [최신 core 라이브러리 적용 필요]
+  
+# 2.1.5.39 ( 2023.03.15 )
+  - [iOS] framework -> xcframework 변경
+
+# 2.1.5.38 ( 2022.02.08 )
+  - [Android 2.1.5.25] 안드로이드 heic 확장자 대응
+  
+# 2.1.5.37 ( 2022.08.24 )
+  - [Android 2.1.5.25] optimize API dimension(width,height) 0.0~1.0 의 값은 pixel이 아닌 비율로 적용되도록 수정
+  - [iOS] optimize API dimension(width,height) 0.0~1.0 의 값은 pixel이 아닌 비율로 적용되도록 수정
+  
+# 2.1.5.36 ( 2022.06.07 )
+  - [Android 2.1.5.24] 안드로이드 12대응
+  
+
+# 2.1.5.35 ( 2022.02.08 )
+  - [iOS] picker detail 옵션시 버그 수정
+  - [iOS] camera video 촬영시 videoQuality 파라메터 추가
+
+# 2.1.5.34 ( 2021.05.12 )
+    - [iOS] get API 버그 수정
+
+# 2.1.5.33 ( 2021.03.02 )
+  - [iOS] path 관련 수정
+    assets-library 관련 패스가 phassetid로 변경
+    주의 : core 라이브러리 2.1.7.88 미만 버전에서는 이전 패스로 처리
+          신규 패스의 경우 관련 라이브러리 버전 확인 필요
+          file      : 2.1.4.14
+          netExt    : 2.1.4.27
+
+# 2.1.5.31 ( 2021.01.21 )
+  - [Android 2.1.5.23] 
+    - 안드로이드 11대응 exif 라이브러리 교체에 따른 수정 
+	주의 : core 라이브러리 2.1.7.84 적용 필요
+      
+# 2.1.5.31 ( 2020.12.21 )
+  - [iOS] M.media.picker 앱 종료 현상 수정
+
+# 2.1.5.30 ( 2020.09.22 )
+  - [Android 2.1.5.22] 
+	- Optimeze 시, exif 정보에 따른 화면회전 처리 
+
+# 2.1.5.29 ( 2020.09.18 )
+  - [iOS] iOS14 선택한 사진 썸네일 이미지를 못가져오던 버그 수정
+  - [iOS] 화면 회전에 따라 Optimeze 결과물이 오류 수정
+
+# 2.1.5.28 ( 2020.09.02 )
+  - [Android 2.1.5.21]
+ 	 -  image 처리시 exif 정보에 대한 예외 처리 (jpg, raw 파일만 획득 가능)
+
+
+# 2.1.5.27 ( 2020.07.01 )
+  - [Android 2.1.5.20]
+ 	 -  getImageUri null 체크
+
+# 2.1.5.26 ( 2020.02.27 )
+  - [iOS] M.media.picker mediaViewName 파라메터 추가
+  - [iOS] M.media.picker UI확장을 위한 구조 변경
+  - [iOS] iOS13 modalPresentationStyle 변경
+  - [UI] M.media.picker mediaViewName 파라메터 추가
+  
+# 2.1.5.25 ( 2019.12.03 )
+  -	[Android] json object 객체 전달
+  - [iOS] M.media.picker enc, title, leftBtn, rightBtn 파라메터 추가
+  - [iOS] iOS13 불특정 단말기에서 풀스크린 이미지를 못가져오던 버그 수정
+  - [UI] M.media.picker enc, title, leftBtn, rightBtn 파라메터 추가
+
+# 2.1.5.23 ( 2019.08.01 )
+  - [Android] crop 기능 보완
+
+# 2.1.5.22 ( 2019.06.28 )
+  - [Android] 이미지 optimize 실패 예외 처리
+
+# 2.1.5.21 ( 2019.06.03 )
+  - [iOS] 동영상 재생 관련 기능 수정
+  - [iOS] 미디어 Optimize 버그 수정
+  - [iOS] 미디어 Picker 버그 수정
+
+# 2.1.5.20 ( 2019.05.31 )
+  - [Android] 동영상 재생 오류시, progress 이벤트 처리 
+
+# 2.1.5.19 ( 2019.01.15 )
+  - [iOS] crop 로테이션 버그 수정
+  - [iOS] 아이폰X 해상도 관련 버그 수정
+  - [iOS] 권한체크 로직 변경
+
+# 2.1.5.18 ( 2018.12.20 )
+  - [Android] optimize 파일 확장자 오류 수정
+  
+# 2.1.5.17 ( 2018.06.21 )
+  - [Android] 안드로이드 8.0 대응 (Voice Record)
+  
+# 2.1.5.16 ( 2018.06.20 )
+  - [iOS] Crop, Record iOS 버전 호환성 관련 수정
+
+# 2.1.5.15 ( 2018.06.01 )
+  - [iOS] M.media.optimize iPhoneX 이미지 변경 관련 오류 수정
+  - [iOS] Crop, Record iPhoneX 해상도 관련 수정 
+
+# 2.1.5.14 ( 2018.03.09 )
+  - [iOS] M.media.optimize 사진 확대시 파일 생성 오류 수정  
+
+# 2.1.5.13 ( 2018.02.23 )
+  - [Android] M.media.get result 정보 수정 
+  
+# 2.1.5.12 ( 2017.11.21 )
+  - [UI] M.media.get result 정보에 filesize key값 수정  
+
+# 2.1.5.11 (2017.08.17)
+  - [Android]리소스 명칭 변경 (addon_background_pattern) 
+  
+# 2.1.5.10 ( 2017.05.12 )
+  - [iOS] M.media.camera 사진 저장시 Orientation을 고려하여 저장하도록 수정  
+
+# 2.1.5.9 ( 2017.04.18 )
+  - [UI] M.media.picker callback 파라메터 정보에 orientation 추가
+  - [iOS] M.media.info 실행 오류 수정
+  - [iOS, Android] file path 정책 통일
+  - [iOS, Android, UI] removeLibrary api 오류 수정
+  - [Android] library path 추가
+  
+# 2.1.5.8 ( 2016.12.09 )
+  - [iOS] Media Picker 에서 선택된 index 를 표현하고 선택된 순서대로 결과를 생성하도록 수정
+  - [iOS] Media Picker 미디어 로딩 속도 개선
+  - [iOS] Media Optimize 사진 방향을 고려하여 최적화 하도록 수정
+
+# 2.1.5.7 ( 2016.09.09 )
+  - [iOS] Media Play 시 Done 버튼 Hidden 처리
+
+# 2.1.5.6 ( 2016.09.08 )
+  - [iOS] Media Play 시 외부 URL도 허용하도록 수정
+  - [iOS] M.media.get 호출시 사용시 asset-library 에도 접근 가능하도록 수정
+
+# 2.1.5.5 ( 2016.08.04 )
+  - [Android] optimize 파일 경로 오류 수정
+  - [Android] 파일생성 오류 수정
+  - [Android] max count 고정값 제거
+
+# 2.1.5.4 ( 2016.07.15 )
+  - [iOS] M.media.optimize, M.media.crop 시 asset-library 에 파일도 적용되도록 수정
+
+# 2.1.5.3 ( 2016.06.30 )
+  - [iOS] M.media.optimize, M.media.crop 에서 생성될 파일의 중간 폴더를 생성하도록 로직 추가
+
+# 2.1.5.2 ( 2016.06.23 )
+  - [Android, iOS, UI] Crop UI 를 통해 이미지를 추출하는 m.media.crop API 추가
+  - [Android, UI] M.media.camera 에 saveAlbum 옵션을 통해 저장시 앨범에도 같이 저장되도록 옵션 추가
+  - [Android] M.media.camera 에서 사진 촬영 후 저장시 target 적용 
+
+# 2.1.5.1 ( 2016.06.20 HotFix )
+  - [Android, iOS, UI] 이미지 해상도 변환을 위한 M.media.optimize API 추가
+  - [Android, iOS, UI] M.media.picker 에 최대 선택수를 제한하는 maxCount 옵션 추가
+
+# 2.1.4.7 ( 2016.02.05 )
+  - [iOS] Plugin Info 정보를 가져오지 못하던 버그 수정
+  - [iOS] 다국어 지원 키값 수정
+
+# 2.1.4.6 ( 2016.01.14 )
+  - [Android, iOS, UI] Picker 기능에 column, detail, zoom 옵션 기능 추가
+
+# 2.1.4.5 ( 2015.11.26 )
+  - [iOS] Plugin 용 Info.plist 를 Plugin-Info.plist 로 변경
+
+# 2.1.4.4 ( 2015.10.22 )
+  - [iOS] MMedia.bundle 파일내 Info.plist 를 통해 StatusBar 설정 가능
+
+# 2.1.4.3 ( 2015.10.08 )
+  - [iOS] 내부 UIAlertView 로 실행된 부분을 MAlertController 로 대체
+
+# 2.1.4.2 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 실행에 대한 신뢰성 향상
+  - [Android] 미디어 라이브러리 삭제시 오류 수정
+  - [iOS] 영상 재생후 되돌아온 페이지에서 StatusBar 가 사라지는 버그 수정
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+
+# 2.1.2.1 ( 2015.05.28 )
+  - [iOS] M.media.voice API 에 대한 overwrite 기능 추가, 파일 시간 값 조정 
+  - [iOS] Path 표준화 정책 적용
+
+# 2.1.1.3 ( 2015.04.23 )
+  - [iOS] VoiceRecording 화면이 때에 따라 잘려나오지 않게 화면 임의 크기 조정
+
+# 2.1.1.2 ( 2015.04.02 )
+  - [iOS] callback 함수내에서 alert 을 실행 할 수 있도록 interval 추가
+  - [UI] M.media API 사용성 개선
+
+# 2.1.1.1 ( 2015.03.06 )
+  - [Android,iOS,UI] M.media.record 로 녹취 후 화면 이동이 아닌 callback 방식으로 데이타 전달
+  - [Android] 동영상 재생을 위한 미디어 플레이어 적용
+  - [iOS] VoiceRecoding 관련 UI를 XIB 방식으로 적용 하고 번들로 배포, 기존 ExVoiceRecordViewController.xib는 제거
+  - [iOS] Dsymutil Warning 제거
+
+# 2.1.0.11 ( 2015.02.12 )
+  - [UI] M.media 사용성 개선
+
+# 2.1.0.10 ( 2015.01.26 )
+  - [UI] M.media.camera 실행 오류 수정
+
+# 2.1.0.9 ( 2015.01.22 )
+  - [UI] 사용성 개선의 일부로 callback 대신 on event 도 병행해서 사용 가능 ( onselect, onfinish, onload, ontake, ... ) 
+
+# 2.1.0.8 ( 2014.12.18 )
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+
+# 2.1.0.7 ( 2014.11.11 )
+  - [iOS] M.media.libary 를 통해 가져오는 Assets 관련 임시폴더를 API 실행시마다가 아닌 앱 실행시 삭제되도록 수정
+  - [iOS] M.media.play 를 통해 Native 로 영상을 플레이하는 경우 화면회전시 가로 세로를 window size 상태 그대로 반영되도록 수정
+  - [UI] M.media.library 에서 choose 값이 SINGLE 인 경우 결과값을 배열이 아닌 object 형태로도 return 되도록 수정
+
+# 2.1.0.6 ( 2014.11.03 )
+  - [iOS] M.media.library 로 사진,비디오 가져올때 path 값이 계속 바뀌지 않고 고유ID 로 고정되도록 수정
+
+# 2.1.0.5 ( 2014.07.21 )
+  - M.media.camera API 에 App 안에서만 파일을 저장하는 privacy 기능 추가 
+  - M.media.removeLibrary API 에 App 안에서만 파일을 삭제하는 privacy 기능 추가
+  - M.media.info API 에 App 안에서만 파일 정보를 불러오는 privacy 기능 추가
+  
+# 2.1.0.4 ( 2014.06.19 )
+  - [Android] 파일 info 수정
+  - [Android] M.media.removeLibrary 함수의 path를 fullpath도 가능하도록 수정
+  - [iOS] M.media.play 화면 배치 수정
+  
+# 2.1.0.3 ( 2014.05.29 )
+  - [iOS] M.media.removeLibrary 함수의 path를 fullpath도 가능하도록 수정
+  
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] libary 접근시 media 값을 VIDEO 로 실행하는 경우에도 처리되도록 수정
+  - [UI] M.media.info 에서 API 문서와 상이한 결과 반환을 수정
+  - [UI] 버전 정보 전달
+  
+# 2.1.0.1 ( 2014.04.17 )
+  - Addon Media Library 2.1.0.1 Release]]></history>
+		<interfaces>
+			<interface>m.client.library.addon.media.WNInterfaceMedia</interface>
+		</interfaces>
+	</library>
+	<library id="m.client.library.core" type="core">
+		<api>2.1</api>
+		<name>코어 라이브러리</name>
+		<description><![CDATA[하이브리드 모바일 플랫폼 서비스를 제공하기 위한 핵심 엔진부분입니다.]]></description>
+		<revision>8.45</revision>
+		<history><![CDATA[# 2.1.8.45 (2024/06/12)
+  - [iOS]
+   - 기존 프로젝트 호환성을 위한 MPAppDelegate 수정
+
+# 2.1.8.44 (2024/06/10)
+  - [iOS]
+   - MPAppDelegate 추가
+
+# 2.1.8.43 (2024/05/22)
+  - [Android]
+	- M.media.imagepicker 처리 추가
+	
+# 2.1.8.42 (2024/05/10)
+  - [Android]
+	- network 전문 통신 시 데이터 전달방식 추가(바이너리 데이터)
+	- setSecStorage (sharedpreference 암호화) 추가
+   	(사용 시 implementation 'androidx.security:security-crypto:1.1.0-alpha06' 종속성 추가 필요)
+	- 리소스 unzip 시 경로 미반영 부분 수정
+   	- 초기 시스템 Mount 처리 변경
+    - media.camera 데이터 관련수정
+	- 퍼미션 체크방식 추가
+
+# 2.1.8.41 (2024/05/02)
+  - [iOS]
+   - 로컬서버 MIME타입 관련 수정
+   - 다국어 관련 예외 처리 추가
+
+# 2.1.8.40 (2024/04/05)
+  - [iOS]
+   - 리소스 사전배포 기능 관련 수정
+
+# 2.1.8.39 (2024/02/26)
+  - [iOS]
+   - 암호화된 Manifest.xml 처리 오류 수정
+
+# 2.1.8.38 (2024/01/19)
+   - M.page.html > removeQuery 추가
+    
+# 2.1.8.37 (2024/01/17)
+  - [Android]
+   - targetSdk 34 대응 퍼미션 처리
+   - 로그파일 크기 변경
+   	
+# 2.1.8.36 (2024/01/11)
+  - [iOS]
+   - 리소스 업데이트 시간 단위 오류 수정
+   
+# 2.1.8.35 (2023/11/10)
+  - [iOS]
+   - iOS17에서 isJavascriptFuction 오류 수정
+
+# 2.1.8.34 (2023/10/26)
+  - [iOS]
+   - 네트워크 결과처리 딜레이 제거
+   - 32비트 아키텍처 제거 
+   
+# 2.1.8.33 (2023/08/09)
+  - [Android]
+	- library media api관련 수정 
+	- media permission 수정	
+	
+# 2.1.8.32 (2023/07/05)
+  - [Android]
+  	- SPA 도메인 구분 추가 
+  	- targetSdkVersion / minSdkVersion 변경 (2023년 8월 31적용 구글 api수준 요구사항 대응)
+
+# 2.1.8.31 (2023/05/25)
+  - [Android]
+  	- androidx 사용
+  	- gradle 변경
+  	- device 정보 조회 퍼미션 수정(WN2INFODEVICE)
+    
+# 2.1.8.30 (2023/05/11)
+  - [Android]
+  	- (DB,ZIP,FILE) Permission 수정 
+  	- tablet 체크 로직 수정
+    
+# 2.1.8.29 (2023/04/27)
+  - [UI]
+    - M.response.on GroupID 생성 로직 변경
+
+# 2.1.8.28 (2023/04/10)
+  - [Android]
+  	- BuildConfig() 재수정
+  	
+# 2.1.8.27 (2023/04/10)
+  - [Android]
+  	- BuildConfig() import 수정
+  	
+# 2.1.8.26 (2023/04/10)
+  - [iOS]
+   - replace시 navigationKey 관련 오류 수정 
+
+# 2.1.8.25 (2023/04/04)
+  - [Android]
+  	- getPhoneNumber() 제거
+  	
+# 2.1.8.24 (2023/03/13)
+  - [iOS]
+   - framework -> xcframework 변경
+   - 리소스 업데이트시 전체 파일 사이즈 오류 수정
+   - url 문자열 길이 제한 제거
+   
+# 2.1.8.23 (2023/03/07)
+  - [Android]
+  	- MainActivity Recent App onPause 처리
+  	- 절전모드 상태에서도 local server = true :: 로컬 서버를 동작하도록 처리 
+  	
+# 2.1.8.22 (2023/03/02)
+  - [Android]
+  	- MainActivity Recent App event 미반영분 교체
+
+# 2.1.8.21 (2023/02/23)
+  - [Android]
+  	- tablet 체크 로직 수정 
+  
+# 2.1.8.20 (2023/02/20)
+  - [Android]
+    - Recent App event 처리
+    - targetSdk 33 대응 퍼미션 처리
+    - tablet 체크 로직 보완
+    - MainActivity errorHandler 객체 호출 예외 처리
+  - [Gradle]
+  	- apache.http.Header 모듈 의존성 추가
+  
+# 2.1.8.18 (2023/01/19)
+  - [UI]
+   - M.apps.downloadAndInstall 파라미터 오류 수정
+
+# 2.1.8.17 (2022/12/13)
+  - [iOS]
+   - REORDER_FRONT 관련 오류 수정
+   - 로그 관련 기능 수정
+
+# 2.1.8.16 (2022/11/21)
+  - [Android]
+     - 다국어 오류 수정 
+  - [Gradle]
+     - android build tool version 변경 ( 7.2.2)
+     - gradle wrapper version 7.3.3
+
+# 2.1.8.15 (2022/11/01)
+  - [UI]
+     - M.apps.downloadAndInstall indicator 파라미터 오류 수정
+     - M.apps.install indicator 동작하지 않던 버그 수정
+
+# 2.1.8.14 (2022/08/18)
+  - [iOS]
+   - REORDER_FRONT 처리 (커스텀)
+   - webViewWebContentProcessDidTerminate reload 추가
+
+# 2.1.8.13 (2022/08/01)
+  - [Android 2.1.7.97]
+     - checkResource시에 doc의 path를 참조못하는(누락) 오류 수정
+  - [Android 2.1.7.96]
+     - reorder_front process 관련
+        - onRestore event 처리
+        - animation 처리
+     - History Manager index 값 (int -> Integer 로 변경)
+
+# 2.1.8.12 (2022/07/13)
+  - [Android 2.1.7.95]
+     - REORDER_FRONT 처리 (커스텀)
+     - resource가 존재하지 않는 경우, 404 not found 처리
+     - web url (https://~~) + param{} 호춣 시, param 객체중 일부만 전달 오류 수정
+
+ -[Gradle]
+     - repositories 변경 (jcenter() ->  mavenCentral())
+	
+# 2.1.8.11 (2022/05/26)
+  - [Android 2.1.7.94]
+    - mcore_main_layout.xml 적용 : history back 파라미터 전달 오류 수정
+	- 파일 암호화 method 추가
+	- 오픈소스 라이브러리 버전 관리를 위한 라이브러리 분리 
+	 
+    - 패치 후, 빌드 오류 시 조치사항 참고 URL
+      https://developer.uracle.co.kr/faq/?uid=420&mod=document&pageid=1	 
+	
+
+ -[Gradle]
+	- default targetSdk 31 적용
+	- java compileOptions 1.8 적용 
+
+# 2.1.8.10 (2022/02/24)
+  - [UI]
+    - M.apps.downloadAndInstall indicator : false 오동작에 따른 조치
+
+# 2.1.8.9 (2022/02/23)
+- [Android 2.1.7.92]
+    - XmlHttpRequest status 0 리턴에 따른 조치 (파일 로딩 시 정상코드 0 )
+          예외 사용 방법 (주의 : 업데이트 권장하지 않음)
+          CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_EXCEPTION_STATUS_200, "true", this);
+          CommonLibHandler.getInstance().processAppInit(this);
+
+
+# 2.1.8.8 (2022/02/17)
+- [Android 2.1.7.91]
+ - 아동 전용 앱인 경우, TelephonyManager 사용 제한 처리
+          사용법
+          Startup.java 의 onCretate() 내부에 선언 [processAppInit() 이전에 선언]
+          CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_IS_FOR_KIDS, "true",  this);
+          CommonLibHandler.getInstance().processAppInit(this);
+  - 동일 대역을 통해 휴대폰 접근 시, 데이터 탈취가 불가능하도록 조치 (보안강화)
+
+
+# 2.1.8.7 (2022/02/09)
+- [iOS]
+ - 특정 상황에 웹뷰 객체가 정상적으로 해제되지 않는 오류 수정
+ - WNInterface.js 제거
+ - 커스텀 웹뷰 사이즈 조절을 위한 useCustomPoperaFrame 추가
+        
+# 2.1.8.6 (2021/12/29)
+	- [Android, 2.1.7.89]
+      - AndroidManifest.xml권한 수정 (READ_PHONE_STATE = max29, READ_PHONE_NUMBERS >= 30)
+          <uses-permission android:maxSdkVersion="29" android:name="android.permission.READ_PHONE_STATE" />
+          <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+	   - MainActivity xml 방식 호출 시, viewflipper 에 대한 로직 수정
+      
+	  - Build.gradle
+        buildToolsVersion 주석 처리
+
+
+
+# 2.1.8.5 (2021/11/02)
+  - [UI]
+    - iOS 일부 단말기 일반 브라우저 내에서 alert/confirm 동작되는 오류 수정
+
+# 2.1.8.4 (2021/10/22) 
+	- [Android, 2.1.7.88]
+          - zip 라이브러리 교체 
+	
+# 2.1.8.3 (2021/10/18) 
+	- [Android, 2.1.7.87]
+          - local server 선언시, IOUtils 의 external storage 오류 로그 수정
+          - main layout 추가
+          - 불필요 method / url 제거 (procRegistPushInfo)
+          - 앱 기동시 웹서버 관련 오류로그 수정	
+	
+
+# 2.1.8.2 (2021/08/13) 
+	- [Android, 2.1.7.86]
+          - external 앱영역 파일 핸들링 오류 수정
+          - 생체인증 권한 수정
+
+# 2.1.8.1 (2021/07/28) 
+	- [Android, 2.1.7.85]
+          - 암호화용 JNI 라이브러리 교체 
+		  - 암호화 파일 로딩시 속도 개선
+		  - 절전모드 암호화 파일 로딩 방식 변경 (파일 복호화 후 로딩 > ByteArray Stream )
+		  - 
+
+
+# 2.1.8.0 (2021/07/16) 
+	- [Android, 2.1.7.84]
+          - AVD (안드로이드 에뮬레이터) 에서, camera 호출 시, 미동작 오류 수정용  	
+
+
+# 2.1.7.99 (2021/07/14) 
+	- [Android, 2.1.7.83]
+          - local-server port 임의 적용 시, port 미설정 오류 수정 
+	- [Gradle]
+		  - TargetSdk 30 으로 적용  	
+
+# 2.1.7.98 (2021/07/06) 
+	- [Android, 2.1.7.82]
+          - 화면 로딩 속도 개선
+
+# 2.1.7.97 (2021/06/30) 
+	- [Android, 2.1.7.81]
+          - gradle 버전 변경 (안드로이드 11 대응)
+
+# 2.1.7.96 (2021/06/28) 
+	- [Android, 2.1.7.81]
+          - WebServer 구동시, port 체크 로직 보완
+          - google play 보안 정책 수정 (PendingIntent 사용 코드 수정)
+          - WNCallBack path 정책 보완
+
+# 2.1.7.95 (2021/06/16) 
+	- [Android, 2.1.7.80]
+        - 웹 링크 오동작 수정 
+
+# 2.1.7.94 (2021/06/16) 
+	- [Android, 2.1.7.79]
+        - 3rd party 퍼미션 구분
+        - cross domain 오류 시,  ignore_cros 적용
+           사용 예시 :
+           CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_IGNORE_CROS, "true", this);
+        - WebServer 구동시, port 체크 로직 수정 
+
+# 2.1.7.93 (2021/05/26) 
+- [Android, 2.1.7.78]
+ - Android 11 대응
+ - google play store 정책으로, requestLegacyExternalStorage 사용 금지에 따른 대응
+ - local path 수정(절대경로 오류)
+ - 리소스 다운로드 후, js 갱신 로직 수정  cache 초기화 필요시 아래 코드를 Startup.java 의 onCreate () 에 선언
+	CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_RESOURCE_UPDATE_CACHE_CLEAR, "true", this);
+ - local serve port check 오류 수정 
+ - cros 예외 처리 옵션 추가 
+        CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_IGNORE_CROS, "true", this);
+ - 3rd party 예약어 퍼미션 최소화 		
+
+# 2.1.7.92 (2021/05/12)
+- [iOS]
+ - iCloud 이미지 로딩시 오류 수정
+ - 현재 화면이 NO_HISTORY일 경우 스택 제거가 정상적으로 이루어지지 않는 오류 수정
+
+# 2.1.7.91 (2021/04/28)
+	- [iOS]
+			- kakao map 연동시, local port 사용 설정 
+			- 설정 방법 예시(Manifest.xml ) : 총 10개 이상 등록을 권장함
+			<manifest>
+				<local-server>
+					<port>2000,2001,2002,2003,2004,2005,2006,2007,2008,2009</port>
+				</local-server>
+			- http 통신 fail 콜백 추가
+			
+	- [Android 2.1.7.77]
+			- kakao map 연동시, local port 사용 설정 
+			- 설정 방법 예시(Manifest.xml ) : 총 10개 이상 등록을 권장함
+			<manifest>
+				<local-server>
+					<port>2000,2001,2002,2003,2004,2005,2006,2007,2008,2009</port>
+				</local-server>
+ 
+# 2.1.7.90 (2021/04/21)
+- [Android 2.1.7.75]
+		- 퍼미션 선언 추가 : <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/> 
+        
+# 2.1.7.89 (2021/04/08)
+- [Android 2.1.7.75]
+  	    - app install 시, NEW_TASK 추가
+    	- custom session 기능 추가
+    	- read_phone_number  권한 추가
+
+# 2.1.7.88 (2021/03/02)
+- [iOS]
+ - path 관련 수정
+   assets-library 관련 패스가 phassetid로 변경
+ - 토스트 팝업 사이즈 변경
+        
+
+# 2.1.7.86 (2021/02/17)
+- [Android 2.1.7.74]
+  	- chrome 제한 포트 추가  
+
+# 2.1.7.85 (2021/02/05)
+- [Android 2.1.7.73]
+  	- 안드로이드 5.0 이하 checkSelfPermission NoSuchMethodError 오류 수정  
+
+
+# 2.1.7.84 (2021/01/21)
+- [Android 2.1.7.72]
+  	- AES 라이브러리 JNI 로 변환
+  	- JPEG exif 정보 획득 실패에 따른 라이브러리 교체
+  	- zip file / device 정보 획득시, 퍼미션 예외 처리 기능 추가 (KEY_IGNORE_PERMISSION_ZIP, KEY_IGNORE_PERMISSION_DEVICE)
+- [iOS]
+ - 앱업데이트시 리소스 업데이트 체크 버그 수정
+ - MPAppManifestInfo.h 퍼블릭 변경
+    
+# 2.1.7.83 (2020/12/23)
+- [iOS]
+ - iPadPro safeArea 관련 수정
+   LuanchImage를 사용시 버그로 Launch Screen 사용 권장
+ - iPad에서 iphone앱 실행시 해상도 관련 수정
+ - 화면 회전 관련 수정
+
+# 2.1.7.82 (2020/12/15)
+- [iOS]
+ - iPadPro safeArea 관련 수정
+ - LaunchImage 사용시 StartPage에서 onReady 두번 호출 관련 버그 수정
+ - WKWebView WebConfiguration을 편집할수 있게 exWebViewConfiguration 추가
+ - BaseProvider URLSession API 추가
+ 
+# 2.1.7.81 (2020/11/09)
+- [iOS]
+ - 다국어 관련 버그 수정
+ - LaunchImage 단말군 추가
+ - 리소스 삭제 관련 버그 수정
+
+# 2.1.7.80 (2020/11/04)
+- [UI]
+  - M.info.version 관련 패치
+  -[Android - 2.1.7.71]
+  	 -  http, https url 정보 "?" 체크 로직 수정
+  	 -  HostnameVerifier 에 대한 조치
+  	   주의 : 
+	   아래 내용은 사설 인증서를 사용하는 case 에서만 적용합니다.[일반적인 case 에서는 적용하지 않음]
+	   사설 인증서 사용시 예외 처리 (프로젝트 > assets > res > Manifest.xml 파일 수정 )
+  	   <manifest>
+  	        <application>
+  	            <options>
+  	                <!-- 에외 처리하고자 하는 host name을 추가함. 구분자는 ',' 이며, 대표 domain 적용시 아래와 같이 morpheus 만 선언시,
+  	                    morpheus가 포함된 host 는 모두 통과됨.
+  	                -->
+                    <openssl-hostname>https://morphues.co.kr,morpheus</openssl-hostname>
+                </options>
+            </application>
+        </manifest>
+     -  동영상 : 갤러리 표출 오류 수정
+
+# 2.1.7.79 (2020/07/27)
+- [Android-2.1.7.69]
+	- 안드로이드 특정 버전에서, Collections.reverse() 오류로 인한 패치 
+	- ArrayList, LinkedList  : Synconized 처리 
+	- asstes zip 해제 기능 추가 
+	
+-[Gradle]
+	- default targetSdk 29 적용
+
+# 2.1.7.78 (2020/07/14)
+- [Android-2.1.7.68]
+	- history 관리 방식 보완 
+-[Gradle]
+	- default targetSdk 29 적용
+	
+# 2.1.7.77 (2020/07/01)
+- [Android-2.1.7.67]
+  	 - 절전 모드시, 히스토리 관리 class 예외 case 처리
+  	 - activity 삭제 시, index 예외 case 처리
+  	 - html 파일 로딩시, index 예외 case 처리
+  	 - shared preference 예외 case 처리
+  	 - GetExifOrientation 값 예외 case 처리
+
+# 2.1.7.76 (2020/06/10)
+- [Android-2.1.7.66]
+	- targetSdk 29 이상, 리소스 업데이트 오류 수정 
+
+# 2.1.7.75 (2020/05/19)
+- [Android-2.1.7.65]
+	- 카메라 촬영 후, picker 시 crop 동작되는 오류 수정 
+
+
+# 2.1.7.74 (2020/03/06)
+- [Gradle]
+	- Gradle Script 수정 
+	
+# 2.1.7.73 (2020/03/03)
+- [Android]
+    - history back : custom animation 추가
+    - onReceivedSslError 확장 함수 제공
+       CommonLibUtil.setVariableToStorage(LibDefinitions.network.KEY_IS_SSL_EXCEPTION, "true", this); 선언
+       BaseActivity에 onReceivedSslError Override 처리
+     - device id 추출 방식 변경 (Q 대응 - SSAID 기반)	
+	
+# 2.1.7.72 (2020/02/27)
+- [iOS]
+ - Page Animation 관련 변경
+ - Bundel Root Path 변경
+ - HEIC 이미지 버그 수정
+
+# 2.1.7.71 (2020/02/18)
+ - [UI]
+    - M.sys.sms 기능 보완
+    - M.sec.decrypt 버그 패치
+
+# 2.1.7.70 (2019/12/23)
+ - [Android]
+    -M.apps.install 버그 패치
+	안드로이드 10 이상 에서는 FileProvider 를 적용해야 함.
+	http://docs.morpheus.co.kr/client/api/android-note.html#fileprovider
+ - [UI]
+    -M.apps.install 버그 패치
+    
+# 2.1.7.69 (2019/11/25)
+ - [Android]
+	-app install 기능 보완 (M.apps.downloadAndInstall 신규)
+    - media 연동 api 수정 (param 정보 전달 체계 변경)
+	- gradle Properties 객체 선언방식 수정 
+ - [iOS]
+    - 웹뷰 로딩 실패 관련 처리 수정
+ - [UI]
+    -app install 기능 보완 (M.apps.downloadAndInstall 신규)
+    
+# 2.1.7.68 (2019/10/23)
+ - [iOS]
+  - prompt 버그 수정
+  - PPHybridViewController.m 아래 옵션값 추가 ( 기본값 YES )
+    WKWebview에서 input에 Fucus시 키보드 미동작 관련 처리
+    -(BOOL)useAllowDisplayingKeyboardWithoutUserAction
+
+# 2.1.7.67 (2019/10/18)
+ - [Android: Gradle]
+	IDE3.0 대응 : apk 로 내보내기시, 선택된 리소스만 내보내도록 처리 
+	(관련 내용 : https://www.morpheus.kr/index.php?mid=developers&document_srl=1797681 )
+	
+# 2.1.7.66 (2019/10/17)
+ - [UI]
+  - ipad 13 대응 단말 분기처리 수정
+  
+# 2.1.7.65 (2019/10/16)
+ - [iOS]
+  - UIWebView -> WKWebView 전환
+    PPHybridViewController.m 파일에서 UIWebView 관련 메서드 변경 필요
+    ( 관련공지 : https://www.morpheus.kr/index.php?mid=spreqproject&document_srl=1797383 )
+        
+# 2.1.7.64 (2019/09/30)
+ - [Android]
+  - build.gradle 수정 
+  - provier 추가 
+
+# 2.1.7.63 (2019/09/27)
+ - [Android]
+  - html element 미동작 수정 (select)
+
+# 2.1.7.62 (2019/09/10)
+ - [Android]
+  - ActivityHistoryManager activity 종료 process 안정화
+
+# 2.1.7.61 (2019/08/01)
+ - [Android]
+  - gradle 빌드 스크립트 추가
+  - crop 기능 보완
+  - 암호화 리소스 배포시, 리소스 체크 기능 수정
+  - 로그 보강
+
+
+# 2.1.7.60 (2019/07/23)
+ - [iOS]
+  - iPhoneX 가로모드 관련 수정
+  - svg파일 처리 변경 
+
+# 2.1.7.59 (2019/07/16)
+ - [Android]
+	- crop 기능 보완 
+
+# 2.1.7.58 (2019/07/12)
+ - [Android]
+	- progress 해제 시, activity 체크
+ 	- FileProvider 로직 수정
+ 	- startActivity 시, request 값 변경 (3rd party 솔루션과 충돌)
+
+# 2.1.7.57 (2019/07/10)
+ - [Android]
+ 	- 로그 보완
+ 	- M.page.back 시 앱 종료 현상 수정
+ 	- 파일 업로드시, success 조건 추가
+ 	- appInfo package name 오류시, 예외 처리
+ 	- PluginManager 기능 보완 
+
+# 2.1.7.56 (2019/06/19)
+ - [Android]
+    - multipart fixed length 기능 추가
+ 	- multipart async task 처리
+ 	- file log 형식 수정
+	- 리소스 다운로드 redirection 처리 
+
+# 2.1.7.55 (2019/05/29)
+ - [iOS]
+     - M.apps.install api 지원중단
+     - M.apps.browser("itms-services://?action=download-manifest&url=https://app.plist"); 대체 사용 
+ - [Android]
+	 - clear top 오동작 수정
+	 - 퍼미션 체크 로직 수정
+	 - 절전모드시, 파일 로딩 로직 예외처리
+	 
+# 2.1.7.54 (2019/05/16)
+ - [Android]
+     - STT 퍼미션 체크 조건 보완 
+	 
+# 2.1.7.53 (2019/05/10)
+ - [UI]
+     - M.util.parseParam 버그 패치
+
+# 2.1.7.52 (2019/05/08)
+ - [Android]
+ 	- 절전 모드시, 파일 copy 프로세스 변경 
+	- shouldInterceptRequest OS 버전별 분기 처리
+ - [UI]
+     - M.util.parseParam 버그 패치
+	
+# 2.1.7.51 (2019/04/01)
+ - [Android]
+    - WebChromeClient 확장성 고려 재배치  
+	- 리소스 custom 다운로드 process 변경
+	- media permission 조정 
+	- location 퍼미션 추가 
+	
+# 2.1.7.50 (2019/03/26)
+ - [UI]
+    - 에뮬레이터에서 M.page.html의 param을 인코딩하지 않는 옵션 추가
+ - [iOS]
+    - 리소스 업데이트 버전체크 API 추가 (addon_net 2.1.4.14 이상)
+ - [Android]
+ 	- 사진 날짜 표기 방식 변경
+	- 다국어 적용 [system 선언시] 오류 수정 - 오레오 이상
+	- local html 경로중, ? 표시에 대한 수정 
+	- base_version 적용시, 기존 리소스 업데이트 버전도 반영 
+        
+ # 2.1.7.49 (2019/03/19)
+  - [iOS]
+    - iphone xr, xs max 해상도 관련 버그 수정
+
+ # 2.1.7.48 (2019/03/14)
+ - [iOS]
+  - 리소스 [타겟서버 변경 / mode] 변경 추가
+
+ # 2.1.7.47 (2019/02/15)
+ - [Android]
+	- 안드로이드 9.0 절전모드 대응
+	- 리소스 업데이트 SSL 보완
+	- SMS 불필요 로직 제거
+	
+ # 2.1.7.46 (2019/01/30)
+ - [Android]
+    - crop 기능 보완 
+	- 리소스 다운로드 보완 
+	
+ # 2.1.7.45 (2019/01/17)
+ - [Android]
+	- apk 재설치시 버전 체크 로직 보완
+	- 킷켓 이상 팝업 테마 통일 : android.R.style.Theme_DeviceDefault_Light_Dialog
+ 	- 킷켓 미만 : android.R.style.Theme_Panel
+ 	- 팝업 테마 변경 방법
+ 	   Define.KEY_POPUP_THEME 와 LibDefinitions.strings.KEY_POPUP_THEME 동일 키값임
+ 	   CommonLibUtil.setVariableToStorage(Define.KEY_POPUP_THEME, ""+android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar, context);
+ 	   CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_POPUP_THEME, ""+android.R.style.Theme_Black, this);
+- [iOS]
+    - FileDecrypt API 버그 수정
+    - startPageOnly global 타입 변경
+    - http 콜백 딜레이 수정
+	
+	
+ # 2.1.7.44 (2019/01/08)
+ - [Android]
+  	- CALL api 연동시 permission 체크 해제 (불필요한 체크)		
+	
+ # 2.1.7.43 (2019/01/03)
+ - [Android]
+  	- SMS api 연동시 permission 체크 해제 (불필요한 체크)	
+	
+ # 2.1.7.42 (2018/12/19)
+ - [Android]
+ 	- SEND_SMS Permission 제거
+	
+ # 2.1.7.41 (2018/11/19)
+ - [Android]
+ 	- 외장메모리 파일영역 인식
+	
+ # 2.1.7.40 (2018/09/28)
+ - [UI]
+    - 브라우저 에뮬레이터에서 전문 통신시 줄바꿈 관련 패치
+    - WNResponseJsonDataFromServer return 관련 패치
+	
+# 2.1.7.39 (2018/08/28)
+ - [Android]
+ 	- release 로그 보완
+	
+ # 2.1.7.38 (2018/08/28)
+ - [Android]
+	- flash 퍼미션 체크  추가
+	- M.page.native() 기능 보완	
+	
+ # 2.1.7.37 (2018/08/01)
+ - [Android]
+ 	- allowsAnyHTTPSCertificateForHost params 규격 변경 (다중 domain 인 경우,  ',' 로 구분) 	
+	
+ # 2.1.7.36 (2018/06/21)
+ - [Android]	
+	- Android 8.0(오레오) 대응 : addon.meida
+	
+ # 2.1.7.35 (2018/06/18)
+ - [Android]	
+	- NO_HISTORY Process 보완 
+	
+ # 2.1.7.34 (2018/06/01)
+ - [UI]
+  - M.info.stack(index) 결과값 관련 내용 수정
+ - [iOS]
+  - iPhoneX 해상도 관련 수정
+  - useSafeArea 기본값을 NO로 변경
+  - M.apps.browser API 인코딩 관련 수정
+ - [Android]
+  - 로컬 서버 예약 포트 예외처리 
+  - 하드웨어 가속 설정 method 추가   
+  - 절전모드시, 절대경에대한 리소스 로딩 오류 수정   
+
+ # 2.1.7.33 (2018/04/27)
+ - [Android]
+	- CLEAR_TOP 기능 보완 
+	- httpmime-4.0.1 > httpmime-4.2.1 적용 
+	
+ # 2.1.7.32 (2018/04/20)
+ - [iOS]
+  - iOS11.3에서 앱 종료 현상 수정
+  - NSURLErrorCancelled 시 오류 카운터 관련 수정
+	
+ # 2.1.7.31 (2018/04/18)
+ - [Android]	
+	- M.sys.call 에 대한 Permission 처리 
+	- WebView 확장 용이하도록 처리 (setWebView Override) 
+ # 2.1.7.30 (2018/04/03)
+ - [Android]
+  - 시스템 언어셋 획득 실패 수정 [오레오버전]
+	
+ # 2.1.7.29 (2018/03/19)
+ - [UI]
+  - 브라우저 에뮬레이터 관련 이슈 처리 
+
+ # 2.1.7.28 (2018/02/21)
+ - [Android]
+	- File Provider 이슈 처리 [targetSdkVersion 23 이하 사용 제한 해제 ] 	
+	
+ # 2.1.7.27 (2018/02/20)
+ - [Android]
+	- plugin interface result 값 통일 	
+	
+	
+ # 2.1.7.26 (2018/02/01)
+ - [Android]
+	- plug in interface 보완 
+	- uuid 추가  
+	
+ # 2.1.7.25 (2018/01/16)
+ - [Android]
+	- 파일 리스트에 대한 null 체크  
+	
+# 2.1.7.24 (2018/01/15)
+ - [Android]
+	- 파일 전송시, progress detail 처리를 위한 flag 추가 
+	예시 :  
+	CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_USE_FILE_PROGRESS, "true", this);
+	- resource update 오류 수정 (리소스 배포서버 > 배포삭제 옵션 추가시, 리소스 업데이트 수행 오류)
+	- 로컬 서버 미사용 flag 적용시, file not found 오류 수정 
+	- hancom permission 추가 
+	- clear top / no history 시 life cycle 수정 	
+	
+ # 2.1.7.23 (2018/01/12)
+ - [iOS]
+   - iPhone X 화면 대응 업데이트
+   - 기본 Safe area 가이드를 적용한 화면으로 적용 됨.
+   - Full Screen을 이용하고 싶은 경우 PPHybridViewController.m 파일에 아래 내용을 추가
+        - (BOOL) useSafeArea
+        {
+            return YES;
+        }
+ 
+ # 2.1.7.22 (2017/12/22)
+  - [Android]    
+	 	- 파일 전송시, progress detail 처리를 위한 flag 추가 
+	 	예시 :  
+	 	CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_USE_FILE_PROGRESS, "true", this);
+	 	- resource update 오류 수정 (리소스 배포서버 > 배포삭제 옵션 추가시, 리소스 업데이트 수행 오류)
+	 	- 로컬 서버 미사용 flag 적용시, file not found 오류 수정 
+	
+	
+ # 2.1.7.21 (2017/11/16)
+  - [Android]  
+	- User Agent 값 정리
+	- Start Page URL Decoding 처리 
+	- KEY_USE_LOCAL_SERVER
+	- 리소스 다운로드 체크 로직 보완 
+	- 로컬 서버 구동 해제 기능 추가 
+	  예시 : Startup.java , processInit(this) 이전에 선언 
+			CommonLibUtil.setVariableToStorage(LibDefinitions.strings.KEY_USE_LOCAL_SERVER, "false", this);
+	- permission utils 기능 추가 
+		- 언어셋 보완  
+	
+	
+ # 2.1.7.20 (2017/08/17)
+  -[Android]
+ 	- 3rd party 연동 interface 추가 
+    - 파일 path 정리 / page 중복 호출 제거 
+    - 파일 업로드 속도 개선 
+	- Location permission 체크 추가 
+	- 디바이스 정보 호출 방식 변경 
+	- 절전모드시 sync 처리 
+	
+ # 2.1.7.19 (2017/06/15)
+  -[Android]
+ 	- 누가 절전모드 + 앱 전환시, array list sync 오류 수정 
+	- session 관리 방법 변경 (key / value 구분시,split "=" 을 indexOf 로 변경 : base64 시 "=" split 으로 인해 데이터 손상) 
+	- 누가 절전모드  + assets 암호화 시 page not found 오류 수정 
+	
+	
+ # 2.1.7.18 (2017/05/12)
+  -[Android]
+	- 킷캣버전에서 화면전환시 늦어지는 현상 수정 보완 
+	  (히스토리 매니저 ui thread 처리)
+	- file io 로직 보완 
+	
+	
+# 2.1.7.17 (2017.04.20)
+  -[Android]
+	- file upload ssl 지원
+	- library media path 추가 	
+	
+# 2.1.7.16 (2017.04.13)
+  -[Android]
+    - CLEAR_TOP 화면 이동시, 호출하는 화면이 사라지는 오류 수정
+    - 킷캣버전에서 화면전환시 늦어지는 현상 수정
+	- 퍼미션 체크 추가 : QR / 전화
+	- 절전모드시, 화면 전환 속도 개선 
+	
+# 2.1.7.15 (2017.03.23)
+  -[UI]
+    - M.sys.vibration 시간설정(only android) 적용되지 않는 오류 수정
+
+# 2.1.7.14 (2017.03.16)
+  -[Android]
+    - onRestoreActivity 미동작 오류 수정
+    - 윈도우 서버로 업로드 시 파일 경로 문제 오류 수정
+    (윈도우 서버 예: D:/temp/upload\\group\\20170308\\group_1_1488947201704.jpg)
+        
+# 2.1.7.13 (2017.03.06) 
+  -[iOS]
+    -M.sys.sms 함수를 이용한 문자메세지 전송 화면에서 취소 버튼 오동작 수정
+
+# 2.1.7.12 (2017.02.01)
+  -[iOS]
+    - M.locale 함수에 일부 국가에 대한 언어 설정시 지역 자동 매칭 (아랍어, 페르시아어, 스페인어, 러시아어, 베트남어, 폴란드어)
+    - M.locale 함수에 지역 설정 기능 추가
+
+# 2.1.7.11 (2017.01.26)
+  -[iOS]
+    - M.locale 함수 일본어 오동작 현상 수정
+	
+	
+# 2.1.7.10 (2017.01.12)
+  -[Android]
+    - CLEAR_TOP 시 페이지 애니메이션 오동작 수정
+	- 누가이상 버전 앱종료시, delay 현상 수정
+	
+	
+# 2.1.7.9 (2017.01.04)
+  -[Android]
+    - cache 유지 method 추가 (사용법 : CommonLibUtil.setVariableToStorage(LibDefinitions.strings.CACHE_ENABLE, "true", getApplicationContext());)
+	- full path 체크 시 외장 메모리 체크 로직 수정
+	- Log -> PLog 변경
+    - 네트워크 요청이 동시에 들어올 경우에 대한 예외 처리 (AsyncHttpNetwork oneTimeConnectClient 플래그에 대한 로직 수정)
+		
+# 2.1.7.8 (2016.11.30)
+  - M.sec.encrypt, M.sec.decrypt iOS interface명 오류 수정
+
+# 2.1.7.7 (2016.11.17)
+  - WNInterface wnIf 객체 생성으로 재변경(window 참조로 충돌 문제)
+
+# 2.1.7.4 ( 2016.09.29 )
+  - [Android] 이미지 멀티 픽커 개선 작업을 위해 SquareImageView 수정
+  - [Android] 업로드 시 프로그레스 옵션 IOS 와 동일하게 true에서 동작하도록 수정
+  - [Android] error 수신시, response body를 받을 수 있는 api 추가
+  - [iOS] PPHttpBaseProvider 에서 status code 값을 받고 통신이 끝난 다음에 fail 처리하도록 수정
+  - [iOS] Page Tab 했을때 첫번째 tab 인 경우 parentViewController 가 설정되지 않던 오류 수정
+
+# 2.1.7.3 ( 2016.09.08 )
+  - [UI] wnInterface.js 에서 Map 객체를 ParameterMap 으로 변경 (Chrome Inspector 오류 수정)
+
+# 2.1.7.2 ( 2016.09.02 HotFix )
+  - [iOS] 페이지에 queryString 으로 전달하는 파라미터는 변수별로 decoding 하도록 수정
+
+# 2.1.7.1 ( 2016.09.01 )
+  - [Android, iOS, UI] 페이지 이동 및 파라미터 관련 WN2 함수 적용
+
+# 2.1.6.7 ( 2016.08.19 )
+  - [UI] MDebug API 정리
+  - [Android] Http Upload cookie 동기화 처리  
+  - [iOS] PPWebViewController 에서 WNInterface 가 가능하게 하는 loadURLString API 를 추가
+
+# 2.1.6.6 ( 2016.08.11 )
+  - [Android] HTTP DELETE Method parameter 전달 기능추가
+  - [Android] 파일업로드 timeout 설정 추가
+  - [iOS] 가로화면 런치이미지 오류 수정
+  - [iOS] Framework config 에서 dylib 를 tbd 로 교체
+
+# 2.1.6.5 ( 2016.08.04 ) 
+  - [Android] Resource 로딩 시 파일명 체크 추가
+  - [Android] File Upload Progress 수정
+  - [Android] File Upload 시 외부 영역에 대한 접근 허용 (local:// 추가)
+  - [Android] JSON To String 로직 변경
+  - [iOS] Network Provider 에 PATCH method 추가
+  - [UI] M.sys.call, M.sys.sms API 오류 6.4 ( 2016.07.14 )
+  - [UI] M.response 함수의 실행을 비동기로 호출하도록 수정
+
+# 2.1.6.3 ( 2016.06.24 )
+  - [Android] 사진 촬영 후 저장시 target 적용 
+  - [iOS] Native 로 Parameter 설정시 nil 에 대한 Exception 처리
+
+# 2.1.6.2 ( 2016.06.20 HotFix )
+  - [Android] 이미지 Picker 이용시, 최대 사이즈 지정
+  - [Android] JSON 데이터 체크 로직 변경
+  - [UI] API 신뢰성 향상
+
+# 2.1.6.1 ( 2016.05.12 )
+  - [UI] Browser Emulator 2.0 을 위한 EmulatorInterface 적용
+  - [Android] page name에 대한 웹 페이지 판단 로직 개선  
+  - [iOS] PPBaseProvider 에서 Status 200 만 Success 로 체크하던 로직을 2xx 는 모두 성공으로 처리하도록 수정
+
+# 2.1.5.5 ( 2016.04.14 )
+  - [iOS] 일부 오픈소스 C 함수를 독립적으로 처리되도록 수정
+
+# 2.1.5.4 ( 2016.03.10 )
+  - [UI] 배포되지 않은 2.2 interface 를 호출하던 오류 수정
+  - [iOS] Local Web Server 안정성 향상
+  - [Android, iOS] 앱이 업데이트 된 경우 리소스 업데이트가 완료되기 전까지는 다시 Bundle 영역으로 실행되도록 수정
+  - [Android] 다국어 관련 Interface 2.2 추가
+
+# 2.1.5.3 ( 2016.02.24 HotFix )
+  - [UI] API 오류 수정
+
+# 2.1.5.2 ( 2016.02.19 HotFix )
+  - [iOS] Socket 모듈 관련 업데이트
+  - [iOS] Base Version 을 무조건 000000 으로 초기화 하던 로직을 Manifest 에 설정된 default 값으로 적용되도록 수정
+
+# 2.1.5.1 ( 2016.02.05 )
+  - [Android, iOS] 라이센스 로직 일부 수정
+  - [iOS] wnInterface 2.2 api 일부 추가
+  - [Android] HTTP 307 코드에 대한 리다이렉트 핸들러 적용 enable 가능하도록 변경
+
+# 2.1.4.19 ( 2016.01.28 )
+  - [Android] 불필요한 로그 제거 및 코어 리소스 추가
+
+# 2.1.4.18 ( 2016.01.22 )
+  - [Android] 유효하지 않은 SSL 페이지 허용을 위한 메소드 추가
+ 
+# 2.1.4.17 ( 2016.01.14 HotFix )
+  - [UI] Plugin 에 대한 MultiKey 에 대한 로직 재적용
+  - [Android] 미디어 라이브러리 개선 작업과 관련하여 내장 갤러리 대신 커스텀 UI를 사용하도록 수정
+  - [iOS] Toast 사용시 iOS 5에서 실행할 수 없던 API 예외 처리 적용
+  - [iOS] 웹서버가 메모리 문제로 갑자기 종료되던 버그 수정
+
+# 2.1.4.16 ( 2015.12.29 )
+  - [Android, iOS] StackInfo 정보에 경로 정보값(path, source, alias) 추가
+  - [iOS] License 오류 발생시 메모리 익셉션 처리
+  - [iOS] Plugin 별 다국어 설정 적용
+  - [iOS] 화면이 강제회전되었을때 device bounds size 가 상이하던 부분 수정
+
+# 2.1.4.15 ( 2015.12.03 )
+  - [Android] 텝페이지에서 파라메터 삭제 오류 수정
+  - [iOS] BaseProvider 에 cancel 기능 추가
+  - [iOS] iOS6 이하에서 StatusBar 가 Hidden 되거나 덮어지는 현상 수정
+
+# 2.1.4.14 ( 2015.11.26 )
+  - [iOS] UIColor+Hex 를 통해 HexString 으로 UIColor 값을 생성 가능
+  - [iOS] Localized 하는 영역을 NSBundle+Localized Category 로 분리
+  - [iOS] MPlugin 개체를 통해 Plugin 의 추상화 구현
+
+# 2.1.4.13 ( 2015.11.12 )
+  - [Android] 화면 제거 시 오류 수정
+  - [iOS] Indicator UI 수정
+  - [iOS] Objective-Zip 에 대한 Class 명을 rename 함
+
+# 2.1.4.12 ( 2015.10.22 )
+  - [iOS] URL 로 Asset 파일을 찾는 방식을 비동기로 변경, 동기로 처리를 원하는 경우 wailUntilDone 을 YES 로 호출
+  - [iOS] 화면 이동중 Animating Taget 지정이 해제되지 않아 더이상 화면이동을 할 수 없던 버그 수정
+  - [iOS] StatusBarStyle 및 StatusBarHidden 로직을 화면별로 처리할 수 있도록 구조적인 리펙토링 진행
+  - [iOS] 웹에서 confirm 호출시 메세지 노출 되도록 수정
+  - [iOS] StartBaseActivity 에서 LaunchImage 를 불러올때 단말기 사이즈별 최적화 적용
+
+# 2.1.4.11 ( 2015.10.08 )
+  - [Android] File Upload 시 Pameters 가 JSON Object Type 인 경우에도 적용가능하도록 기능 추가
+  - [iOS] AlertViewController 를 rootViewController 가 아닌 current view controller 에 적용 (Technical Q&A 참고)
+  - [iOS] UIAlertViewController 와 UIAlertView 를 분기하여 컨트롤할 수 있도록 기능이 통합된 MAlertController 구현
+  - [iOS] 내부 UIAlertView 로 실행된 부분을 MAlertController 로 대체
+  - [iOS] MAppDelegate 에서 hisotry 를 허용하게도 적용하도록 수정
+  - [iOS] Remote URL 을 호출 중에 비정상적으로 화면을 종료하게 되면, 메모리 오류나는 부분 수정, 앱 안정성 개선
+  - [iOS] MCore.h 로 노출되는 Class 의 수를 줄임, 때에따라 필요한 경우 <MCore/클래스명.h>로 호출 필요
+
+# 2.1.4.10 ( 2015.09.24 )
+  - [Android] 코어 라이브러리 안드로이드 6.0 대응 (아파치 httpClient 이용을 위한 라이브러리 추가)
+  - [Android] 디바이스 정보 반환 시 커넥션 정보 오류 수정
+  - [iOS] 비정상적인 접근인 경우 Random port 가 제대로 설정되지 않는 이슈 수정
+  - [iOS] 앱을 시작하는 Class 가 기존 MPAppMain 에서 MAppDelegate 로 대체
+
+# 2.1.4.9 ( 2015.09.17 )
+  - [UI] Plugin 확장 로직 변경
+  - [Android] javascript 에서 alert 호출시 동작 오류 수정
+  - [iOS] MAppInfo 에 systemTypeName ("iOS" 로 고정된 값) 추가
+
+# 2.1.4.8 ( 2015.09.11 )
+  - [Android] TTF 체크로직 변경
+  - [Android] 미디어 스캐너 종료 후 다시 연결 되도록 수정
+  - [Android] 2.5 License 적용 관련 버그 수정
+  - [iOS] PPWebViewController가 Stack 에서 제거될때 WebView 에 대한 request 를 정지하도록 stopLoading 호출
+  - [iOS] iPad에서 land|reverse 로 화면이동을 한경우 DeviceOrientaion 이 FaceDown, FaceUp 이면 화면이 깜빡이던 버그 수정
+  - [iOS] 앱 시작시, 가로방향만 설정시에도 Autorotate 를 지원하도록 수정
+  - [iOS] 웹서버 시작시 port Uint16 최대값인 34463 으로 고정되지 않도록 변경
+
+# 2.1.4.7 ( 2015.08.25 HotFix )
+  - [iOS] Simulator 에서는 MAppInfo 를 사용하지 못하던 문제 수정
+  - [iOS] MAppInfo 에서 licenseIndentifier 값을 전달하지 못하던 문제 수정
+
+# 2.1.4.6 ( 2015.08.21 )
+  - [Android, iOS, UI] M.info.device 정보내에 network 정보 추가, M.info.device("network.connected"), M.info.device("network.area") WIDE or LOCAL
+  - [Android, iOS, UI] M.info.device("network.connected") 는 네트워크 연결 상태 (true or false)
+  - [Android, iOS, UI] M.info.device("network.area") 는 네트워크 연결 타입 (값이 WIDE인 경우 3G,LTE로 연결된 상태)
+  - [iOS] M.page.remove 를 통해 현재페이지는 제거 할 수 없게 수정 (기존 화면이 하얗게 변함)
+
+# 2.1.4.5 ( 2015.08.19 HotFix )
+  - [Android] Manifest.xml 내 하드웨어 가속설정 세팅관련 수정사항 반영
+
+# 2.1.4.4 ( 2015.08.13 )
+  - [Android] Prevention 설정 값 오류 수정
+  - [iOS] 긴급 패치로 iOS7이상에서만 실행되는 method 가 실행되어 이를 예외 처리하도록 수정
+
+# 2.1.4.3 ( 2015.07.15 HotFix )
+  - [UI] M.data, M.info.device(), M.info.app() 에서 keyPath(key.subkey.subkey2...) 를 이용해 데이타 읽기가 가능
+  - [UI] M.data.param 에서 decodeURIComponent 시 URI malformed 오류에 대한 예외처리 추가
+
+# 2.1.4.2 ( 2015.07.09 )
+  - [Android, iOS, UI] 2.2 Interface 실행에 대한 신뢰성 향상
+  - [Android] 리소스 업데이트 Progress Callback 시 Null point exception 예외 처리
+  - [Android] M.page.tab.remove 동작 수정
+  - [iOS] Stack 오류에 대한 로그 변경
+  - [iOS] iOS8 이전 버전을 위한 UIAlertView+Blocks.h 추가
+
+# 2.1.4.1 ( 2015.06.18 )
+  - [Android, iOS, UI] 2.2 Interface 에 따른 Path 통합 개선사항 적용 및 버전 통합
+    
+# 2.1.3.7 ( 2015.05.21 HotFix )
+  - [iOS] UIAlertView 에서 ShouldEnableFirstOtherButton Method 사용부분 제거
+  - [iOS] 로그인 리소스 업데이트 관련 버전 정보 처리 로직 수정
+
+# 2.1.3.6 ( 2015.05.07 HotFix )
+  - [Android] FileUpload 로직 수정
+  - [iOS] 웹서버 상태 체크 로직 강화
+
+# 2.1.3.5 ( 2015.04.30 HotFix )
+  - [Android] WNEncryptString, WNDecryptString API 로 호출시 파리미터 오류로 NPObject 에러나는 부분 수정
+  - [iOS] 버전 정보 수정
+
+# 2.1.3.4 ( 2015.04.30 HotFix ) 
+  - [iOS] 로컬웹서버의 RelationPath에 대한 기준을 재정의하고 라이브러리에 반영 
+  - [iOS] Documents 에 파일이 없을 시 Bundle 에서 찾고, Bundle 에서도 파일이 없을 시 화면을 찾을 수 없음을 표시
+  - [iOS] actionType 이 NO_HISTORY 의 경우에는 항상 canUseWNInterface 가 TRUE 가 될 수 있도록 수정
+  - [Android] 안드로이드 타겟 SDK 버전 변경 시 이용 가능하도록 수정
+
+# 2.1.3.3 ( 2015.04.24 HotFix )
+  - [Android] File 라이브러리 변경에 따른 IOUtil 수정
+  - [iOS] PPNavigationController 에 TintColor 를 다시 default 값으로 수정
+  - [iOS] WebView 각 시작될 때 LocalWebServer 가 시작되지 않은 경우 Start 되도록 수정
+  - [iOS] Background 로 앱이 시작된 경우 LocalWebServer 를 시작하지 않게 처리
+  - [iOS] 첫페이지에서 ClearTop 하는 경우 다시 리로딩 되던 버그 수정
+  - [iOS] History Back 의 animation 값이 DEFAULT 인 경우 현재 페이지가 열릴때 animation값의 reverse animation 으로 적용
+  - [iOS] NSLog 를 Log Type 별로 분류 처리
+  - [iOS] Path 정보를 쉽게 변경할 수 있도록 NSString+MPath 카테고리 추가
+  - [iOS] 파일 압축/해제를 위한 NSFileManager+MZip 카테고리 추가
+  - [iOS] iOS7 이후 디자인에 최신화된 IndicatorView 추가
+  - [UI] arguments 값은 OBJECT_TYPE.ARGUMENTS 로 분류하여 처리
+
+# 2.1.3.2 ( 2015.04.16 HotFix )
+  - [Android] 라이브러리 변경에 따른 HttpBinaryTransManager 수정
+  - [iOS] 리소스 업데이트 시 API 통신 오류에 대해서는 finish 가 아닌 error 이벤트로 전달 되도록 수정
+  - [iOS] javascript 에서 alert 호출 시 로직이 멈추도록 변경
+  - [iOS] NSData 확장 카테고리로 encrypt, decrypt 를 Native 에서도 구현 할 수 있도록 NativeAPI 추가
+  - [iOS] AES-256 (CBC+PKCS7Padding) 알고리즘 지원
+  - [iOS] iOS 8.0 Style 의 MProgressView 구현 ( Accelerate.framework 추가 필요 )
+  - [iOS] 사용하지 않는 Headers 와 classes 제거
+  - [iOS] Native 에서 암/복호화가 가능하도록 API 를 제공하는 NSData+Security.h 추가
+  - [iOS] Bundle 에서 Info.plist 제거
+
+# 2.1.3.1 ( 2015.04.02 )
+  - [iOS] History Back 할 경우 에니메이션 효과에 대응하는 reverse animation 효과를 적용할 수 있는 historyBack: 매서드 추가
+  - [iOS] 화면 이동시 PPViewController 에 적용된 AnimationType 값 세팅
+  - [iOS] animationType 값에 대응하는 reverseAnimationType 값 추가
+  - [iOS] PPViewController 를 상속받은 경우 statusBarBackgroundColor Method를 통해 StatusBar 색상을 바꿀 수 있는 기능 추가
+  - [iOS] PPNavigationController 의 배경색을 UIStatusBarStyle 에 따라 White 또는 Black 으로 변경
+  - [iOS] historyBack: 또는 M.page.back 을 통해 이전 화면 이동시 reverseAnimationType 적용
+  - [iOS] Bundle 로 제공된 Location.strings 를 수정 가능하도록 제공
+  - [UI] debug 호출시 Uncaught TypeError: undefined is not a function 오류 현상 수정
+
+# 2.1.2.8 ( 2015.03.23 )
+  - [Android,iOS,UI] M.sec 에서 암호화 방식 선택을 위한 trans 값 추가 
+  - [Android,iOS] 암호화된 리소스를 복호화 하는데 있어 암호화 방식을 자동 체크하여 처리
+  - [iOS] AppDelegate 설정에 따라 [PPNavigationController ppNavigationController] 값을 찾지 못하는 버그 수정
+  - [iOS] Popup Callback 에서 Alert 을 호출하지 못하는 버그 수정
+  - [UI] M.util.seed 가 같은 시간에 같은 값을 출력하여 buffer 이벤트 오류가 나온 버그 수정
+
+# 2.1.2.7 ( 2015.03.05 )
+  - [iOS] PPWebViewController 에서 WNInterface 를 사용할 수 있는지 체크하는 canUseWNInteface 함수 추가 
+  - [iOS] M.page.replace 이후 페이지 이동하면 경로를 못 찾는 버그 수정
+  - [iOS] M.page.back 을 통해 Animation 적용시 Modal Animation 에 대한 에니메이션 효과 수정
+  - [iOS] Dsymutil Warning 제거
+
+# 2.1.2.6 ( 2015.02.10 )
+  - [iOS] alert, prompt, confirm 에 대한 UIAlertView 처리를 iphone6 대응으로 UIAlertController 대체하여 실행
+  - [iOS] ios8 에서 화면 이동시 status bar 깜빡이던 문제 해결
+  - [iOS] 고정된 Orientation이 페이지 이동 후 풀리는 현상 수정
+  - [iOS] 시작 후 바로 ClearTop 로직이 정상적으로 처리되지 않는 문제 수정
+  - [iOS] ClearTop 에서도 default-orientation 값이 적용되도록 수정
+  - [UI] Math.random 을 M().seed 로 대체
+
+# 2.1.2.5 ( 2015.01.27 )
+  - [iOS] 오류 페이지 템플릿 수정
+
+# 2.1.2.4 ( 2015.01.26 )
+  - [UI] callback 이벤트 관련 API 실행 오류 수정
+
+# 2.1.2.3 ( 2015.01.22 )
+  - [iOS] 리소스 업데이트 시 대용랑 리소스 파일에 대한 처리 적용
+  - [iOS] lang 값이 system 이거나 다국어지원이 설정되지 않은 경우 단말기 설정값에서 language 와 country 둘다 가져와 적용되도록 수정
+  - [UI] M.navigator - os, device, browser 함수에 대한 기능 확장
+
+# 2.1.2.2 ( 2014.12.29 )
+  - [UI] 페이지 이동 전 화면을 컨트롤 할 수 있는 M.page.prefer API 추가
+  - [Android] 가상 키보드 호출시 키보드 hide 여부를 판단할 수 있는 조건 추가
+  - [Android] network header 값에서 encoding type check 에 대한 예외 처리 추가
+  - [iOS] 파일 업로드시 Header 값으로 같은 키값 허용
+
+# 2.1.2.1 ( 2014.12.18 )
+  - [iOS] 리소스 업데이트를 위한 버전 체크를 각 버전 파트별로 숫자화 하여 체크하도록 로직 추가
+  - [iOS] 웹서버 사용시 /www/html 로 시작되던 경로가 Android 구동과 동일하게 /res/www/html 로 변경하여 동일한 방법으로 path 접근 가능
+  - [iOS] CLEAR_TOP 으로 화면 호출 시 호출한 URL 이 navigationKey 형태가 아닌 경우 기존 화면을 찾을수 없던 문제 해결
+  - [iOS] Framework 내부 A 링크 폴더에 버전명을 제거하여 형상관리 업데이트시 최소 파일만 수정할수있도록 구조 수정
+  - [iOS] 리소스 업데이트용 압축파일 개수 제한 해제
+  - [Android] asset 영역에서, apk 설치 기능 추가
+  - [Android] os version 별 sms 전송 방식 추가
+  - [Android] video tag 시 , 화면 확대 기능 추가
+  - [Android] onReceivedError method BaseActivity에서 override 허용
+  - [Android] Logger class 기능 보완 
+  - [Android] 사설 인증서 허용 여부 기능 체크  
+  - [Android] 화면단위 param 값 (__HARDWARE_ACCELERATE_FOR_ACTIVITY__) 를 통해 hardware 가속 적용
+  - [Android] 가상키보드 상태에서, 데이터 수신시, 키보드 hide 되지 않도록 처리
+  - [Android] 화면 호출시, 파일이 존재하지 않는 경우 예외처리
+
+# 2.1.1.17 ( 2014.11.11 )
+  - [UI] type 체크시 실패한 경우 기존 데이타를 return 하는 로직에서 wasValue 오류 나오는 버그 수정
+  - [Android] Logger 기능 보완
+  - [Android] Plug-In action 체크
+  - [Android] 시간 method 추가
+
+# 2.1.1.16 ( 2014.11.07 )
+  - [iOS] 리소스 업데이트 시 info 값이 기존과 상이한 결과를 수정
+  - [UI] M.tool.log 의 마지막 object 타입값에 level 값이 있는 경우에만 option 값으로 인식되도록 수정
+
+# 2.1.1.15 ( 2014.11.04 )
+  - [iOS] M.page 함수를 통해 orientation 및 animation 값이 DEFAULT  인 경우 Manifest 설정 값으로 실행되도뢱 수정
+  - [UI] Setting 값을 설정하는 경우 enums 에서 한개씩 밀리는 현상 수정
+  
+# 2.1.1.14 ( 2014.11.03 )
+  - [UI] M.page.html 에 반대 화면으로도 회전이 가능한 orientation 값 (LANDSCAPE|REVERSE, PORTRAIT|REVERSE) 추가  
+  - [UI] M.page.remove, M.page.tab.remove 를 통해 index 값으로 화면을 삭제하는 기능 추가
+  - [iOS] info.plist에 ExStatusBarIOS6Style 값을 NO 로 추가한 경우 status bar 출력 안 되도록 수정됨
+  - [iOS] iOS8 / 화면 회전시 깜빡이던 버그 수정
+  - [iOS] M.page.back 실행시 까만 화면에서 시작되던 버그 수정
+  - [iOS] 추가된 orientation 값에 따른 화면회전 설정 적용
+  - [Android] 추가된 orientation 값에 따른 화면회전 설정 적용
+  - [Android] app open 시, background 실행 중인 앱인 경우, forground로 호출
+  - [Android] M.page.remove() 시, statck 에 동일한 화면이 여러개 있는 경우, 자신을 제외한 화면 제거 가능수정, 화면 명 또는 index 로 제거
+  - [Android] app 다운로드시 files directory 생성
+  - [Android] hardwareacclerated 기능 보강 ( default : software , hardware : core lib에서 처리, app : AndroidManifest.xml에서 설정
+  - [Android] history back 코드 보완
+  - [Android] YouTube 사용시, hardware layer 사용하도록 처리
+  - [Android] webview 에서 html5를 통한 gps 정보 호출 처리
+  - [Android] session id 정보 관리기능 보완
+
+# 2.1.1.13 ( 2014.10.24 )
+  - [Android] device info json data check 보완
+  - [Android] default orient-tablet 설정 추가
+  - [Android] Activity History LinkedList 기능 보완
+  - [Android] 파일업로드  Toast Popup제거
+  - [Android] app update 파일명 미입력시, default 처리
+  - [Android] M.page.tab.back() 오류 수정
+  - [Android] 파일 업데이트시 Cookie (JSESSIONID)연동
+  - [Android] App Install 시 new line 예외처리
+  - [Android] blackground 에서, foreground 로 전환시, onResume() 미호출 수정
+  - [Android] camera 재 촬영시, 이미지 미호출 오류 수정 
+  - [iOS] Local Web Server 로 HTML 출력시 복수의 BOM Bytes 까지 제거
+  - [iOS] iOS8 / HTML 이 소스 그대로 출력되던 버그 수정
+  - [iOS] iOS8 / Alert 의 타이틀 영역이 상단에 붙어서 표현되던 버그 수정
+  - [iOS] iOS8 / Orientation 화면 전환 후 뷰가 없어지는 버그 수정 / 에니메이션 효과를 보다 심플하게 실행되도록 리펙토링 진행
+  - [iOS] iOS8 / Native 화면에서 Device Orientation 변경이 되지 않던 버그 수정
+  - [UI] M.page.defer 를 통해 defer 설정이 활성화 된 경우 M.page.tab.html 는 호출되지 않는 버그 수정
+
+# 2.1.1.12 ( 2014.10.06 )
+  - [iOS] Orientation 이 세로에서 가로모드로 바뀌는 이슈 수정
+  - [iOS] Network 통신시에 response data 에 BOM bytes 는 제거 후 return 하도록 수정
+  - [iOS] Network 통신 후 response data 가 nil 인 경우 Object 형태의 문자값( @{} )을 return 하도록 수정
+
+# 2.1.1.11 ( 2014.09.25 )
+  - [UI] Universal 앱을 위해 타블렛일 경우 다른 시작 Orientation 값을 설정할 수 있도록 Manifest.xml 에 orient-tablet 태그 추가
+  - [iOS] iOS SDK 8.0 적용으로 XCode 6 이상에서만 빌드 가능
+  - [iOS] M.info.app().app.version 에서의 버전 정보를 CFBundleVersion 에서 CFBundleShortVersionString 로 변경
+  - [iOS] iPad 인 경우 Manifest.xml 에서 orient-tablet 값이 있으면 해당 값으로 적용
+  - [Android] download url parsing 오류시 event 추가
+  - [Android] Youtube Embed 실행 처리
+  - [Android] HardwareAccelerate 기능 선택 추가
+  - [Android] Theme 기능 선택 추가
+  - [Android] sd card에 파일 로그 처리시 예외사항  수정
+  - [Android] tablet일 경우, start page orientation 설정 추가 
+  - [Android] PageInfo, printStack LinkedList 동기화 처리
+  - [Android] resource download 모듈 수정 - res 폴더 체크, file download 체크
+
+# 2.1.1.10 ( 2014.09.12 )
+  - [iOS] 리소스 업데이트 시 파일 다운로드 오류시에도 오류 처리하도록 수정
+  - [iOS] Status-Bar 의 색상을 바꿀수 있도록 수정
+  - [Android] History Back 시 animation 처리 수정
+  - [Android] plugin intent 정보 수정
+  - [Android] local server 사용 port 검증
+  - [Android] @JavascriptInterface 추가
+  - [Android] AndroidManifest 에서 android:configChanges 에 screenSize 추가 (화면 회전시, 새로운 activity 생성하지 않고, 기존 Activity 재활용 api 13부터 사용됨)
+  - [UI] ScriptLoader 사용법이 M.ScriptLoader 로 사용하도록 변경
+
+# 2.1.1.09 ( 2014.08.21 )
+  - [Android] onPageStarted 호출 처리
+  - [Android] 해쉬태그 (#)  예외 처리
+  - [Android] 파일 path (IOUtils.java ) : 추가 체크
+  - [Android] device info blank => “UNKNOWN”처리
+  - [Android] app 실행시, url 체크 로직 추가
+
+# 2.1.1.08 ( 2014.08.08 )
+  - [UI] M.navigator 의 속성들을 변수가 아닌 함수 method 방식으로 수정
+  - [UI] M.data.param( key ) 로 데이타 부를시에 [ 또는 { 로 시작하는 문자인 경우 parsing 오류가 나오는 경우 string 을 그대로 return
+
+# 2.1.1.07 ( 2014.07.24 )
+  - [Android] Native Activity 생성시, Navigation Stack Info log 추가
+  - [Android] Base_Version미 입력시, default값 셋팅
+  - [Android] LoadingProgressDialog 예외처리 (action type => NO_HISTORY시, Native 호출시 removeDialog 처리)
+  - [Android] log level 조정
+	
+# 2.1.1.06 ( 2014.07.22 )
+  - [UI] Native 함수 기능 수정
+	
+# 2.1.1.05 ( 2014.07.21 )	
+  - [iOS, Android] 소스 안정화 작업관련 리펙토링 진행
+	
+# 2.1.1.04 ( 2014.07.17 )
+  - [UI] M.page.defer 추가
+  - [UI] M.page.defer 를 통해 defer 설정이 활성화 된 경우 여러번의 명령을 설정한 시간만큼 지연하게 두어 최종적으로 하나의 Command 만 Native 에 전달 되도록 하는 defer 기능 추가
+
+# 2.1.1.03 ( 2014.07.14 )	
+  - [Android] getCallerObject 오류 수정
+	
+# 2.1.1.02 ( 2014.07.14 )
+  - [Android] AsyncHttpNetwork client 생성방식 옵션 추가 [oneTimeConnectClient = true ;  일 경우, connection 을 매회 처리, default값 : false, network class 의 Constructor 부분에 옵션 셋팅]
+  - [Android] network response시 , activity 상태 체크 로직 추가 (activity가 destroy된 이후, 이벤트 예외처리)
+  - [Android] BOM 데이터 처리
+  - [Android] ActivityHistoryManager 기능 보완
+  - [Android] 세션 공유 처리 (일반 세션 과 file up load 세션)
+  - [Android] zip 라이브러리 기능 보완 : 한글 파일 처리
+	
+# 2.1.1.01 ( 2014.06.26 )
+  - [Android] AsyncHttpClient network thread pool방식 수
+  - [Android] AsyncHttpNetwork 생성 방식 수정
+  - [Android] Logger filename 예외처리
+  - [Android] webview 상태 체크 후 이벤트 처리 
+	
+# 2.1.0.9 ( 2014.06.20 )
+  - [Android] 웹뷰 터치 이벤트 처리 방식 변경
+	
+# 2.1.0.8 ( 2014.06.19 )
+  - [UI] M.page.activity 에 M.page.native 로직을 처리하는 소스를 넘기고 native 는 하위 버전을 위해 남겨둠
+  - [iOS] (navigation) 이전 화면으로 이동 하였을 때, 여러가지 상황에 의해 화면이 일그러지는 현상 방지 코드 추가
+  - [Android] BOM 데이터 처리
+  - [Android] HTTPS shutdown 처리
+  - [Android] Orientation 관련 버그 수정
+	
+# 2.1.0.7 ( 2014.06.12 HotFix )
+  - [Android] 리모트 페이지 오류 시 back 버튼 추가
+  - [Android] https network connection 처리 방식 변경(매회 새로 생성)
+  - [Android] install app https 프로토콜 적용
+  - [Android] network connection시, port 적용할 수 있도록 변경
+  - [Android] 리소스 다운로드중 오류 시, 재 다운로드 처리
+  - [Android] shouldOverride() return 형 변경 (void => boolean)
+  - [Android] WNCallBackClient 의 shouldOverrideUrlLoading() 일부 로직을 MainActivity로 이동
+  - [Android] BaseActivity 확장성 보장
+  - [iOS] 강제 업데이트 버전 비교 버그 수정
+  - [iOS] 웹뷰 로딩 실패시 출력 되는 뒤로가기 버튼 기능 수정(web back -> activity back)
+	
+# 2.1.0.6 ( 2014.06.12 HotFix )
+  - [UI] M.page.native 기능을 대신하는 M.page.activity 추가
+	
+# 2.1.0.5 ( 2014.05.29 )
+  - [UI] M.setting 으로 처리된 로직에서 false 값은 무시되는 요소 수정
+  - [UI] 문서화를 위한 구조로 수정
+  - [UI] M.util을 M()으로 사용가능 하도록 로직 변경
+  - [UI] M.tool.log 하위 내용도 모두 출력되도록 수정
+  - [Android] 페이지 이동 시 orient 설정이 동작하지 않는 현상 수정
+  - [Android] 웹서버에서 html 파일 확인 시 MainActivity가 아닌 경우 예외처리
+  - [Android] main layout 반환 함수 추가
+  - [Android] 연속으로 History Back 호출 시 동작하지 않는 문제 수정
+  - [Android] <a> 태그에 '#' 일 때에 대한 예외처리 추가
+  - [Android] camera 관련 결과 전달 UI Thread로 변경
+  - [iOS] 통신 Provider 추가
+	
+# 2.1.0.4 ( 2014.05.16 )
+  - [UI] M.page.html 에서 setting 값 중 orient 키값을 orientation 키값으로 매칭되도록 수정
+  - [UI] 라이브러리에 적용된 Core, Addon, Plugin 버전을 체크할 수 있는 M.info.version API 추가
+  - [iOS] Start Page 를 Native Page로 가능 하도록 수정
+  - [Android] Cookie 저장 로직 변경
+	
+# 2.1.0.3 ( 2014.05.12 )
+  - [Android] 하단 영역 뷰 다시 추가
+  - [Android] http 파일 업로드 시 한글 파일명 처리
+  - [Android] http 파일 업로드 시 cookie 저장
+	
+# 2.1.0.2 ( 2014.04.28 )
+  - [UI] Core 및 Addon 버전 정보 전달 및 버전 체크 API (M.tool.version) 추가
+  - [UI] ZIP, Cookie 와 관련된 함수 추가
+  - [UI] M.sec 에서 API 문서와 상이한 결과 반환을 수정
+  - [UI] M.data.storage, M.data.global 에서 API 문서와 상이한 결과 반환을 수정
+  - [UI] Manifest에 <errorpage-name> 추가
+  - [Android] Cookie 저장 로직 추가 (WNUsingHttpCookie)
+  - [Android] onLowMemory 시 web server 중지 시키지 않도록 수정
+  - [Android] onUserInteraction 이벤트 추가
+  - [Android] 2.3 이하 단말에서 언어 설정 안되는 현상 수정
+  - [Android] 갤럭시 S3,S4에서 onOptionMenu()가 호출되지 않는 현상으로 
+  	메뉴키 이벤트 관련 수정(onPrepareOptionsMenu -> onKeyUp)
+  - [Android] kitkat에서 iFrame 사용 시 onInitPage가 여러번 호출되는 현상 수정
+  - [Android] rooting 확인 list 파일 위치 수정(native/, res/native/)
+  - [Android] improved loading speed and animating transition.
+  - [Android] 하단 영역 뷰 추가(광고 등 Native View 영역이 필요 할 경우 높이 설정하여 사용)
+  - [Android] Manifest에 업데이트 설정되지 않으면 rest 지원안되는 문제 수정
+  - [Android] M.page.html, M.page.replace 에서 Remote URL(http, https)로 이동되도록 수정
+  
+# 2.1.0.1 ( 2014.04.17 )
+  - Core Library 2.1.0.1 Release]]></history>
+	</library>
+	<library id="m.client.library.plugin.push.r5" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Push.r5 라이브러리</name>
+		<description />
+		<revision>5.05</revision>
+		<history><![CDATA[# 2.1.5.05 ( 2024.06.12 )
+  - [iOS]
+    - Push Plugin 적용 간소화 패치
+    - MCore 2.1.8.44이상 버전 필요
+	
+# 2.1.5.04 ( 2024.02.16 )
+  - [Android] 5.2.0.13, mqtt 1.0.0.15, push.r5
+    - push.r5 라이브러리 변경(발송 테스트용 api 변경)
+    
+# 2.1.5.03 ( 2023.08.28 )
+  - [Android] 5.2.0.13, mqtt 1.0.0.15, push.r5
+    - push 5.2 라이브러리 변경(android13 권한 관련 분기)
+
+# 2.1.5.02 ( 2023.07.06 )
+  - [iOS] 프로젝트 추가 
+             
+# 2.1.5.01 ( 2023.07.04 )
+  - [Android] 5.2.0.9, mqtt 1.0.0.15, push.r5
+    - push 5.2 라이브러리 버전 
+    - 기본 config 반영]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.push.WNInterfacePush</interface>
+		</interfaces>
+		<option>4.0,4.1,5.0</option>
+	</library>
+	<library id="m.client.library.plugin.push.r4" type="plugin">
+		<api>2.1</api>
+		<name>플러그인 Push.r4 라이브러리</name>
+		<description />
+		<revision>5.51</revision>
+		<history><![CDATA[# 2.1.5.51 ( 2024.06.18 )
+  - [Android] 5.1.2.11, mqtt 1.0.0.15, push.r4
+	- Silent Push 관련 처리("batch")
+	- Manifest.xml 암호화 관련 변경
+	- notification 내재화
+
+# 2.1.5.49 ( 2024.06.12 )
+  - [iOS]
+    - Push Plugin 적용 간소화 패치
+    - MCore 2.1.8.44이상 버전 필요
+
+# 2.1.5.48 ( 2024.02.16 )
+  - [Android] 5.1.2.8, mqtt 1.0.0.14, push.r4
+    - push.r4 라이브러리 변경(발송 테스트용 api 변경)
+    
+# 2.1.5.47 ( 2023.08.28 )
+  - [Android] 5.1.2.8, mqtt 1.0.0.14, push.r4
+    - push 5.1 라이브러리 변경(android13 권한 관련 분기)
+	
+# 2.1.5.46 ( 2023.08.17 )
+  - [Android] 5.1.2.6, mqtt 1.0.0.14, push.r4
+    - push 5.1 라이브러리 변경(이슈 발생 로직 제거)
+
+# 2.1.5.45 ( 2023.07.03 )
+  - [Android] 5.1.2.4, mqtt 1.0.0.14, push.r4
+    - FCM getToken 시, SERVICE_NOT_AVAILABLE 발생하는 case 의 로직 보강
+    - 기본 config 추가
+    
+# 2.1.5.44 ( 2023.04.06 )
+  - [Android] 5.1.2.3, mqtt 1.0.0.14, push.r4
+    - push 5.1 라이브러리 교체
+    - push.gradle 수정
+    - push.r4 jar > aar 
+
+# 2.1.5.43 ( 2023.04.06 )
+  - [Android] 5.1.2.1, mqtt 1.0.0.14, push.r4
+    - 단말기 연락처 제거 	
+    - jobdispatcher custom 추가 
+    - gradle 수정
+        
+# 2.1.5.42 ( 2023.03.21 )
+  - [iOS]
+    - framework -> xcframework 변경
+    - PushManagerDelegate Status 값 오동작 수정
+
+# 2.1.5.41 ( 2022.12.01 )
+  - [iOS]
+    - feedbackEx API 추가
+    - 서버 통신 파라메터 일부 수정
+    - changeLog API 추가
+    - UNUserNotificationCenterDelegate 관련 추가
+    - PushNotifciationServiceExtension 추가
+        
+# 2.1.5.40 ( 2021.07.19 )
+  - 라이브러리별 버전 표기 	
+  - [Android] 5.1.1.60, mqtt 1.0.0.13
+    - null point 예외처리
+    - FCM 규격 중, collapskey 미사용에 따른 SEQNO 추가 처리 (SERVER Provider Version : 5.0.21 이상)
+	- 서비스 중복 호출 예외처리(3초 delay)
+	- UPNS 이벤트 로그 보강
+	- reserved date 24시간 표기  
+
+
+# 2.1.5.39 ( 2021.04.08 )
+  - 라이브러리별 버전 표기 	
+  - [Android] 5.1.1.57, mqtt 1.0.0.13
+    - Exception Log Check 
+    - Error 메시지에 대한 JSON Format 적용
+    - fcm 토큰 발급 보완	
+	 
+
+# 2.1.5.38 ( 2021.01.28 )
+  - 라이브러리별 버전 표기 	
+  - [Android] 5.1.1.55
+     - updatePurchase api 에 대한 ssl 예외처리 추가
+     - 네트워크 체크 로직 보완
+     - UPNS connection 시 오류 수정
+     - UPNS Job Serivce 해제시, noti process 변경
+
+
+# 2.1.5.37 ( 2020.12.10 )
+  - 라이브러리별 버전 표기 	
+  - [Android] 5.1.1.53
+    - UPNS 등록시, Intent bundle 참조 오류
+    - token 미 갱신시, 재 처리 절차 추가 (최대 5회 시도) / 오류 처리
+	- UPNS : 사용자 등록 시, 변경된 ip / port 로 재접속 처리 오류 수정
+  - [Android] 1.0.0.12 MQTT 라이브러리 
+    - MqttUtil class 추가
+	
+# 2.1.5.36 ( 2020.11.03 )
+  - [Android] 5.1.1.51
+    - registerGcmServiceAndUser public 전환
+    - UPNS > FCM 전환 시, service stop 처리
+    - token refresh 시 cuid 가 guest 로 변경되는 오류 수정
+
+# 2.1.5.35 ( 2020.10.22 )
+  - [Android] 5.1.1.50
+    - USER GROUP : 결과값 추가
+    - ALL TYPE : FCM에 대한 CNAME 저장 방식 변경
+    - 서비스 실행 여부 체크 로직 추가
+    - host name 에 대한 체크 로직 추가
+
+# 2.1.5.34 ( 2020.10.08 )
+  - [Android] 5.1.1.49
+	- HostnameVerifier 사설 인증서 예외 처리
+	   <?xml version="1.0" encoding="UTF-8"?>
+	   <settings>
+		<push>
+			<option>
+				<!-- hostname 을 정의 한다. 여러개인 경우, ',' 로 처리
+				<openssl-hostname>morpheus.kr,https://morpheus.kr,https://uracle.co.kr</openssl-hostname>
+			</option>
+   - android-push-type : ALL &  policy : user 인 경우, CUID 값 오류 수정
+   - upns stop 조건에서, doze dummy 수신 시, upns start 조건 추가
+   - 서비스 등록시, 기존 토큰 삭제 후 신규 발급 후, 등록 할 수 있는 옵션 추가
+	  <?xml version="1.0" encoding="UTF-8"?>
+	  <settings>
+		<push>
+			<option>
+			   <!-- 푸시 사용 등록시, 신규 토큰 발급 처리 -->
+				<refresh-token>y</refresh-token>
+			</option>
+
+# 2.1.5.33 ( 2020.09.10 )
+  - [Android] 5.1.1.48
+	   - cloud push 추가
+	   - storage 평문 기능 추가
+	   - registerService update 수정 ( unreg > reg ==> reg)
+	   - HostnameVerifier 삭제 (google  play 보안 위배)
+	
+# 2.1.5.32 ( 2020.07.03 )
+  - [Android] 5.1.1.46
+		- android targetSdk 29 이상 대응
+	
+# 2.1.5.31 ( 2020.07.01 )
+  - [Android] 5.1.1.45
+		- 네트워크가 불안정한 case 에서 서버 정보를 미수신시, UPNS stop 조건 수정
+		- devcieId 로직 보완 (pi 이상 ssaid 로 추출)
+        - timer task / actioin receiver result 보완
+		- PushUtils, ReceiverService 예외 처리
+		- UpnsActionReceiver, GcmActionReceiver 예외처리
+        - 라이브러리 초기화 로직 보완
+		- mqtt connection timeout 설정 적용 (ANRWatch-Dog 이슈)
+               - 설정 방법
+                 <upns>
+                    <!-- mqtt-timeout (초단위), 최소 3초 이상 선언 , 권장 10초 -->
+                    <mqtt-timeout>4</mqtt-timeout>
+                 </upns>
+		 - Register Service & User : custom upmc 정보 추가		 
+		
+# 2.1.5.30 ( 2020.03.03 )
+  - [Android] 5.1.1.39
+		- isRunningPushApps 로직 예외 처리
+
+# 2.1.5.29 ( 2020.02.29 )
+  - [Android] 
+		- 로그 보강
+        - 재접속 로직 보완 (TimerTask 적용)
+		- 라이브러리 재배포 
+
+# 2.1.5.28 ( 2020.02.26 )
+  - [Android] 
+		- 로그 보강
+        - 재접속 로직 보완 (TimerTask 적용)
+
+
+# 2.1.5.27 ( 2020.02.11 )
+  - [Android] 
+		- FCM 중복 수신 시, 예외 처리
+		- file log size 증대 (500KB > 1MB)
+		- 앱 실행시, 암호화 오류 수정
+
+# 2.1.5.26 ( 2020.01.06 )
+  - [Android] 
+        - UPNS가 이미 수신 된 경우, FCM dummy 수신 예외 처리 
+		- 마케팅 푸시 관련 api 추가 (session, purchase)
+		- ALL 타입 + FCM token refresh 조건에서, CUID : GUEST 처리 로직 수정
+		- Device IDLE 일때, 스케쥴러 중단
+
+# 2.1.5.25 ( 2019.12.03 )
+  - [Android] 
+        - ALL 타입, FCM token refresh 조건에서, CUID : GUEST 처리 로직 수정
+
+
+# 2.1.5.24 ( 2019.10.17 )
+  - [Android] 
+        - fcm, gcm sender id 동시 적용에 따른 값 체크 로직 수정
+        - com.google.firebase:firebase-messaging 17.3.x 이상 선언시, FCM onNewToken 이벤트 처리 추가
+        - 푸시 타입 : ALL (UPNS) >> FCM 으로 변환시, 불필요 동작 중지 처리
+        - 서비스 가입이 되지 않은 경우, UPNS 동작 중지 처리
+        - fcm token 획득 실패 모니터링 element 추가 : show-fail-acquire-token (default : n) - 실패시 Toast 로 표기 됨
+
+        
+# 2.1.5.23 ( 2019.09.23 )
+  - [iOS] iOS 13 버전에서 변경된 APNS Token 관련 패치
+
+# 2.1.5.22 ( 2019.07.23 )
+  - [iOS] remote.read API 수정
+  - [iOS] UNUserNotificationCenter delegate 관련 수정
+
+# 2.1.5.21 ( 2019.05.01 )
+  - [Android] 
+        [UPMC] 안정화
+	
+# 2.1.5.20 ( 2019.04.12 )
+  - [Android] 
+        [UPNS] System 발송시, seqno 가 '0' 으로 수신되어, 중복메시지로 분류되어, 전달되지 않는 case 에 대한 예외 처리
+        [UPNS] doze mode 수신시, subscribe 추가 / alarm manager 연동
+	
+# 2.1.5.19 ( 2019.03.29 )
+  - [Android] android 6.0 이하버전에서, NetworkCapabilities 의 사용되지 않는 상수값 예외 처리
+	
+# 2.1.5.18 ( 2019.03.29 )
+  - [Android] 라이브러리 안정화
+	
+# 2.1.5.17 ( 2019.01.30 )
+  - [Android] FCM 교체 / 구조 변경 
+  
+# 2.1.5.16 ( 2019.01.15 )
+  - [iOS] token 요청 API 수정
+  
+# 2.1.5.15 (2018.03.13)
+  - [Android] UPNSCallback 메시지 URL Decode 예외 처리
+	
+# 2.1.5.14 (2018.03.07)
+  - [Android] 로그 속성 추가 
+
+# 2.1.5.13 (2017.12.27)
+  - [Android] mqtt package name 변경에 따른 소스 변경  
+  - [Android] keepalive 알람 처리 방식 변경
+
+	
+# 2.1.5.12 (2017.08.17)
+  - [Android] 재접속 / 재시도 처리 
+  - [Android] 재부팅시 설정 정보 오류 수정 
+  - [Android] 서비스 시작시 Manifest.xml 미호출 오류 수정 
+  - [Android] ping lock 관련 처리 (주기적 정리)
+
+	
+# 2.1.5.11 ( 2017.04.20 )
+  - [iOS] EE 기능 제거(4.x 버전과 통합)
+
+# 2.1.5.10 ( 2017.03.02 )
+  - [Android, iOS, UI] Server에 Badge Count를 업데이트 할 수 있는 기능 추가
+
+# 2.1.5.9 ( 2017.01.20 )
+  - [Android] Broadcast Receiver Permission 기능 추가 
+	
+# 2.1.5.8 ( 2017.01.04 )
+  - [Android] reallocate 관련 로직 정리 및 불필요 로그 삭제
+  - [Android] 서버 재할당 및 재접속 요청에 대한 인터벌 설정 가능하도록 수정
+  - [Android] 사용자 등록 요청 시 실패의 경우 재시도 횟수를 설정할 수 있도록 수정 (기본값은 기존과 동일하게 2회)
+	
+# 2.1.5.7 ( 2016.10.20 HotFix )
+  - [Android] Doze Mode 적용시, 더미데이터 노티 및 화면 깨움 처리 아이콘 변경(투명 1X1)
+# 2.1.5.7 ( 2016.10.20 HotFix )
+- [Android] Doze Mode 적용시, 더미데이터 노티 및 화면 깨움 처리 아이콘 변경(투명 1X1)
+  
+# 2.1.5.7 ( 2016.10.20 HotFix )
+  - [Android] Doze Mode 적용시, 더미데이터 노티 및 화면 깨움 처리 아이콘 변경(투명 1X1)
+
+# 2.1.5.6 ( 2016.10.12 HotFix )
+  - [iOS] 4.0EE 이상 서버에서 send api 사용 시 badge 값도 전달 할 수 있도록 기능 추가
+
+# 2.1.5.5 ( 2016.10.11 HotFix )
+  - [iOS] iOS 10 이상에서 unregisterRemoteNotifications 실행시 다시 token 을 받을수 없게 되어 제거
+  - [iOS] unregisterRemoteNotifications 는 필요시 따로 호출해야됨
+
+# 2.1.5.4 ( 2016.10.10 HotFix )
+  - [iOS] useCachePushToken 을 활성화 하는 경우 저장된 토큰값을 쓸수있도록 기능 추가
+  - [iOS] iOS 10 이상에서 UserNotifications framework 사용
+  - [iOS] Log 사용시 debugging 범위 확대
+
+# 2.1.5.3 ( 2016.10.06 )
+  - [iOS] send api 에서 cuid 를 통해 발송 할 수 있도록 수정
+
+# 2.1.5.2 ( 2016.09.29 )
+  - [iOS] 4.0 에서 service and user 등록시 mode 값 전달
+
+# 2.1.5.1 ( 2016.09.08 )
+  - Android 4.0 이상 라이브러리 배포를 위한  Push Plugin 분기
+  - [iOS] 4.0 에서 badge force update 시 0 값도 허용하도록 수정
+  - [iOS] 4.0 에서 mode 값을 바꿀 수 있는 chageMode 추가
+  - [Android, iOS, UI] Service And User 4.0 API 추가]]></history>
+		<interfaces>
+			<interface>m.client.library.plugin.push.WNInterfacePush</interface>
+		</interfaces>
+		<option>4.0,4.1,5.0</option>
+	</library>
+</libraries>

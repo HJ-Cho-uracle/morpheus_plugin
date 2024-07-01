@@ -5,15 +5,21 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.roots.ModuleRootManager;
 import com.intellij.openapi.vfs.VirtualFile;
 import m.client.ide.morpheus.launch.common.LaunchUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
 import java.io.File;
 
 public class ProjectUtil {
+
+	public static void reloadProject(Project project) {
+		SwingUtilities.invokeLater(() -> ProjectManager.getInstance().reloadProject(project));
+	}
 
 	// A plugin contains an example app, which needs to be opened when the native Android is to be edited.
 	// 'Open in Android Studio' is requested.

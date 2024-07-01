@@ -98,7 +98,7 @@ public class IOSRunConfigField {
 
         Hashtable<String, LaunchUtil.CertificateInfo> iosCertificateInfos = null;
         try {
-            iosCertificateInfos = LaunchUtil.getIosCertificateInfos();
+            iosCertificateInfos = LaunchUtil.getIosCertificateInfos(false);
             for (String certificateName : iosCertificateInfos.keySet()) {
                 LaunchUtil.CertificateInfo certificateInfo = iosCertificateInfos.get(certificateName);
                 String developmentTeam = certificateInfo.getDevelopmentTeam();
@@ -121,8 +121,8 @@ public class IOSRunConfigField {
         return "";
     }
 
-    private LaunchUtil.SimulatorInfo getDefaultSimulatorInfo() {
-        ArrayList<LaunchUtil.SimulatorInfo> list = LaunchUtil.getIOSSimulators();
+    private LaunchUtil.@Nullable SimulatorInfo getDefaultSimulatorInfo() {
+        ArrayList<LaunchUtil.SimulatorInfo> list = LaunchUtil.getIOSSimulators(false);
         if (list != null && list.size() > 0) {
             return list.get(0);
         }

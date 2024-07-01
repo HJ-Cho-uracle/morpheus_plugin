@@ -1,115 +1,152 @@
 package m.client.ide.morpheus.ui.action;
 
-import com.intellij.ide.GeneralSettings;
+import com.esotericsoftware.minlog.Log;
 import com.intellij.ide.IdeBundle;
 import com.intellij.ide.actions.OpenFileAction;
 import com.intellij.ide.actions.OpenProjectFileChooserDescriptor;
 import com.intellij.ide.highlighter.ProjectFileType;
 import com.intellij.ide.impl.OpenProjectTask;
 import com.intellij.ide.impl.ProjectUtil;
-import com.intellij.ide.lightEdit.LightEditUtil;
+import com.intellij.ide.projectView.ProjectView;
+import com.intellij.ide.projectView.impl.ProjectViewImpl;
+import com.intellij.ide.projectView.impl.ProjectViewPane;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.ShortcutSet;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
 import com.intellij.openapi.fileChooser.PathChooserDialog;
 import com.intellij.openapi.fileChooser.impl.FileChooserUtil;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.fileTypes.ex.FileTypeChooser;
+import com.intellij.openapi.project.DumbService;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.VfsUtil;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.platform.PlatformProjectOpenProcessor;
 import com.intellij.projectImport.ProjectOpenProcessor;
-import com.intellij.util.concurrency.annotations.RequiresEdt;
+import com.intellij.ui.content.ContentManagerEvent;
+import com.intellij.ui.content.ContentManagerListener;
 import m.client.ide.morpheus.MessageBundle;
+import m.client.ide.morpheus.core.MorpheusInitializer;
+import m.client.ide.morpheus.core.npm.NpmUtils;
+import m.client.ide.morpheus.core.utils.CommonUtil;
 import m.client.ide.morpheus.core.utils.EclipseProjectNatureUtil;
+import m.client.ide.morpheus.core.utils.ExecCommandUtil;
+import m.client.ide.morpheus.core.utils.OSUtil;
+import m.client.ide.morpheus.framework.eclipse.MorpheusProjectConvertTask;
+import m.client.ide.morpheus.framework.eclipse.library.Library;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.LinkOption;
 import java.nio.file.Path;
-import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class MorpheusOpenProjectAction extends OpenFileAction {
+    @Override
+    protected void setShortcutSet(@NotNull ShortcutSet shortcutSet) {
+    }
+
     /**
      * @param e
      */
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        Project project = e.getProject();
-        FileChooserDescriptor descriptor = new ProjectOnlyFileChooserDescriptor();
-        VirtualFile toSelect = null;
-        if (StringUtil.isNotEmpty(GeneralSettings.getInstance().getDefaultProjectDirectory())) {
-            toSelect = VfsUtil.findFileByIoFile(new File(GeneralSettings.getInstance().getDefaultProjectDirectory()), true);
+        if (OSUtil.isMac() && !MorpheusInitializer.checkToolsData()) {
+            return;
         }
 
+        Project project = e.getProject();
+        FileChooserDescriptor descriptor = new ProjectOnlyFileChooserDescriptor();
+        VirtualFile toSelect = FileChooserUtil.getLastOpenedFile(project);
+
         descriptor.putUserData(PathChooserDialog.PREFER_LAST_OVER_EXPLICIT, false);
-        FileChooser.chooseFiles(descriptor, project, toSelect != null ? toSelect : this.getPathToSelect(), (files) -> {
-            Iterator iterator = files.iterator();
-
-            VirtualFile file = null;
-            while(iterator.hasNext()) {
-                file = (VirtualFile)iterator.next();
-                if (!descriptor.isFileSelectable(file)) {
-                    String message = MessageBundle.message("error.dir.not,morpheus.project", new Object[]{file.getPresentableUrl()});
-                    Messages.showInfoMessage(project, message, IdeBundle.message("title.cannot.open.project", new Object[0]));
-                    return;
-                }
+        FileChooser.chooseFile(descriptor, project, toSelect != null ? toSelect : this.getPathToSelect(), (file) -> {
+            if (!descriptor.isFileSelectable(file)) {
+                String message = MessageBundle.message("error.dir.not,morpheus.project", new Object[]{file.getPresentableUrl()});
+                Messages.showInfoMessage(project, message, IdeBundle.message("title.cannot.open.project", new Object[0]));
+                return;
             }
 
-            iterator = files.iterator();
+            @Nullable CompletableFuture<Project> futureProject = null;
+            CommonUtil.log(Log.LEVEL_DEBUG, "Do Open File : " + file);
+            futureProject = openExistingDir(file.toNioPath(), project);
 
-            while(iterator.hasNext()) {
-                file = (VirtualFile)iterator.next();
-                doOpenFile(project, file);
-            }
+            List<Library> libraryList = doConvertProject(file);
 
-            if(file != null && file.isDirectory()) {
-                doConvertProject(file);
+            if (futureProject != null) {
+                VirtualFile finalFile = file;
+                futureProject.thenAccept(openedProject -> {
+                    CommonUtil.log(Log.LEVEL_DEBUG, "MorpheusOpenProjectAction CompletableFuture openedProject => " + openedProject);
+                    FileChooserUtil.setLastOpenedFile(openedProject, Path.of(finalFile.getParent().getPath()));
+                    if (openedProject == null) {
+                        return;
+                    }
+
+                    SwingUtilities.invokeLater(() -> NpmUtils.applyDependencies(openedProject, libraryList));
+                    MorpheusOpenProjectAction.this.addViewContentManagerListener(openedProject);
+                });
             }
         });
     }
 
-    protected void doConvertProject(VirtualFile projectDir) {
+    public static @NotNull CompletableFuture<Project> openExistingDir(@NotNull Path file, @Nullable Project currentProject) {
+
+        CompletableFuture projectFuture = ProjectUtil.openOrImportAsync(file, OpenProjectTask.build().withProjectToClose(currentProject));
+
+        return projectFuture.thenApply((Object project) -> {
+            if (!ApplicationManager.getApplication().isUnitTestMode() && project instanceof Project) {
+                FileChooserUtil.setLastOpenedFile((Project) project, file);
+            }
+
+            return project;
+        });
     }
 
-    @RequiresEdt
-    private static void doOpenFile(@Nullable Project project, @NotNull VirtualFile file) {
-        Path filePath = file.toNioPath();
-        if (Files.isDirectory(filePath, new LinkOption[0])) {
-            openExistingDir(filePath, project);
-        } else {
-            if ((project == null || !file.equals(project.getProjectFile())) && OpenProjectFileChooserDescriptor.isProjectFile(file)) {
-                int answer = shouldOpenNewProject(project, file);
-                if (answer == 2) {
-                    return;
-                }
+    private void addViewContentManagerListener(Project project) {
+        ApplicationManager.getApplication().invokeLater(() -> {
+            CommonUtil.log(Log.LEVEL_DEBUG, "MorpheusOpenProjectAction.addViewContentManagerListener() => application => invokeLater");
+            DumbService.getInstance(project).runWhenSmart(() -> {
+                addListener(project);
+            });
+        });
+    }
 
-                if (answer == 0) {
-                    Project openedProject = ProjectUtil.openOrImport(filePath, OpenProjectTask.build().withProjectToClose(project));
-                    if (openedProject != null) {
-                        FileChooserUtil.setLastOpenedFile(openedProject, filePath);
+    private void addListener(Project project) {
+        CommonUtil.log(Log.LEVEL_DEBUG, "MorpheusOpenProjectAction.addVListener() => " + project);
+        ProjectView view = ProjectView.getInstance(project);
+        if (view instanceof ProjectViewImpl) {
+            ProjectViewImpl viewImpl = (ProjectViewImpl) view;
+            viewImpl.changeView(ProjectViewPane.ID);
+            viewImpl.getContentManager().addContentManagerListener(new ContentManagerListener() {
+                public void selectionChanged(@NotNull ContentManagerEvent event) {
+                    CommonUtil.log(Log.LEVEL_DEBUG, "ContentManagerListener selection change event => " + event);
+                    if (event.getOperation() == ContentManagerEvent.ContentOperation.add) {
+                        ApplicationManager.getApplication().invokeLater(() -> {
+                            DumbService.getInstance(project).runWhenSmart(() -> {
+                                CommonUtil.log(Log.LEVEL_DEBUG, "ContentManagerListener content change view : " + viewImpl.getCurrentViewId() +
+                                        " => " + ProjectViewPane.ID);
+                                viewImpl.getContentManager().removeContentManagerListener(this);
+                                viewImpl.changeView(ProjectViewPane.ID);
+                            });
+                        });
                     }
-
-                    return;
                 }
-            }
-
-            LightEditUtil.markUnknownFileTypeAsPlainTextIfNeeded(project, file);
-            FileType type = FileTypeChooser.getKnownFileTypeOrAssociate(file, project);
-            if (type != null) {
-                if (project != null && !project.isDefault()) {
-                    openFile(file, project);
-                } else {
-                    PlatformProjectOpenProcessor.createTempProjectAndOpenFile(filePath, OpenProjectTask.build().withProjectToClose(project));
-                }
-
-            }
+            });
         }
+    }
+
+    protected List<Library> doConvertProject(@NotNull VirtualFile projectDir) {
+        if (!projectDir.exists()) {
+            CommonUtil.log(Log.LEVEL_ERROR, "Project not found : " + projectDir.getPath());
+            return null;
+        }
+
+        MorpheusProjectConvertTask convertTask = new MorpheusProjectConvertTask(projectDir);
+        List<Library> libraryList = convertTask.getLibraryDependencies();
+        ExecCommandUtil.runProcessWithProgressSynchronously(convertTask, convertTask.getTitle(), false, null);
+
+        return libraryList;
     }
 
     @Messages.YesNoCancelResult

@@ -99,7 +99,14 @@ public class ProjectConfigSettingView implements IPageCompleter {
     }
 
     public String getSelectedLicense() {
-        return appNameComponent.getAndroidPackageName();
+        LicenseParam licenseParam = getSelectedLicenseParam();
+        if(licenseParam != null) {
+            String licenseId = licenseParam.getAppId();
+            if(!LicenseManagerView.LICENSE_EDUCATION.equals(licenseId)) {
+                return licenseId;
+            }
+        }
+        return getAndroidPackageName();
     }
 
     public List<Boolean> getSelectionCpuList() {
@@ -113,7 +120,8 @@ public class ProjectConfigSettingView implements IPageCompleter {
         }
 
         appNameComponent.selectedLicense(licenseParam);
-        licenseManagerView.setTextFieldAppID(appNameComponent.getAndroidPackageName());
+        String appId = licenseParam.getAppId();
+        licenseManagerView.setTextFieldAppID(appId.startsWith(LicenseManagerView.EDUCATION_PREFIX) ? LicenseManagerView.LICENSE_EDUCATION : appId);
     }
 
     private boolean isExpirationDate(@NotNull LicenseParam licenseParam) {

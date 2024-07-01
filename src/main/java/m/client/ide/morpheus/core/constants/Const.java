@@ -68,8 +68,6 @@ public class Const {
 
 	public static final String USER_HOME = System.getProperty("user.home");
 	
-	public static final String APPLICATION_FILE_NAME = "application.xml";
-
 	public static final String FD_UPDATE_3_0 = "/3.0/";
 	public static final String FD_UPDATE_3_0_DEV = "/3.0_dev/";
 			

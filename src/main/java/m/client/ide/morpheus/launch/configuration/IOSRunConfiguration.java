@@ -200,13 +200,13 @@ public class IOSRunConfiguration extends LocatableConfigurationBase<LaunchState>
     public boolean isValidate(Project project) {
         IOSLaunchTargetType iosLaunchType = runConfigField.getIosLaunchType();
 
-        if(!MorpheusInitializer.checkToolsData(project)) {
+        if(!MorpheusInitializer.checkToolsData()) {
             return false;
         }
 
         if (IOSSimUtil.findXCWorkspace(getIosProjectPath()).isEmpty()) {
             CommonUtil.openWarningDialog("Warning", FrameworkMessages.get(FrameworkMessages.XCWorkspaceNotExist));
-            PodInstallAction.podInstall(project);
+            PodInstallAction.podInstall(project, null);
             return false;
         }
 

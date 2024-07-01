@@ -2,7 +2,7 @@ package m.client.ide.morpheus.launch.configeditor;
 
 import com.intellij.ui.table.JBTable;
 import m.client.ide.morpheus.core.utils.CommonUtil;
-import org.gradle.internal.impldep.com.esotericsoftware.minlog.Log;
+import com.esotericsoftware.minlog.Log;
 
 public class IOSDeviceTable extends JBTable {
     public IOSDeviceTable(DeviceTableModel deviceTableModel) {

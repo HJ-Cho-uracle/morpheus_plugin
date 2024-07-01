@@ -86,6 +86,8 @@ object CoreMessages : DynamicBundle(BUNDLE) {
 
     const val ZipUtils                          = "ZipUtils"
 
+    const val XCodeConnectionError              = "XCodeConnectionError"
+
     @JvmStatic
     fun get(@PropertyKey(resourceBundle = BUNDLE) key: String, vararg params: Any) =
         getMessage(key, *params)

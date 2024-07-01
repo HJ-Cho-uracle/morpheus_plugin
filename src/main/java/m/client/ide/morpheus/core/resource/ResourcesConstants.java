@@ -1,13 +1,7 @@
 package m.client.ide.morpheus.core.resource;
 
-import com.esotericsoftware.minlog.Log;
-import com.intellij.openapi.progress.ProcessCanceledException;
-import m.client.ide.morpheus.Constants;
+import m.client.ide.morpheus.core.config.CoreSettingsState;
 import m.client.ide.morpheus.core.utils.CommonUtil;
-import m.client.ide.morpheus.core.utils.FileUtil;
-import m.client.ide.morpheus.core.utils.PreferenceUtil;
-
-import java.net.UnknownHostException;
 
 
 public class ResourcesConstants {
@@ -69,7 +63,8 @@ public class ResourcesConstants {
 	public static final String EMULATOR_LIST_CONFIG_FILE_NAME = "emulators.xml";
 
 	public static final String LIBRARY_LIST_CONFIG_FILE_NAME = "libraries.xml";
-	
+	public static final String LIBRARY_UNAPPLY_FILE_NAME = "unapplyInfo.xml";
+
 	public static final String LIBRARY_3RD_LIST_CONFIG_FILE_NAME = "libraries_3rd.xml";
 
 	public static final String TEMPLATE_LIST_CONFIG_FILE_NAME = "templates.xml";
@@ -84,13 +79,10 @@ public class ResourcesConstants {
 	
 	public static final String SNIPPET_LIST_CONFIG_FILE_NAME = "snippets.xml";
 	
-	public static final String M_API_FOLDER_NAME = "M-API";
-
-	public static final String COMMON_LOCATION = FileUtil.getBundleFile(Constants.MORPHEUS_PLUGIN_ID, COMMON).getAbsolutePath();
-
 	public static final String EXAMPLE_CONFIG_FILE_NAME = "example.xml";
 	
 	public static final String EXAMPLE_LIST_CONFIG_FILE_NAME = "examples.xml";
 	public static final String DEFAULT = "default";
 
+    public static final String LIBRARY_LOCATION = CommonUtil.getPathString(CoreSettingsState.getInstance().getMSdkPath(), LIBRARY);
 }

@@ -21,11 +21,14 @@ public class InfoView {
     }
 
     public void setLibraryParam(LibraryParam libraryParam, boolean force) {
-        if(force == false && this.libraryParam == libraryParam) { return; }
+        if (force == false && this.libraryParam == libraryParam) {
+            return;
+        }
 
         this.libraryParam = libraryParam;
         textFieldName.setText(libraryParam == null ? "" : libraryParam.getName());
         textFieldRevision.setText(libraryParam == null ? "" : libraryParam.getNpm().getVersion());
+        textFieldStatus.setText(libraryParam == null ? "" : libraryParam.getStatus());
         textAreaDescription.setText(libraryParam == null ? "" : libraryParam.getPath());
     }
 }

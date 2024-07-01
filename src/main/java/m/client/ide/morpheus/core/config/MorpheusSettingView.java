@@ -1,15 +1,21 @@
 package m.client.ide.morpheus.core.config;
 
+import com.esotericsoftware.minlog.Log;
 import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.openapi.fileChooser.FileChooser;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
-import com.intellij.openapi.project.ProjectManager;
+import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
-import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import m.client.ide.morpheus.core.constants.SettingConstants;
+import m.client.ide.morpheus.core.utils.CommonUtil;
+import m.client.ide.morpheus.core.utils.ExecCommandUtil;
 import m.client.ide.morpheus.core.utils.OSUtil;
 import m.client.ide.morpheus.core.utils.PreferenceUtil;
+import m.client.ide.morpheus.framework.eclipse.library.UnapplyLibraryManager;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -37,6 +43,9 @@ public class MorpheusSettingView {
     private JTextField textFieldCliVersion;
     private JCheckBox showCLIDebugCheckBox;
     private JCheckBox checkBoxToolUpdate;
+    private JButton makeUnapplyInfoButton;
+    private TextFieldWithBrowseButton unapplyLocation;
+    private JButton testButton;
 
     private StringBuffer secretBuffer = new StringBuffer();
     private KeyListener secretKeyListener = new KeyAdapter() {
@@ -65,6 +74,38 @@ public class MorpheusSettingView {
         super();
 
         createListeners();
+        makeUnapplyInfoButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Task.Modal task = new Task.Modal(null, UnapplyLibraryManager.class.getSimpleName(), false) {
+                    @Override
+                    public void run(@NotNull ProgressIndicator progressIndicator) {
+                        UnapplyLibraryManager unapplyManager = new UnapplyLibraryManager(progressIndicator);
+                        CommonUtil.log(Log.LEVEL_DEBUG, unapplyManager.toString());
+                        unapplyManager.writeUnapplyLibraryInfo(unapplyLocation.getText());
+                    }
+                };
+                ExecCommandUtil.runProcessWithProgressSynchronously(task, task.getTitle(), false, null);
+            }
+        });
+        testButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UnapplyLibraryManager manager = UnapplyLibraryManager.getInstance();
+                System.out.println(manager.toString());
+                System.out.println(manager.getUnapplyInfo("core", "m.client.library.core.2.1.8.42"));
+            }
+        });
     }
 
     private void createListeners() {
@@ -208,31 +249,28 @@ public class MorpheusSettingView {
     }
 
     private void createUIComponents() {
-        textFieldNpm = new TextFieldWithBrowseButton(newBrowsActionListener(textFieldNpm));
-        textFieldPod = new TextFieldWithBrowseButton(newBrowsActionListener(textFieldPod));
-        if(!OSUtil.isMac()) {
+        textFieldNpm = new TextFieldWithBrowseButton();
+        registerBrowseDialog(textFieldNpm, "Select Npm Path");
+        textFieldPod = new TextFieldWithBrowseButton();
+        registerBrowseDialog(textFieldPod, "Select CocoaPods Path");
+        if (!OSUtil.isMac()) {
             textFieldPod.setEnabled(false);
         }
+        unapplyLocation = new TextFieldWithBrowseButton();
+        unapplyLocation.addBrowseFolderListener("Select result folder", null, null,
+                new FileChooserDescriptor(false, true, false, false, false, false) {
+                    public boolean isFileSelectable(@Nullable VirtualFile file) {
+                        return super.isFileSelectable(file) && file != null && file.isDirectory();
+                    }
+                });
+
+        File tempFolder = new File(CommonUtil.getAppDataLocation(), "temp");
+        unapplyLocation.setText(tempFolder.getAbsolutePath());
     }
 
-    private ActionListener newBrowsActionListener(TextFieldWithBrowseButton textField) {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                FileChooserDescriptor directoryDescriptor = new FileChooserDescriptor(true, true, false, false, false, false) {
-                    public boolean isFileSelectable(@Nullable VirtualFile file) {
-                        return super.isFileSelectable(file) && file != null && !file.isDirectory();
-                    }
-                };
-
-                @Nullable VirtualFile file = LocalFileSystem.getInstance().findFileByIoFile(new File(textField.getText()));
-                @Nullable VirtualFile selectedFile = FileChooser.chooseFile(directoryDescriptor, ProjectManager.getInstance().getDefaultProject(), file);
-                if(selectedFile != null) {
-
-                    textField.setText(selectedFile.getPath());
-                }
-            }
-        };
+    private void registerBrowseDialog(@NotNull TextFieldWithBrowseButton component, @NotNull String dialogTitle) {
+        component.addBrowseFolderListener(dialogTitle, null, null,
+                FileChooserDescriptorFactory.createSingleFileNoJarsDescriptor());
     }
 
     public boolean isToolUpdateForce() {

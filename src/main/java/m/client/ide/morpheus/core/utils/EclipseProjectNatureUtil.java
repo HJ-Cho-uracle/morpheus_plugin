@@ -16,6 +16,7 @@ public class EclipseProjectNatureUtil {
 	public static final String nature_android_project = "org.eclipse.andmore.AndroidNature";
 	public static final String nature_jdt_java_project = "org.eclipse.jdt.core.javanature";
 	public static final String nature_gradle_project = "org.eclipse.buildship.core.gradleprojectnature";
+    public static final String nature_morpheus_spa = "kr.co.morpheus.ide.frameworks.natures.SinglePageApplicationProjectNature";
 
     public static final @NotNull List<String> getNatures(File file) {
         List<String> natureList = new ArrayList<>();
@@ -64,4 +65,19 @@ public class EclipseProjectNatureUtil {
                 natureList.contains(nature_gradle_project) &&
                 natureList.contains(nature_jdt_java_project));
     }
+
+    public static boolean isSPAProject(File projectFolder) {
+        if(projectFolder == null || !projectFolder.isDirectory()) {
+            return false;
+        }
+
+        File projectSettingFile = new File(projectFolder, FILENAME_DOT_PROJECT);
+        if(!projectSettingFile.exists()) {
+            return false;
+        }
+
+        @NotNull List<String> natureList = getNatures(projectSettingFile);
+        return natureList.contains(nature_morpheus_spa);
+    }
+
 }

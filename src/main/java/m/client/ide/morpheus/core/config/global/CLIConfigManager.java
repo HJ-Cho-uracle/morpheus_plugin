@@ -39,18 +39,21 @@ public class CLIConfigManager extends AbstractJasonFileManager {
         Object jsonObject = sp.parse(jsonString);
         JSONObject json = (JSONObject) jsonObject;
 
-        info.setNexusBaseUrl((String)json.get(CLIInfo.key_nexusBaseUrl));
-        info.setGiteaBaseUrl((String)json.get(CLIInfo.key_giteaBaseUrl));
-        info.setGiteaTemplateOrg((String)json.get(CLIInfo.key_giteaTemplateOrg));
-        info.setNpmClient((String)json.get(CLIInfo.key_npmClient));
+        info.setNexusBaseUrl((String) json.get(CLIInfo.key_nexusBaseUrl));
+        info.setGiteaBaseUrl((String) json.get(CLIInfo.key_giteaBaseUrl));
+        info.setGiteaTemplateOrg((String) json.get(CLIInfo.key_giteaTemplateOrg));
+        info.setNpmClient((String) json.get(CLIInfo.key_npmClient));
     }
 
     public void clear() {
         info.clear();
     }
 
-    @SuppressWarnings("unchecked")
-    public String getJSONString() {
+    /**
+     * @return
+     */
+    @Override
+    protected String makeJsonString() {
         StringBuffer sb = new StringBuffer();
 
         JSONObject object = new JSONObject();

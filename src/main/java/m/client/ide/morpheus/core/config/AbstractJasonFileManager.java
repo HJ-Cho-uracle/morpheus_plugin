@@ -2,7 +2,7 @@ package m.client.ide.morpheus.core.config;
 
 import com.esotericsoftware.minlog.Log;
 import m.client.ide.morpheus.core.utils.CommonUtil;
-import m.client.ide.morpheus.core.utils.FileUtil;
+import m.client.ide.morpheus.core.utils.StringUtil;
 import net.minidev.json.parser.ParseException;
 import org.gradle.internal.impldep.org.eclipse.jgit.util.FileUtils;
 import org.jetbrains.annotations.NotNull;
@@ -36,7 +36,7 @@ public abstract class AbstractJasonFileManager {
     }
 
     public void readJsonString() throws IOException, ParseException {
-        if(filePath == null || filePath.isEmpty()) {
+        if (filePath == null || filePath.isEmpty()) {
             return;
         }
 
@@ -44,7 +44,7 @@ public abstract class AbstractJasonFileManager {
     }
 
     public void readJsonString(File file) throws IOException, ParseException {
-        if(!file.exists()) {
+        if (!file.exists()) {
             return;
         }
 
@@ -54,12 +54,12 @@ public abstract class AbstractJasonFileManager {
             in = new FileInputStream(file);
             byte[] buff = new byte[1024];
 
-            for(int count = 0; (count = in.read(buff)) != -1; ) {
+            for (int count = 0; (count = in.read(buff)) != -1; ) {
                 jsonString += new String(buff, 0, count);
             }
             loadJsonString(jsonString);
         } finally {
-            if(in != null) in.close();
+            if (in != null) in.close();
         }
     }
 
@@ -75,7 +75,7 @@ public abstract class AbstractJasonFileManager {
         String jsonString = getJSONString();
 
         File file = new File(outFile);
-        if(!file.getParentFile().exists()) {
+        if (!file.getParentFile().exists()) {
             FileUtils.mkdirs(file.getParentFile());
         }
 
@@ -84,6 +84,13 @@ public abstract class AbstractJasonFileManager {
         writer.close();
     }
 
-    public abstract String getJSONString();
+    public String getJSONString() {
+        String jsonString = makeJsonString();
+
+        return StringUtil.getPrettyContents(jsonString);
+    }
+
+    protected abstract String makeJsonString();
+
     public abstract void loadJsonString(String jsonString) throws ParseException, net.minidev.json.parser.ParseException;
 }

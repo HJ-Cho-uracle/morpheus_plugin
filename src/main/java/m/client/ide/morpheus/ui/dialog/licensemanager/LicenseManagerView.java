@@ -28,7 +28,8 @@ import java.util.List;
 import java.util.Map;
 
 public class LicenseManagerView {
-    public static final String LICENSE_EDUCATION = "mcore.edu";
+    public static final String LICENSE_EDUCATION = "mcore.edu.*";
+    public static final String EDUCATION_PREFIX = "mcore.edu";
     private JTable tableLicense;
     private JCheckBox checkBoxArm64;
     private JCheckBox checkBoxV7a;
@@ -217,7 +218,7 @@ public class LicenseManagerView {
                 appId = appId.replace("*", "");
                 this.prefix_androidId = appId;
                 textFieldAppID.setEnabled(true);
-            } else if(appId.startsWith(LicenseManagerView.LICENSE_EDUCATION)) {
+            } else if(appId.startsWith(LicenseManagerView.EDUCATION_PREFIX)) {
                 textFieldAppID.setEnabled(true);
             } else {
                 this.prefix_androidId = null;
